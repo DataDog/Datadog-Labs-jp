@@ -79,3 +79,5 @@ resource "datadog_monitor" "cpumonitor" {
 ![result](https://a.cl.ly/7Ku6Plk9)
 
 9. Valid Monitor on Datadog Application. 
+
+10. If you have time, refer to the link and try to create other monitor types.
