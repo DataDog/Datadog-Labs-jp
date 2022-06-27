@@ -4,7 +4,18 @@
 ### AWS
 ---
 
-#### 1. Create your key pair
+#### 1. Create Named profile for AWS CLI
+
+run aws cli command on your terminal.
+
+```
+nobuyuki.kawazu@COMP-C02G43ELML87 ~ % aws configure --profile terraform
+AWS Access Key ID [None]: your access key
+AWS Secret Access Key [None]: your secret key
+Default region name [None]: ap-southeast-1
+Default output format [None]: json
+```
+#### 2. Create your key pair
 
 run aws cli command on your terminal.
 
