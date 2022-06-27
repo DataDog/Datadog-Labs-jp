@@ -1,19 +1,28 @@
 # Synthetics Monitoring
 
-このLabではTerraformを使ってSynthetics Testを作成します。
+In this Lab, you will create a Synthetics test using Terraform.
 
-## APIテストの作成
+## Open .tf file
 
-1. 以下の表にしたがって、`synthetics.tf`ファイルを修正してください。
+Change directory to Synthetics folder and open `synthetics.tf` in VS Code.
 
-|  項目  |  value  | 説明 |
+```
+$ cd /Datadog-Labs-jp/terraform-101/en/Synthetics
+$ code synthetics.tf
+```
+
+## Create API test
+
+1. Modify the `synthetics.tf` file according to the following table.
+
+|  key  |  value  | explanation |
 | ---- | ---- | --- |
-|  type  |  api  |  (String) Synthetics test type. Valid values are api, browser. |
-|  subtype  |  http  | (String) The subtype of the Synthetic API test. Defaults to http. Valid values are http, ssl, tcp, dns, multi, icmp, udp, websocket. |
-|  method  |  GET  | (String) The HTTP method. Valid values are GET, POST, PATCH, PUT, DELETE, HEAD, OPTIONS |
+|  type  |  api  |  (String) Synthetics test type. Valid values are `api`, `browser`. |
+|  subtype  |  http  | (String) The subtype of the Synthetic API test. Defaults to http. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`. |
+|  method  |  GET  | (String) The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS` |
 |  url  |  http://api.shopist.io  |  (String) The URL to send the request to. |
-|  locations  |  aws:ap-southeast-2  |  (Set of String) Array of locations used to run the test. Refer to Datadog documentation for available locations (e.g. aws:eu-central-1). |
-| status | live | (String) Define whether you want to start (live) or pause (paused) a Synthetic test. Valid values are live, paused. |
+|  locations  |  aws:ap-southeast-2  |  (Set of String) Array of locations used to run the test. Refer to Datadog documentation for available locations (e.g. `aws:eu-central-1`). |
+| status | live | (String) Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are live, paused. |
 
 
 ```
@@ -51,25 +60,25 @@ resource "datadog_synthetics_test" "api-test" {
 
 Define assertions of what an expected test results are.
 
-以下の表に従ってブロックを追記します。
+Add blocks according to the following table.
 
-|  項目  |  value  | 説明 |
+|  key  |  value  | explanation |
 | ---- | ---- | --- |
-|  type  |  statusCode  | (String) Type of assertion. Note Only some combinations of type and operator are valid (please refer to Datadog documentation). Valid values are body, header, statusCode, certificate, responseTime, property, recordEvery, recordSome, tlsVersion, minTlsVersion, latency, packetLossPercentage, packetsReceived, networkHop, receivedMessage.|
+|  type  |  statusCode  | (String) Type of assertion. Note Only some combinations of type and operator are valid (please refer to Datadog documentation). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`.|
 |  operator  |  is  | (String) Assertion operator. Note Only some combinations of type and operator are valid (please refer to Datadog documentation).|
 |  target  |  200  | (String) Expected value. Depends on the assertion type, refer to Datadog documentation for details. |
 
 ```
     assertion {
-        type        = "statusCode"
-        operator    = "is"
-        target     = "200"
+        type        = ""
+        operator    = ""
+        target      = ""
     }
 ```
 
-3. Specify test frequency
+1. Specify test frequency
 
-以下の表にしたがってブロックを追記します。
+Add blocks according to the following table.
 
 |  項目  |  value  | 説明 |
 | ---- | ---- | --- |
@@ -78,8 +87,8 @@ Define assertions of what an expected test results are.
 
 ```
     options_list {
-        tick_every      = 900
-        min_location_failed =  1
+        tick_every      = 
+        min_location_failed =  
      }
 ```
 
@@ -103,19 +112,19 @@ $ terraform apply
 
 ## Modify test
 
-1. ファイルを修正し、以下のように変更します
+1. Modify the file and change it as follows
 
-- テスト間隔を900秒（15分）から60秒に変更
-- テストロケーションに`ap-northeast-1`を追加
+- Changed test interval from 900 seconds (15 minutes) to 60 seconds
+- Added `ap-northeast-1` to location
 
 
-2.  変更箇所を確認
+2.  check for changes
 
 ```
 $ terraform plan
 ```
 
-3. 変更内容が問題ないことが確認できたので、実行
+3. If the changes are OK, apply the configuration.
 
 ```
 $ terraform apply
@@ -123,7 +132,34 @@ $ terraform apply
 
 4. Navigate to the [Synthetics page](https://app.datadoghq.com/synthetics/tests) to verify your test is modified.
 
+## Enable Monitor ID to output
 
+The `id` output when executed is the ID of this resource, not the Monitor ID of the Datadog; edit the file to obtain the Monitor ID.
+
+1. Add the following code to the `synthetics.tf` file 
+
+```
+output "datadog_synthetics_test_id" {
+  value = datadog_synthetics_test.api-test.monitor_id
+}
+```
+
+2. Apply your configuration. Remember to confirm your apply with a `yes`.
+
+```
+$ terraform apply
+```
+
+3. Confirm that the monitor id is output
+
+(Sample)
+```
+Outputs:
+
+datadog_synthetics_test_id = 74938804
+```
+
+Please make a note of this as it will be used in the next Lab.
 
 ## Reference
 [Resource (datadog_synthetics_test)](
