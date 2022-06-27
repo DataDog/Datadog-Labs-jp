@@ -18,6 +18,7 @@ Default output format [None]: json
 #### 2. Create your key pair
 
 run aws cli command on your terminal.
+note: Please make sure using ```--profile terraform```
 
 ```aws ec2 create-key-pair --key-name your-key-name --query 'KeyMaterial' --output text > your0-key-name.pem```
 
