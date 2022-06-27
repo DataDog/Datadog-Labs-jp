@@ -1,21 +1,13 @@
-# Create Monitor
+# Lab-2 Create Monitor
 
 ## 
 
 ## Steps
 
-1. Make directory  `./Datadog/Monitor`
+1. Change current directory ```% cd /Datadog/Monitor```
 
-ディレクトリは自由に定義できますが、本ハンズオンでは以下のようにします。
-```
-TERRAFORM
-|--Datadog
-   |--Monitor
-```
+2. Make main.tf as ```% code main.tf``` 
 
-2. Make `main.tf` under `./Datadog` 
-
-環境変数でAPIKEY/APPKEYが設定されていれば不要です。
 
 ``` 
 terraform {
@@ -26,12 +18,12 @@ terraform {
   }
 }
 provider "datadog" {
-  api_key = own_APIKEY
-  app_key = own_APPKEY
+  api_key = "${var.datadog_api_key}"
+  app_key = "${var.datadog_app_key}"
 }
 ```
 
-3.Make `metrics_monitor.tf` under `./Datadog/Monitor`
+3. Make metrics_monitor.tf as `% code metrics_monitor.tf`
 
 4. Create new Monitor(details below) refer to the [Datadog_monitor(Resource)](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/monitor)
 
@@ -87,21 +79,70 @@ resource "datadog_monitor" "cpumonitor" {
 
 
 
-5. Open the terminal from Terminal >> new Terminal (Not necessary if already open)
+5. Open the terminal from on the menu bar (Terminal >> new Terminal) Not necessary if already open.
 
-6. Change current directory `% cd Datadog/Monitor`
 
-7. Run command `% terraform init` to initialize
+6. Run command `% terraform init` to initialize
 
-8. Take a look `Terraform has been successfully initialized!` is appeared.
+```
+nobuyuki.kawazu@COMP-C02G43ELML87 Monitor % terraform init                                
 
-9. If you have an error, need to edit tf file then exec `% terraform plan` until without error.
+Initializing the backend...
 
-10. Run command `% terraform apply` to create Monitor.
+Initializing provider plugins...
+- Reusing previous version of datadog/datadog from the dependency lock file
+- Using previously-installed datadog/datadog v3.12.0
+
+Terraform has been successfully initialized!
+```
+
+7. Take a look `Terraform has been successfully initialized!` is appeared.
+
+
+8. Run command `% terraform apply -var-file ./../terraform.tfvars` to create Monitor.
 
 11. Enter a value `yes`
+
+	you can see and check the execution plan.
 ```
-Do you want to perform these actions?
+  nobuyuki.kawazu@COMP-C02G43ELML87 Monitor % terraform apply -var-file ./../terraform.tfvars
+datadog_monitor.cpumonitor: Refreshing state... [id=74529286]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+  # datadog_monitor.cpumonitor2 will be created
+  + resource "datadog_monitor" "cpumonitor2" {
+      + evaluation_delay    = (known after apply)
+      + id                  = (known after apply)
+      + include_tags        = true
+      + message             = <<-EOT
+            @nobuyuki.kawazu@datadoghq.com
+            CPU usage is high host:{{host.name}}
+        EOT
+      + name                = "cpu monitor - terraform"
+      + new_host_delay      = 300
+      + notify_audit        = false
+      + notify_no_data      = false
+      + query               = "max(last_5m):avg:system.cpu.system{host:i-03af36e2fb6fc90c5} > 90"
+      + require_full_window = true
+      + tags                = [
+          + "sub_team:apac_salesEngineer",
+          + "team:cake",
+          + "terraform:true",
+        ]
+      + type                = "query alert"
+
+      + monitor_thresholds {
+          + critical          = "90"
+          + critical_recovery = "80"
+          + warning           = "70"
+          + warning_recovery  = "50"
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+  Do you want to perform these actions?
   Terraform will perform the actions described above.
   Only 'yes' will be accepted to approve.
 
@@ -121,25 +162,7 @@ Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
 
 13. Open Datadog Application and check your monitor.
 
-14. Try to create others.
+14. If you have much time, try to create other monitors.
 
-ここはあとから記載予定
-> ### Monitor configuration：
-> - Choose the detection method: Threshold Alert
-> - Define the Metric: 
-> 	- system.cpu.system from yourhost
-> - Set Alert conditions
-> 	- Alert threshold > 90% (recovery 80%)
-> 	- Warning threshold > 70% (recovery 50%)
-> 	- Do not Notify if data is missing
-> - Notify your team
-> 	- title CPU Monitor
-> 	- messaget: mention to yourself, CPU usage is high {{your_host_id}}
-> 	- If this monitor stay Alert and Nodata renotify every 30 minutes
-> 	- tag:
-> 		- terraform:true
-> 		- team:cake
-> 		- sub_team:APAC_sales_engineer
-> - Define permission and auditnotifications	
-> 	- priority:Not Defined
- 
+---
+### End of Lab-2
