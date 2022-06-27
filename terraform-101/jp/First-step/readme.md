@@ -1,7 +1,16 @@
 # ## 初期設定
 
-AWS
+---
+### AWS
+---
 
+#### 1. Create your key pair
+
+run aws cli command on your terminal.
+
+```aws ec2 create-key-pair --key-name your-key-name --query 'KeyMaterial' --output text > your0-key-name.pem```
+
+*Please note your key name!!*
 
 ---
 ### Terraform
