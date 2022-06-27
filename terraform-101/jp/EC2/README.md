@@ -2,11 +2,12 @@
 
 > Pre-requirement
 
-> complete all configurations refer to XXXXXXXXX(初期設定のページリンク)
+> complete all configurations refer to Lab0
 
 
 ---
 1. Open XXXXX.tf on Visual Studio Code.
+	```% code xxxxx.tf```
 
 2. Edit XXXXX.tf as follows then save the file.
 
@@ -64,12 +65,8 @@ Initializing provider plugins...
 Terraform has been successfully initialized!
 ```
 
-9. If you have an error, need to edit tf file then exec `% terraform plan` until without error.
 
-	When you have edited the file, save it and run the ```% terraform Plan``` command.
-
-
-10. Run command `% terraform apply` to create ec2.
+9. Run command `% terraform apply -var-file ./../terraform.tfvars` to create ec2.
 
 	you can see the execution plan.
 
@@ -208,7 +205,7 @@ Changes to Outputs:
 
 ```
 
-11. Enter a value `yes`
+10. Enter a value `yes`
 ```
 message:
   Do you want to perform these actions?
@@ -219,7 +216,7 @@ message:
 
 ```
 
-12. Make sure your EC2 has been created.
+11. Make sure your EC2 has been created.
 
 	*Please note instance_id and public_ip!*
 ```
@@ -236,8 +233,8 @@ public_ip = "3.25.124.xxx"
 ```
 
 
-13. connect to your ec2 via SSH then confirm your datadog agent is active.
+12. connect to your ec2 via SSH then confirm your datadog agent is active.
 
-14. Open the Datadog Application on your browser, and you can see your ec2-host in the infrastructure list.
+13. Open the Datadog Application on your browser, and you can see your ec2-host in the infrastructure list.
 
 ### *Hands-on EC2 is completed. The next is Create Monitor.*
