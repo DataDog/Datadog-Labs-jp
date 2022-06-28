@@ -38,4 +38,8 @@ $ brew install awscli
 ``` 
 
 ## Datadog
-Get your own API Key, Application Key from Sandbox!
+Get your own API Key and Application Key from Sandbox!
+
+
+
+### Ready to start workshop? Start from [lab0](./Lab0/README.md)!

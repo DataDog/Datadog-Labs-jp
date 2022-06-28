@@ -1,4 +1,4 @@
-# ## 初期設定
+# Lab0 - Set up your environment
 
 ---
 ### AWS
@@ -6,22 +6,25 @@
 
 #### 1. Create Named profile for AWS CLI
 
-run aws cli command on your terminal.
+Run aws command on your terminal.
 
 ```
-nobuyuki.kawazu@COMP-C02G43ELML87 ~ % aws configure --profile terraform
-AWS Access Key ID [None]: your access key
-AWS Secret Access Key [None]: your secret key
-Default region name [None]: ap-southeast-1
+$ aws configure --profile terraform
+
+AWS Access Key ID [None]: <ACCESS KEYy>
+AWS Secret Access Key [None]: <SECRET KEY>
+Default region name [None]: ap-southeast-2
 Default output format [None]: json
 ```
 #### 2. Create your key pair
 
-run aws cli command on your terminal.
+Run aws command on your terminal.
 
-Note: Please make sure ```--profile terraform``` option.
+**Note**: Please make sure ```--profile terraform``` option.
 
-```aws ec2 create-key-pair --key-name your-key-name --query 'KeyMaterial' --output text > your0-key-name.pem```
+```
+$ aws ec2 create-key-pair --key-name your-key-name --query 'KeyMaterial' --output text > your-key-name.pem
+```
 
 *Please note your key name!!*
 
@@ -31,6 +34,10 @@ Note: Please make sure ```--profile terraform``` option.
 ---
 
 ####  1. Clone Repogitory
+
+```
+$ git clone git@github.com:DataDog/Datadog-Labs-jp.git
+```
 
 The directory structure can be freely determined, but in this case we will assume the following
 
