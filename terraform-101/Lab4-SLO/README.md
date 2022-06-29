@@ -1,21 +1,12 @@
-# SLO
+# Lab4 - SLO
 
 In this Lab, we will use Terraform to set up SLOs using the Synthetic test we just created.
 
-## Open .tf file
-
-Change directory to Synthetics folder and open `slo.tf` in VS Code.
-
-```
-$ cd /Datadog-Labs-jp/terraform-101/en/SLO
-$ code slo.tf
-```
-
 ## Create Monitor-based SLO
 
-前のLabで作成したSynthetic testを使ってSLOを作成します。
+1. Open `slo.tf` on VS Code.
 
-1.  Modify the `slo.tf` file according to the following table.
+2.  Modify the `slo.tf` file according to the following table.
 
 |  key  |  value  | explanation |
 | ---- | ---- | --- |
@@ -33,8 +24,8 @@ terraform {
 }
 
 provider "datadog" {
- api_key = "var.datadog_api_key"
- app_key = "var.datadog_app_key"
+  api_key = "${var.datadog_api_key}"
+  app_key = "${var.datadog_app_key}"
 }
 
 resource "datadog_service_level_objective" "slo" {
@@ -44,7 +35,7 @@ resource "datadog_service_level_objective" "slo" {
 }
 ```
 
-2. Set thresholds
+3. Set thresholds
 
 Add blocks according to the following table.
 
@@ -65,18 +56,46 @@ Add blocks according to the following table.
 4. Initialize your configuration.
 
 ```
+$ cd ../Lab4-SLO
 $ terraform init
 ```
 
 5. Apply your configuration to create a new synthetic monitor. Remember to confirm your apply with a `yes`.
 
 ```
-$ terraform apply
+$ terraform apply -var-file ./../terraform.tfvars
 ```
-
 
 6. Navigate to the [SLO page](https://app.datadoghq.com/slo) to view your SLO.
 
+## Enable SLO ID to output
+
+1. Add the following code to the `slo.tf` file 
+
+```
+output "datadog_service_level_objective_id" {
+  value = datadog_service_level_objective.slo.id
+}
+```
+
+2. Apply your configuration. Remember to confirm your apply with a `yes`.
+
+```
+$ terraform apply -var-file ./../terraform.tfvars
+```
+
+3. Confirm that the slo id is output
+
+(Sample)
+```
+Outputs:
+
+datadog_service_level_objective_id = "be16397c22dd54e9933edb91a90f559e"
+```
+
+Please make a note of this as it will be used in the next Lab.
+
+Fantasitic! Let's go to final lab! [Lab5](./../Lab5-Dashboard/README.md)
 
 ## Reference
 [datadog_service_level_objective (Resource)](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/service_level_objective)

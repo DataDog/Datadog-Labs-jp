@@ -8,11 +8,13 @@
 
 Run aws command on your terminal.
 
+Access key and secret key will be posted on Slack!
+
 ```
 $ aws configure --profile terraform
 
-AWS Access Key ID [None]: <ACCESS KEYy>
-AWS Secret Access Key [None]: <SECRET KEY>
+AWS Access Key ID [None]: AWS ACCESS KEY
+AWS Secret Access Key [None]: AWS SECRET KEY
 Default region name [None]: ap-southeast-2
 Default output format [None]: json
 ```
@@ -23,7 +25,7 @@ Run aws command on your terminal.
 **Note**: Please make sure ```--profile terraform``` option.
 
 ```
-$ aws ec2 create-key-pair --key-name your-key-name --query 'KeyMaterial' --output text > your-key-name.pem
+$ aws ec2 create-key-pair --key-name YOUR-KEY-NAME --query 'KeyMaterial' --output text > YOUR-KEY-NAME.pem
 ```
 
 *Please note your key name!!*
@@ -37,27 +39,26 @@ $ aws ec2 create-key-pair --key-name your-key-name --query 'KeyMaterial' --outpu
 
 ```
 $ git clone git@github.com:DataDog/Datadog-Labs-jp.git
+$ cd Datadog-Labs-jp/terraform-101
 ```
 
-The directory structure can be freely determined, but in this case we will assume the following
+Open VS Code
 
 ```
-TERRAFORM
-|--Datadog
-   |--ec2
-   |--Monitor
-   |--Dashboard
-   |--Synthetic
+$ code .
 ```
 
-####  2. Environment Variable
-There are some ways to configure environment variables, but in this case we will make a file.
+####  2. Set environment variable
+There are several ways to set environment variables in Terraform, we will make a `.tfvars` file.
 
-- make ```terraform.tfvars``` under Datadog directory.
-- Edit terraform.tfvars as follows.
-
-```
-datadog_api_key = "your own api key"
-datadog_app_key = "your own app key"
+1. Open `terraform.tfvars`
+2. Enter your datadog api key and application key.
 
 ```
+datadog_api_key = "API KEY"
+datadog_app_key = "APP KEY"
+```
+
+---
+---
+### Go to [Lab1](./../Lab1-EC2/README.md)

@@ -1,13 +1,11 @@
-# Lab-2 Create Monitor
+# Lab2 - Create Monitor
 
-## 
+In this Lab, you will create a metrics monitor using Terraform.
 
-## Steps
+## Create .tf file
+1. Open `metrics_monitor.tf` on Visual Studio Code.
 
-1. Change current directory ```% cd /Datadog/Monitor```
-
-2. Make main.tf as ```% code main.tf``` 
-
+2. Edit `metrics_monitor.tf` as follows then save the file.
 
 ``` 
 terraform {
@@ -23,29 +21,26 @@ provider "datadog" {
 }
 ```
 
-3. Make metrics_monitor.tf as `% code metrics_monitor.tf`
-
-4. Create new Monitor(details below) refer to the [Datadog_monitor(Resource)](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/monitor)
+1. Create new Monitor(details below) referring to [Datadog_monitor(Resource)](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/monitor)
 
 > ### Monitor configuration：
 > - Choose the detection method: Threshold Alert
 > - Define the Metric: 
-> 	- system.cpu.system from yourhost
+> 	- system.cpu.system from your EC2 host
 > - Set Alert conditions
 > 	- Alert threshold > 90% (recovery 80%)
 > 	- Warning threshold > 70% (recovery 50%)
 > 	- Do not Notify if data is missing
 > - Notify your team
-> 	- title CPU Monitor
-> 	- messaget: mention to yourself, CPU usage is high {{your_host_id}}
+> 	- title: CPU Monitor
+> 	- message: mention to yourself, CPU usage is high {{your_host_id}}
 > 	- If this monitor stay Alert and Nodata renotify every 30 minutes
 > 	- tag:
 > 		- terraform:true
 > 		- team:cake
 > 		- sub_team:APAC_sales_engineer
-> - Define permission and auditnotifications	
+> - Define permission and auditnotifications
 > 	- priority:Not Defined
-
 
 
 ```
@@ -53,7 +48,7 @@ provider "datadog" {
 
 resource "datadog_monitor" "cpumonitor" {
 
-#required
+#Required
   name = "cpu monitor - terraform"
   type = "query alert"
   message = "???????????????????????????????????????"
@@ -77,47 +72,53 @@ resource "datadog_monitor" "cpumonitor" {
 }
 ```
 
+## Running terraform
 
+1. Change current directory 
+```
+$ cd ../Lab2-Monitor
+```
 
-5. Open the terminal from on the menu bar (Terminal >> new Terminal) Not necessary if already open.
-
-
-6. Run command `% terraform init` to initialize
+2. initialize terraform
 
 ```
-nobuyuki.kawazu@COMP-C02G43ELML87 Monitor % terraform init                                
-
+$ terraform init 
 Initializing the backend...
 
 Initializing provider plugins...
-- Reusing previous version of datadog/datadog from the dependency lock file
-- Using previously-installed datadog/datadog v3.12.0
+- Reusing previous version of hashicorp/aws from the dependency lock file
+- Using previously-installed hashicorp/aws v4.20.0
 
 Terraform has been successfully initialized!
 ```
 
-7. Take a look `Terraform has been successfully initialized!` is appeared.
+3. Run Terraform to create Monitor.
 
+```
+$ terraform apply -var-file ../terraform.tfvars
+```
 
-8. Run command `% terraform apply -var-file ./../terraform.tfvars` to create Monitor.
-
-11. Enter a value `yes`
+4.  Enter a value `yes`
 
 	you can see and check the execution plan.
+
+<details>
+<summary>Hint</summary>
+
 ```
-  nobuyuki.kawazu@COMP-C02G43ELML87 Monitor % terraform apply -var-file ./../terraform.tfvars
+$ terraform apply -var-file ./../terraform.tfvars
 datadog_monitor.cpumonitor: Refreshing state... [id=74529286]
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
 
   # datadog_monitor.cpumonitor2 will be created
-  + resource "datadog_monitor" "cpumonitor2" {
+  + resource "datadog_monitor" "cpumonitor" {
       + evaluation_delay    = (known after apply)
       + id                  = (known after apply)
       + include_tags        = true
       + message             = <<-EOT
-            @nobuyuki.kawazu@datadoghq.com
+            @jane.doe@datadoghq.com
             CPU usage is high host:{{host.name}}
         EOT
       + name                = "cpu monitor - terraform"
@@ -149,20 +150,13 @@ Plan: 1 to add, 0 to change, 0 to destroy.
   Enter a value: yes
 
 ```
+</details>
 
-12. Confirm Monitor created completly
-```
-datadog_monitor.cpumonitor: Modifying... [id=74529286]
-datadog_monitor.cpumonitor: Modifications complete after 0s [id=74529286]
+12. Confirm Monitor created.
 
-
-Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
-```
-
-
-13. Open Datadog Application and check your monitor.
+13. Navigate to the [Monitor page](https://app.datadoghq.com/monitors/manage) to view your monitor.
 
 14. If you have much time, try to create other monitors.
 
 ---
-### End of Lab-2
+### Well done! Go to [Lab3](./../Lab3-Synthetics/README.md)!

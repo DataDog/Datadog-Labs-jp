@@ -1,19 +1,13 @@
-# Synthetics Monitoring
+# Lab3 - Synthetics Monitoring
 
 In this Lab, you will create a Synthetics test using Terraform.
 
-## Open .tf file
-
-Change directory to Synthetics folder and open `synthetics.tf` in VS Code.
-
-```
-$ cd /Datadog-Labs-jp/terraform-101/en/Synthetics
-$ code synthetics.tf
-```
 
 ## Create API test
+1. Open `synthetics.tf` on VS Code.
 
-1. Modify the `synthetics.tf` file according to the following table.
+
+2. Modify the `synthetics.tf` file according to the following table.
 
 |  key  |  value  | explanation |
 | ---- | ---- | --- |
@@ -27,16 +21,16 @@ $ code synthetics.tf
 
 ```
 terraform {
- required_providers {
-   datadog = {
+  required_providers {
+    datadog = {
        source = "Datadog/datadog"
-   }
- } 
+    }
+  } 
 }
 
 provider "datadog" {
- api_key = "var.datadog_api_key"
- app_key = "var.datadog_app_key"
+  api_key = "${var.datadog_api_key}"
+  app_key = "${var.datadog_app_key}"
 }
 
 resource "datadog_synthetics_test" "api-test" {
@@ -56,7 +50,7 @@ resource "datadog_synthetics_test" "api-test" {
 }
 ```
 
-2. Define assertions
+3. Define assertions
 
 Define assertions of what an expected test results are.
 
@@ -76,7 +70,7 @@ Add blocks according to the following table.
     }
 ```
 
-1. Specify test frequency
+4. Specify test frequency
 
 Add blocks according to the following table.
 
@@ -93,20 +87,21 @@ Add blocks according to the following table.
 ```
 
 
-4. Initialize your configuration.
+5. Initialize your configuration.
 
 ```
+$ cd ../Lab3-Synthetics
 $ terraform init
 ```
 
-5. Apply your configuration to create a new synthetic monitor. Remember to confirm your apply with a `yes`.
+6. Apply your configuration to create a new synthetic monitor. Remember to confirm your apply with a `yes`.
 
 ```
-$ terraform apply
+$ terraform apply -var-file ./../terraform.tfvars
 ```
 
 
-6. Navigate to the [Synthetics page](https://app.datadoghq.com/synthetics/tests) to view your test.
+7. Navigate to the [Synthetics page](https://app.datadoghq.com/synthetics/tests) to view your test.
 
 
 
@@ -127,7 +122,7 @@ $ terraform plan
 3. If the changes are OK, apply the configuration.
 
 ```
-$ terraform apply
+$ terraform apply -var-file ./../terraform.tfvars
 ```
 
 4. Navigate to the [Synthetics page](https://app.datadoghq.com/synthetics/tests) to verify your test is modified.
@@ -147,7 +142,7 @@ output "datadog_synthetics_test_id" {
 2. Apply your configuration. Remember to confirm your apply with a `yes`.
 
 ```
-$ terraform apply
+$ terraform apply -var-file ./../terraform.tfvars
 ```
 
 3. Confirm that the monitor id is output
@@ -160,6 +155,8 @@ datadog_synthetics_test_id = 74938804
 ```
 
 Please make a note of this as it will be used in the next Lab.
+
+Great job! Go to [Lab4](./../Lab4-SLO/README.md) 
 
 ## Reference
 [Resource (datadog_synthetics_test)](

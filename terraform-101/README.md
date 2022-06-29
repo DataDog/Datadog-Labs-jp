@@ -3,6 +3,7 @@ Learn how to work with Datadog using Terraform.
 
 
 This lab will cover the following feature.
+- AWS EC2
 - Monitor
 - Synthetics Monitoring
 - SLO
@@ -40,6 +41,7 @@ $ brew install awscli
 ## Datadog
 Get your own API Key and Application Key from Sandbox!
 
+---
+---
 
-
-### Ready to start workshop? Start from [lab0](./Lab0/README.md)!
+### Ready to begin the workshop? Start from [lab0](./Lab0/README.md)!

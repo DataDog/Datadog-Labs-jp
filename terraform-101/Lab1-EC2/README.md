@@ -1,34 +1,28 @@
-## EC2
+## Lab1 - create EC2
 
-> Pre-requirement
+In this Lab, you will create a EC2 using Terraform.
 
-> complete all configurations refer to Lab0
+## Create .tf file
+1. Open `ec2.tf` on Visual Studio Code.
 
-
----
-1. Open XXXXX.tf on Visual Studio Code.
-	```% code xxxxx.tf```
-
-2. Edit XXXXX.tf as follows then save the file.
+2. Edit `ec2.tf` as follows then save the file.
 
 ```
 provider "aws" {
-    profile = "" // your aws cli profile name
-    region = "ap-southeast-2" //do not change
-  
+    profile = "terraform"
+    region = "ap-southeast-2"
 }
 
 variable "datadog_api_key" {}
 
-resource "aws_instance" "resouce-name" {    // any name
-  #comment
-  ami = "ami-0954a49a9348487cc". // do not change
-  instance_type = "t2.micro"  // do not change
-  vpc_security_group_ids = ["sg-0774fd50ef028439a"]  // do not change
-  key_name = "terraform-workshop-kawazu"  //your key pair name
+resource "aws_instance" "ec2" {
+  ami = "ami-0954a49a9348487cc"
+  instance_type = "t2.micro"
+  vpc_security_group_ids = ["sg-0774fd50ef028439a"]
+  key_name = "<YOUR KEY PAIR from Lab0>"
 
   tags = {
-    Name = "Terraform-workshop-test-kawazu-5". //Any name is acceptable, but please make sure it is recognizable as yours!
+    Name = "Terraform-workshop-name". //Any name is ok, but please make sure it is recognizable as yours!
   }
 
   user_data = <<EOF
@@ -38,24 +32,27 @@ EOF
  
 }
 output "ec2_instance_id" {
- value = aws_instance.resource-name.id // resource-name is the one you set resouce block. 
+  value = aws_instance.ec2.id
 }
 
 output "public_ip" {
-  value       = aws_instance.test01.public_ip // resource-name is the one you set resouce block.
+  value = aws_instance.ec2.public_ip
 }
 ```
 
-3. Open the terminal from Terminal >> new Terminal (Not necessary if already open)
+## Running terraform
 
-6. Change current directory `% cd Datadog/EC2`
+1. Open the terminal in VS Code from `Terminal` >> `new Terminal` (Or you can use terminal/iTerm2 on your Mac!)
 
-7. Run command `% terraform init` to initialize
+2. Change current directory 
+```
+$ cd Lab1-EC2
+```
 
-8. Take a look `Terraform has been successfully initialized!` is appeared.
+3. initialize terraform
 
 ```
-nobuyuki.kawazu@COMP-C02G43ELML87 AWS % terraform init 
+$ terraform init 
 Initializing the backend...
 
 Initializing provider plugins...
@@ -65,21 +62,25 @@ Initializing provider plugins...
 Terraform has been successfully initialized!
 ```
 
+Take a look `Terraform has been successfully initialized!` is appeared.
 
-9. Run command `% terraform apply -var-file ./../terraform.tfvars` to create ec2.
-
-	you can see the execution plan.
+4. Run Terraform to create ec2.
 
 ```
-nobuyuki.kawazu@COMP-C02G43ELML87 AWS % terraform plan 
-aws_instance.test01: Refreshing state... [id=i-03af36e2fb6fc90c5]
+$ terraform apply -var-file ../terraform.tfvars
+```
+
+you can see the execution plan.
+
+```
+aws_instance.ec2: Refreshing state... [id=i-03af36e2fb6fc90c5]
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following
 symbols:
   + create
   - destroy
-  # aws_instance.test02 will be created
-  + resource "aws_instance" "test02" {
+  # aws_instance.ec2 will be created
+  + resource "aws_instance" "ec2" {
       + ami                                  = "ami-0954a49a9348487cc"
       + arn                                  = (known after apply)
       + associate_public_ip_address          = (known after apply)
@@ -97,7 +98,7 @@ symbols:
       + instance_type                        = "t2.micro"
       + ipv6_address_count                   = (known after apply)
       + ipv6_addresses                       = (known after apply)
-      + key_name                             = "terraform-workshop-kawazu"
+      + key_name                             = "terraform-workshop-name"
       + monitoring                           = (known after apply)
       + outpost_arn                          = (known after apply)
       + password_data                        = (known after apply)
@@ -113,10 +114,10 @@ symbols:
       + source_dest_check                    = true
       + subnet_id                            = (known after apply)
       + tags                                 = {
-          + "Name" = "Terraform-workshop-test-kawazu-6"
+          + "Name" = "Terraform-workshop-name"
         }
       + tags_all                             = {
-          + "Name" = "Terraform-workshop-test-kawazu-6"
+          + "Name" = "Terraform-workshop-name"
         }
       + tenancy                              = (known after apply)
       + user_data                            = "7a44f652a1f57f3a36e15bf60bc94a53a384d39f"
@@ -205,7 +206,7 @@ Changes to Outputs:
 
 ```
 
-10. Enter a value `yes`
+5.  Enter `yes`
 ```
 message:
   Do you want to perform these actions?
@@ -216,13 +217,13 @@ message:
 
 ```
 
-11. Make sure your EC2 has been created.
+6. Make sure your EC2 has been created.
 
-	*Please note instance_id and public_ip!*
+	*Please note `instance_id` and `public_ip`!*
 ```
-aws_instance.test02: Creating...
-aws_instance.test02: Still creating... [10s elapsed]
-aws_instance.test02: Creation complete after 17s [id=i-0fcf16927ac8669c6]
+aws_instance.ec2: Creating...
+aws_instance.ec2: Still creating... [10s elapsed]
+aws_instance.ec2: Creation complete after 17s [id=i-0fcf16927ac8669c6]
 
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
@@ -232,9 +233,14 @@ ec2_instance_id = "i-03af36e2fb6fxxxxx"
 public_ip = "3.25.124.xxx"
 ```
 
+[AWS Console link](https://ap-southeast-2.console.aws.amazon.com/ec2/v2/home?region=ap-southeast-2#Instances:instanceState=running)
 
-12. connect to your ec2 via SSH then confirm your datadog agent is active.
+7. connect to your ec2 via SSH then confirm your datadog agent is active.
+  
+```
+$ ssh -i "YOUR-SSH-KEY.pem" root@ec2-35-xx-xxx-xxx.ap-southeast-2.compute.amazonaws.com
+```
 
-13. Open the Datadog Application on your browser, and you can see your ec2-host in the infrastructure list.
+8. Open the Datadog on your browser, and you can see your EC2 host in the [Infrastructure List](https://app.datadoghq.com/infrastructure).
 
-### *Hands-on EC2 is completed. The next is Create Monitor.*
+### *Hands-on EC2 is completed. The next is Create Monitor. → [Lab2](./../Lab2-Monitor/README.md)*
