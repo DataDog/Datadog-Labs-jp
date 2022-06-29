@@ -156,7 +156,7 @@ datadog_synthetics_test_id = 74938804
 
 Please make a note of this as it will be used in the next Lab.
 
-Great job! Go to [Lab4](./../Lab4-SLO/README.md) 
+### Great job! Go to [Lab4](./../Lab4-SLO/README.md) 
 
 ## Reference
 [Resource (datadog_synthetics_test)](
