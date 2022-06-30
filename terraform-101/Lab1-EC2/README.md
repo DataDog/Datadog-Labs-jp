@@ -238,7 +238,7 @@ public_ip = "3.25.124.xxx"
 7. connect to your ec2 via SSH then confirm your datadog agent is active.
   
 ```
-$ ssh -i "YOUR-SSH-KEY.pem" root@ec2-35-xx-xxx-xxx.ap-southeast-2.compute.amazonaws.com
+$ ssh -i "YOUR-SSH-KEY.pem" bitnami@ec2-35-xx-xxx-xxx.ap-southeast-2.compute.amazonaws.com
 ```
 
 8. Open the Datadog on your browser, and you can see your EC2 host in the [Infrastructure List](https://app.datadoghq.com/infrastructure).

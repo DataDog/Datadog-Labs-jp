@@ -71,7 +71,7 @@ $ terraform init
 3. Apply your configuration to create a new synthetic monitor. Remember to confirm your apply with a `yes`.
 
 ```
-$ terraform apply -var-file ./../terraform.tfvars
+$ terraform apply -var-file ../terraform.tfvars
 ```
 
 
@@ -122,7 +122,7 @@ shut down your EC2 host.
 
 ```
 $ cd ../Lab1-EC2
-$ terraform destroy
+$ terraform destroy -var-file ../terraform.tfvars
 ```
 
 ### Congratulations! That's all for the workshop!

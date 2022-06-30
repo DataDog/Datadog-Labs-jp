@@ -14,7 +14,7 @@ In this Lab, you will create a Synthetics test using Terraform.
 |  type  |  api  |  (String) Synthetics test type. Valid values are `api`, `browser`. |
 |  subtype  |  http  | (String) The subtype of the Synthetic API test. Defaults to http. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`. |
 |  method  |  GET  | (String) The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS` |
-|  url  |  http://api.shopist.io  |  (String) The URL to send the request to. |
+|  url  |  https://api.shopist.io  |  (String) The URL to send the request to. |
 |  locations  |  aws:ap-southeast-2  |  (Set of String) Array of locations used to run the test. Refer to Datadog documentation for available locations (e.g. `aws:eu-central-1`). |
 | status | live | (String) Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are live, paused. |
 
@@ -97,35 +97,12 @@ $ terraform init
 6. Apply your configuration to create a new synthetic monitor. Remember to confirm your apply with a `yes`.
 
 ```
-$ terraform apply -var-file ./../terraform.tfvars
+$ terraform apply -var-file ../terraform.tfvars
 ```
 
 
 7. Navigate to the [Synthetics page](https://app.datadoghq.com/synthetics/tests) to view your test.
 
-
-
-## Modify test
-
-1. Modify the file and change it as follows
-
-- Changed test interval from 900 seconds (15 minutes) to 60 seconds
-- Added `ap-northeast-1` to location
-
-
-2.  check for changes
-
-```
-$ terraform plan
-```
-
-3. If the changes are OK, apply the configuration.
-
-```
-$ terraform apply -var-file ./../terraform.tfvars
-```
-
-4. Navigate to the [Synthetics page](https://app.datadoghq.com/synthetics/tests) to verify your test is modified.
 
 ## Enable Monitor ID to output
 
@@ -142,12 +119,11 @@ output "datadog_synthetics_test_id" {
 2. Apply your configuration. Remember to confirm your apply with a `yes`.
 
 ```
-$ terraform apply -var-file ./../terraform.tfvars
+$ terraform apply -var-file ../terraform.tfvars
 ```
 
 3. Confirm that the monitor id is output
 
-(Sample)
 ```
 Outputs:
 
@@ -155,6 +131,45 @@ datadog_synthetics_test_id = 74938804
 ```
 
 Please make a note of this as it will be used in the next Lab.
+
+## (Optional)Modify test
+
+1. Modify the file and change it as follows
+
+- Changed test interval from 900 seconds (15 minutes) to 60 seconds
+- Added `ap-northeast-1` to location
+- Added assertion that the response time is less than 3000 ms．
+
+<details>
+<summary>Hint</summary>
+
+```
+# Added assertion that the response time is less than 3000 ms．
+   assertion {
+        type        = "responseTime"
+        operator    = "lessThan"
+        target      = "3000"
+    }
+```
+
+</details>
+
+
+1.  check for changes
+
+```
+$ terraform plan
+```
+
+3. If the changes are OK, apply the configuration.
+
+```
+$ terraform apply -var-file ../terraform.tfvars
+```
+
+4. Navigate to the [Synthetics page](https://app.datadoghq.com/synthetics/tests) to verify your test is modified.
+
+
 
 ### Great job! Go to [Lab4](./../Lab4-SLO/README.md) 
 

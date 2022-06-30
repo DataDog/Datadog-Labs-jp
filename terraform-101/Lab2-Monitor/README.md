@@ -106,7 +106,7 @@ $ terraform apply -var-file ../terraform.tfvars
 <summary>Hint</summary>
 
 ```
-$ terraform apply -var-file ./../terraform.tfvars
+$ terraform apply -var-file ../terraform.tfvars
 datadog_monitor.cpumonitor: Refreshing state... [id=74529286]
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
@@ -156,19 +156,18 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 
 13. Navigate to the [Monitor page](https://app.datadoghq.com/monitors/manage) to view your monitor.
 
-14. Stress on your ec2 and check the status of Monitor, and whether notification was sent.
+14. Stress on your EC2 and check the status of Monitor, and whether notification was sent.
 
-	a. install stress tool on your ec2.
+	a. install stress tool on your EC2.
 
 		bitnami@ip-172-31-38-248:~$ sudo apt-get install stress
 
-	b. stress on your ec2.
+	b. stress on your EC2.
 
 		bitnami@ip-172-31-38-248:~$ sudo stres -c -1 
 
-	c. Check your Monitor transition to  Alert or Warning and stop the stressing. press ```Ctl + c```
+	c. Check your Monitor transition to  Alert or Warning and stop the stressing. To finish, press `Ctl + c`
 		
-
 
 15. If you have much time, try to create other monitors.
 

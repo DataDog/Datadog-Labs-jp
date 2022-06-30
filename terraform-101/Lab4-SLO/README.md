@@ -63,7 +63,7 @@ $ terraform init
 5. Apply your configuration to create a new synthetic monitor. Remember to confirm your apply with a `yes`.
 
 ```
-$ terraform apply -var-file ./../terraform.tfvars
+$ terraform apply -var-file ../terraform.tfvars
 ```
 
 6. Navigate to the [SLO page](https://app.datadoghq.com/slo) to view your SLO.
@@ -81,7 +81,7 @@ output "datadog_service_level_objective_id" {
 2. Apply your configuration. Remember to confirm your apply with a `yes`.
 
 ```
-$ terraform apply -var-file ./../terraform.tfvars
+$ terraform apply -var-file ../terraform.tfvars
 ```
 
 3. Confirm that the slo id is output
@@ -95,7 +95,7 @@ datadog_service_level_objective_id = "be16397c22dd54e9933edb91a90f559e"
 
 Please make a note of this as it will be used in the next Lab.
 
-Fantasitic! Let's go to final lab! [Lab5](./../Lab5-Dashboard/README.md)
+### Fantasitic! Let's go to final lab! [Lab5](./../Lab5-Dashboard/README.md)
 
 ## Reference
 [datadog_service_level_objective (Resource)](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/service_level_objective)
