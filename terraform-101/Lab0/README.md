@@ -22,13 +22,15 @@ Default output format [None]: json
 
 Run aws command on your terminal.
 
-**Note**: Please make sure ```--profile terraform``` option.
-
 ```
-$ aws ec2 create-key-pair --key-name YOUR-KEY-NAME --query 'KeyMaterial' --output text > YOUR-KEY-NAME.pem
+$ aws ec2 create-key-pair --key-name YOUR-KEY-NAME --query 'KeyMaterial' --output text > YOUR-KEY-NAME.pem --profile terraform
 ```
 
 *Please note your key name!!*
+
+```
+$ chmod 600 ~/.ssh/<YOUR-KEY-NAME>.pem
+```
 
 ---
 ### Terraform
@@ -61,4 +63,4 @@ datadog_app_key = "APP KEY"
 
 ---
 ---
-### Go to [Lab1](./../Lab1-EC2/README.md)
+### Good job! Let's Go to [Lab1](./../Lab1-EC2/README.md)

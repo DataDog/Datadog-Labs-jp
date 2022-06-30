@@ -3,9 +3,9 @@
 In this Lab, you will create a EC2 using Terraform.
 
 ## Create .tf file
-1. Open `ec2.tf` on Visual Studio Code.
+1. Open `Lab1-EC2/ec2.tf` on Visual Studio Code.
 
-2. Edit `ec2.tf` as follows then save the file.
+2. Enter your key pair created in Lab0 in the `key_name` field and replace the `tags` field with your name.
 
 ```
 provider "aws" {
@@ -19,10 +19,10 @@ resource "aws_instance" "ec2" {
   ami = "ami-0954a49a9348487cc"
   instance_type = "t2.micro"
   vpc_security_group_ids = ["sg-0774fd50ef028439a"]
-  key_name = "<YOUR KEY PAIR from Lab0>"
+  key_name = "<YOUR KEY PAIR from Lab0>"  # 
 
   tags = {
-    Name = "Terraform-workshop-name". //Any name is ok, but please make sure it is recognizable as yours!
+    Name = "Terraform-workshop-<NAME>". # Any name is ok, but please make sure it is recognizable as yours!
   }
 
   user_data = <<EOF
@@ -238,7 +238,7 @@ public_ip = "3.25.124.xxx"
 7. connect to your ec2 via SSH then confirm your datadog agent is active.
   
 ```
-$ ssh -i "YOUR-SSH-KEY.pem" bitnami@ec2-35-xx-xxx-xxx.ap-southeast-2.compute.amazonaws.com
+$ ssh -i "YOUR-SSH-KEY.pem" bitnami@ec2-xx-xx-xxx-xxx.ap-southeast-2.compute.amazonaws.com
 ```
 
 8. Open the Datadog on your browser, and you can see your EC2 host in the [Infrastructure List](https://app.datadoghq.com/infrastructure).

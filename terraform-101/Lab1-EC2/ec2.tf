@@ -9,10 +9,10 @@ resource "aws_instance" "ec2" {
   ami                    = "ami-0954a49a9348487cc"
   instance_type          = "t2.micro"
   vpc_security_group_ids = ["sg-0774fd50ef028439a"]
-  key_name               = "<YOUR KEY PAIR from Lab0>"
+  key_name               = "<YOUR KEY PAIR from Lab0>" # Replace your key pair!
 
   tags = {
-    Name = "Terraform-workshop-name" # Any name is ok, but please make sure it is recognizable as yours!
+    Name = "Terraform-workshop-<NAME>" # Any name is ok, but please make sure it is recognizable as yours!
   }
 
   user_data = <<EOF

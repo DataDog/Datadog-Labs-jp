@@ -4,7 +4,7 @@ In this Lab, you will create a Dashboard using Terraform.
 
 ## Create Dashboard
 
-1. Open `dashboard.tf` on VS Code.
+1. Open `Lab5-Dashboard/dashboard.tf` on VS Code.
 
 2. Modify the `dashboard.tf` file according to the following table.
 

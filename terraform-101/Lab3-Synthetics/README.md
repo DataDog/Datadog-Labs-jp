@@ -4,7 +4,7 @@ In this Lab, you will create a Synthetics test using Terraform.
 
 
 ## Create API test
-1. Open `synthetics.tf` on VS Code.
+1. Open `Lab3-Synthetics/synthetics.tf` on VS Code.
 
 
 2. Modify the `synthetics.tf` file according to the following table.
@@ -20,19 +20,6 @@ In this Lab, you will create a Synthetics test using Terraform.
 
 
 ```
-terraform {
-  required_providers {
-    datadog = {
-       source = "Datadog/datadog"
-    }
-  } 
-}
-
-provider "datadog" {
-  api_key = "${var.datadog_api_key}"
-  app_key = "${var.datadog_app_key}"
-}
-
 resource "datadog_synthetics_test" "api-test" {
     name = "terraform API test"
     type = ""
@@ -56,6 +43,8 @@ Define assertions of what an expected test results are.
 
 Add blocks according to the following table.
 
+*Note: "assertion" block should be under the "resource" block!"*
+
 |  key  |  value  | explanation |
 | ---- | ---- | --- |
 |  type  |  statusCode  | (String) Type of assertion. Note Only some combinations of type and operator are valid (please refer to Datadog documentation). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`.|
@@ -73,6 +62,8 @@ Add blocks according to the following table.
 4. Specify test frequency
 
 Add blocks according to the following table.
+
+*Note: "option_list" block should be under the "resource" block!"*
 
 |  項目  |  value  | 説明 |
 | ---- | ---- | --- |
@@ -110,6 +101,8 @@ The `id` output when executed is the ID of this resource, not the Monitor ID of 
 
 1. Add the following code to the `synthetics.tf` file 
 
+*Note: "output" block should be same level to the "resource" block!"*
+
 ```
 output "datadog_synthetics_test_id" {
   value = datadog_synthetics_test.api-test.monitor_id
@@ -136,6 +129,9 @@ Please make a note of this as it will be used in the next Lab.
 
 1. Modify the file and change it as follows
 
+See [Resource (datadog_synthetics_test)](
+https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/synthetics_test) if necessary.
+
 - Changed test interval from 900 seconds (15 minutes) to 60 seconds
 - Added `ap-northeast-1` to location
 - Added assertion that the response time is less than 3000 ms．
@@ -155,7 +151,7 @@ Please make a note of this as it will be used in the next Lab.
 </details>
 
 
-1.  check for changes
+2.  check for changes
 
 ```
 $ terraform plan
@@ -172,7 +168,3 @@ $ terraform apply -var-file ../terraform.tfvars
 
 
 ### Great job! Go to [Lab4](./../Lab4-SLO/README.md) 
-
-## Reference
-[Resource (datadog_synthetics_test)](
-https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/synthetics_test)
