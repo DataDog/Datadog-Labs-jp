@@ -12,7 +12,7 @@ In this Lab, you will create a metrics monitor using Terraform.
 ### Monitor configuration：
 > - Choose the detection method: Threshold Alert
 > - Define the Metric: 
-> 	- system.cpu.system from your EC2 host
+> 	- system.cpu.user from your EC2 host
 > - Set Alert conditions
 > 	- Alert threshold > 90% (recovery 80%)
 > 	- Warning threshold > 70% (recovery 50%)
@@ -66,7 +66,7 @@ resource "datadog_monitor" "cpumonitor2" {
   name = "cpu monitor - terraform"
   type = "query alert"
   message = "@njane.doe@examplecom\nCPU usage is high host:{{host.name}}"
-  query = "max(last_5m):avg:system.cpu.system{host:i-03af36e2fb6fc90c5} > 90"
+  query = "max(last_5m):avg:system.cpu.user{host:i-03af36e2fb6fc90c5} > 90"
   
   monitor_thresholds {
     critical          = 90
@@ -133,7 +133,7 @@ Stress on your EC2 and check the status of Monitor, and whether notification was
 
 		bitnami@ip-172-31-38-248:~$ sudo stress -c 1 
 
-	c. Check your Monitor transition to  Alert or Warning and stop the stressing. To finish, press `Ctl + c`
+4. Check your Monitor transition to  Alert or Warning and stop the stressing. To finish, press `Ctl + c`
 		
 
 ---

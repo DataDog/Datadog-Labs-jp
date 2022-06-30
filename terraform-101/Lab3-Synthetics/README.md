@@ -37,7 +37,7 @@ resource "datadog_synthetics_test" "api-test" {
 }
 ```
 
-3. Define assertions
+### Define assertions
 
 Define assertions of what an expected test results are.
 
@@ -59,7 +59,7 @@ Add blocks according to the following table.
     }
 ```
 
-4. Specify test frequency
+### Specify test frequency
 
 Add blocks according to the following table.
 
@@ -77,22 +77,23 @@ Add blocks according to the following table.
      }
 ```
 
+## Running terraform
 
-5. Initialize your configuration.
+1. Initialize your configuration.
 
 ```
 $ cd ../Lab3-Synthetics
 $ terraform init
 ```
 
-6. Apply your configuration to create a new synthetic monitor. Remember to confirm your apply with a `yes`.
+2. Apply your configuration to create a new synthetic monitor. Remember to confirm your apply with a `yes`.
 
 ```
 $ terraform apply -var-file ../terraform.tfvars
 ```
 
 
-7. Navigate to the [Synthetics page](https://app.datadoghq.com/synthetics/tests) to view your test.
+3. Navigate to the [Synthetics page](https://app.datadoghq.com/synthetics/tests) to view your test.
 
 
 ## Enable Monitor ID to output
