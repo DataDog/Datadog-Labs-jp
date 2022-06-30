@@ -156,7 +156,21 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 
 13. Navigate to the [Monitor page](https://app.datadoghq.com/monitors/manage) to view your monitor.
 
-14. If you have much time, try to create other monitors.
+14. Stress on your ec2 and check the status of Monitor, and whether notification was sent.
+
+	a. install stress tool on your ec2.
+
+		bitnami@ip-172-31-38-248:~$ sudo apt-get install stress
+
+	b. stress on your ec2.
+
+		bitnami@ip-172-31-38-248:~$ sudo stres -c -1 
+
+	c. Check your Monitor transition to  Alert or Warning and stop the stressing. press ```Ctl + c```
+		
+
+
+15. If you have much time, try to create other monitors.
 
 ---
 ### Well done! Go to [Lab3](./../Lab3-Synthetics/README.md)!
