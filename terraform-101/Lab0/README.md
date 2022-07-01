@@ -22,6 +22,8 @@ Default output format [None]: json
 
 Replace `YOUR-KEY-NAME` with your name, and run aws command on your terminal.
 
+*Note: There are TWO `YOUR-KEY-NAME`!*
+
 ```
 $ aws ec2 create-key-pair --key-name YOUR-KEY-NAME --query 'KeyMaterial' --output text > YOUR-KEY-NAME.pem --profile terraform
 ```
