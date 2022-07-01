@@ -13,14 +13,14 @@ Access key and secret key will be posted on Slack!
 ```
 $ aws configure --profile terraform
 
-AWS Access Key ID [None]: AWS ACCESS KEY
-AWS Secret Access Key [None]: AWS SECRET KEY
+AWS Access Key ID [None]: <AWS ACCESS KEY>
+AWS Secret Access Key [None]: <AWS SECRET KEY>
 Default region name [None]: ap-southeast-2
 Default output format [None]: json
 ```
 #### 2. Create your key pair
 
-Run aws command on your terminal.
+Replace `YOUR-KEY-NAME` with your name, and run aws command on your terminal.
 
 ```
 $ aws ec2 create-key-pair --key-name YOUR-KEY-NAME --query 'KeyMaterial' --output text > YOUR-KEY-NAME.pem --profile terraform
@@ -56,7 +56,7 @@ $ code .
 There are several ways to set environment variables in Terraform, we will make a `.tfvars` file.
 
 1. Open `terraform.tfvars`
-2. Enter your datadog api key and application key.
+2. Enter your datadog api key and application key for your sandbox account.
 
 ```
 datadog_api_key = "API KEY"

@@ -5,7 +5,7 @@ In this Lab, you will create a metrics monitor using Terraform.
 ## Create .tf file
 1. Open `Lab2-Monitor/metrics_monitor.tf` on Visual Studio Code.
 
-2. `metrics_monitor.tf` is incomplete as some elements are missing. Replace the ???? area to the appropriate content. 
+2. `metrics_monitor.tf` is incomplete as some elements are missing. Replace the *????* area to the appropriate content. 
 
    Referring to [Datadog_monitor(Resource)](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/monitor), create new Monitor(details below).
 
@@ -38,7 +38,7 @@ resource "datadog_monitor" "cpumonitor" {
   name = "cpu monitor - terraform"
   type = "query alert"
   message = "???????????????????????????????????????"
-  query = "max(last_5m):avg:system.cpu.user{host:i-03af36e2fb6fc90c5} > 90"
+  query = "max(last_5m):avg:system.cpu.user{host:????} > 90"
 
 #Optional
   monitor_thresholds {
@@ -65,7 +65,7 @@ resource "datadog_monitor" "cpumonitor" {
 resource "datadog_monitor" "cpumonitor2" {
   name = "cpu monitor - terraform"
   type = "query alert"
-  message = "@njane.doe@examplecom\nCPU usage is high host:{{host.name}}"
+  message = "@njane.doe@example.com\nCPU usage is high host:{{host.name}}"
   query = "max(last_5m):avg:system.cpu.user{host:i-03af36e2fb6fc90c5} > 90"
   
   monitor_thresholds {
@@ -74,7 +74,6 @@ resource "datadog_monitor" "cpumonitor2" {
     warning           = 70
     warning_recovery  = 50
   }
-  notify_audit = false
   notify_no_data = false
   priority = null
   restricted_roles = null

@@ -65,7 +65,7 @@ Add blocks according to the following table.
 
 *Note: "option_list" block should be under the "resource" block!"*
 
-|  項目  |  value  | 説明 |
+|  key  |  value  | explanation |
 | ---- | ---- | --- |
 | tick_every | 900 |  (Number) How often the test should run (in seconds).|
 | min_location_failed | 1 | (Number) Minimum number of locations in failure required to trigger an alert. Default is 1.|
@@ -126,7 +126,7 @@ datadog_synthetics_test_id = 74938804
 
 Please make a note of this as it will be used in the next Lab.
 
-## (Optional)Modify test
+## (Optional) Modify test
 
 1. Modify the file and change it as follows
 
