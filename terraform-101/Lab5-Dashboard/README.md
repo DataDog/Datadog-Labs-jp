@@ -14,19 +14,6 @@ In this Lab, you will create a Dashboard using Terraform.
 |  title | (ANY NAME) | (String) The title of the dashboard. |
 
 ```
-terraform {
- required_providers {
-   datadog = {
-       source = "Datadog/datadog"
-   }
- } 
-}
-
-provider "datadog" {
-  api_key = "${var.datadog_api_key}"
-  app_key = "${var.datadog_app_key}"
-}
-
 resource "datadog_dashboard" "dashboard" {
   title         = ""
   description   = "Created using the Datadog provider in Terraform"
