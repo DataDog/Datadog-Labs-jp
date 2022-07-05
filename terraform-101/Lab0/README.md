@@ -30,10 +30,11 @@ $ aws ec2 create-key-pair --key-name YOUR-KEY-NAME --query 'KeyMaterial' --outpu
 
 *Please note your key name!!*
 
+Move the file to `~/.ssh`
 Run the following command to set the permissions.
 
 ```
-$ chmod 400 <YOUR-KEY-NAME>.pem
+$ chmod 400 ~/.ssh/<YOUR-KEY-NAME>.pem
 ```
 
 ---
