@@ -1,0 +1,72 @@
+# Datadogの導入
+## インフラメトリクスの有効化
+### Datadog Agentの導入
+【Document】https://docs.datadoghq.com/ja/agent/basic_agent_usage/deb/?tab=agentv6v7
+
+1.  Datadogにログインし左の\[Integrations\]→\[Agent\]を選択
+    
+2.  画面上部のタブが\[Agent\]となっていることを確認し、Agent選択一覧から\[[Debian](https://app.datadoghq.com/account/settings#agent/debian)\] を選択
+
+3.  インストールコマンドのコピー、\[Use our easy one-step install.\]からコマンドラインをコピー
+    
+4.  ssh xxx.pem bitnami@(パブリクIP)でログイン
+
+5.  実行中のEC2のターミナルにインスタンスにこのコマンドをペーストし実行
+		
+### ［参考］Datadog Agentの起動、停止、再起動の方法
+
+| 説明  | コマンド |
+| --- | --- |
+| Agent をサービスとして起動 | sudo service datadog-agent start |
+| サービスとして実行中の Agent の停止 | sudo service datadog-agent stop |
+| サービスとして実行中の Agent の再起動 | sudo service datadog-agent restart |
+| Agent サービスのステータス | sudo service datadog-agent status |
+| 実行中の Agent のステータスページ | sudo datadog-agent status |
+| フレアの送信 | sudo datadog-agent flare |
+| コマンドの使用方法の表示 | sudo datadog-agent --help |
+| チェックの実行 | sudo -u dd-agent -- datadog-agent check &lt;CHECK_NAME&gt; |
+
+### Datadogでのメトリクスおよびホストの確認
+1. Datadog画面に戻り左の\[Infrastructure\]→\[Host Map\]を選択
+	-  ホストマップが表示されることを確認してください。何も表示されない場合は、時間をおいてリロードをしてください
+1. 表示されたホスト（六角形の）をクリック、クリックするとホストの詳細ペインが表示されます
+	1. ホストの詳細ペインの「Apps」ヘッダーの下にそのホストからのメトリクスをレポートするインテグレーションがリストされていることを確認できます。
+		この段階では、「agent」、「ntp」、「system」が表示されています
+	2. インテグレーションの名前をクリックすると、そのインテグレーションのメトリクスがコンパクトなダッシュボードに表示されます。「system」をクリックし、CPU 使用率、メモリ使用量、ディスクのレイテンシーなどのシステムメトリクスが取得されていることを確認
+
+
+### Wordpressの操作
+
+1.  まず作成したEC2上にSSHでログインし、bitnami ユーザーのホームディレクトリ直下のファイル$HOME/bitnami_credentialsを確認。
+
+```
+$ cd ~
+$ cat bitnami_credentials
+Welcome to the WordPress packaged by Bitnami
+
+******************************************************************************
+The default username and password is 'user' and 'xxxxxxxxxxxxx'.   ##←メモ
+******************************************************************************
+
+You can also use this password to access the databases and any other component the stack includes.
+
+Please refer to https://docs.bitnami.com/ for more details.
+```
+2.  Wordpressを操作
+    ChromeなどのWebブラウザで  
+    **http://[EC2のパブリックアドレス]/wp-admin/**  
+    にアクセス  
+
+
+3.  ログイン  
+    ID: user  
+    PW: **上記でメモした内容**  
+
+
+4.  記事の投稿などの操作  
+    Wordpress上に記事の投稿など様々な操作を実行し
+
+5. Datadogでメトリクスなどの状況を確認
+
+
+
