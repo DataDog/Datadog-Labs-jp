@@ -42,8 +42,11 @@ systemctl start ssh
 3.  \[Select API Key\]を押下し、 \[+Create New\]で新しいAPI-Keyを追加（例: Name: key-自分の名前や愛称等）し、\[Save\]で保存
 4.  新しく作成されたAPI-Keyを選んで\[Use API Key\]を選択
 5.  インストールコマンドのコピー、\[Use our easy one-step install.\]からコマンドラインをコピー （DD_API_KEY=〜）
-6.  ssh xxx.pem bitnami@(パブリクIP)でログイン
-7.  実行中のEC2のターミナルにインスタンスにこのコマンドをペーストし実行
+```bash
+DD_API_KEY=xxxxxxxxxxxxxxxxxxxxxx DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh)" 
+```
+7.  ssh xxx.pem bitnami@(パブリクIP)でログイン
+8.  実行中のEC2のターミナルにインスタンスにこのコマンドをペーストし実行
 
 ### ［参考］Datadog Agentの起動、停止、再起動の方法
 | 説明  | コマンド |
@@ -91,10 +94,10 @@ systemctl start ssh
 ```bash
 # cd ~
 # cat bitnami_credentials
-Welcome to the WordPress packaged by Bitnami
+Welcome to the Liferay packaged by Bitnami
 
 ******************************************************************************
-The default username and password is 'user' and 'xxxxxxxxxxxxx'.   ##←メモ
+The default username and password is 'user@liferay.com' and 'xxxxxxxxxxxxx'.
 ******************************************************************************
 
 You can also use this password to access the databases and any other component the stack includes.
