@@ -29,6 +29,34 @@ systemctl start ssh
 | 全サービスの停止 | sudo /opt/bitnami/ctlscript.sh stop |
 | 全サービスの再起動 | sudo /opt/bitnami/ctlscript.sh restart |
 
+# Datadogの導入
+
+## インフラメトリクスの有効化
+
+### Datadog Agentの導入
+
+【Document】 [https://docs.datadoghq.com/ja/agent/basic_agent_usage/deb/?tab=agentv6v7](https://docs.datadoghq.com/ja/agent/basic_agent_usage/deb/?tab=agentv6v7)
+
+1.  Datadogにログインし左の\[Integrations\]→\[Agent\]を選択
+2.  画面上部のタブが\[Agent\]となっていることを確認し、Agent選択一覧から\[[Debian](https://app.datadoghq.com/account/settings#agent/debian)\] を選択
+3.  \[Select API Key\]を押下し、 \[+Create New\]で新しいAPI-Keyを追加（例: Name: key-自分の名前や愛称等）し、\[Save\]で保存
+4.  新しく作成されたAPI-Keyを選んで\[Use API Key\]を選択
+5.  インストールコマンドのコピー、\[Use our easy one-step install.\]からコマンドラインをコピー （DD_API_KEY=〜）
+6.  ssh xxx.pem bitnami@(パブリクIP)でログイン
+7.  実行中のEC2のターミナルにインスタンスにこのコマンドをペーストし実行
+
+### ［参考］Datadog Agentの起動、停止、再起動の方法
+| 説明  | コマンド |
+| --- | --- |
+| Agent をサービスとして起動 | sudo service datadog-agent start |
+| サービスとして実行中の Agent の停止 | sudo service datadog-agent stop |
+| サービスとして実行中の Agent の再起動 | sudo service datadog-agent restart |
+| Agent サービスのステータス | sudo service datadog-agent status |
+| 実行中の Agent のステータスページ | sudo datadog-agent status |
+| フレアの送信 | sudo datadog-agent flare |
+| コマンドの使用方法の表示 | sudo datadog-agent --help |
+| チェックの実行 | sudo -u dd-agent -- datadog-agent check &lt;CHECK_NAME&gt; |
+
 ### Datadogでのメトリクスおよびホストの確認
 
 1. Datadog画面に戻り左の\[Infrastructure\]→\[Host Map\]を選択
@@ -37,3 +65,40 @@ systemctl start ssh
     1. ホストの詳細ペインの「Apps」ヘッダーの下にそのホストからのメトリクスをレポートするインテグレーションがリストされていることを確認できます。
     この段階では、「agent」、「ntp」、「system」が表示されています
     2. インテグレーションの名前をクリックすると、そのインテグレーションのメトリクスがコンパクトなダッシュボードに表示されます。「system」をクリックし、CPU 使用率、メモリ使用量、ディスクのレイテンシーなどのシステムメトリクスが取得されていることを確認
+
+### Liferayの操作
+#### ログインユーザの確認
+ [AWS Cloud Console](https://console.aws.amazon.com/) にログイン
+-   “Compute -> EC2” を選択
+
+    [![Access your resources](https://docs.bitnami.com/images/img/platforms/aws/compute-ec2.png)](https://docs.bitnami.com/images/img/platforms/aws/compute-ec2.png)
+    
+-   必要に応じて、右上のリージョンセレクターを使用して、インスタンスが起動されたリージョンに切り替えます。
+- 左のナビゲーションバーで、"Instances -> Instances "メニュー項目をクリックします。
+    
+    [![Select your instances](https://docs.bitnami.com/images/img/platforms/aws/aws-instances.png)](https://docs.bitnami.com/images/img/platforms/aws/aws-instances.png)
+    
+-   ダッシュボードで起動したインスタンスを選択します。
+- インスタンス・メニューを使用して、[Monitor & troubleshoot > Get system log]メニュー項目に移動します。
+    
+    [![Server credentials](https://docs.bitnami.com/images/img/platforms/aws/cm-app-credentials-2.png)](https://docs.bitnami.com/images/img/platforms/aws/cm-app-credentials-2.png)
+    
+-   Review the system log until you find the application password. You will also find the default username.
+    
+    [![Server credentials](https://docs.bitnami.com/images/img/platforms/aws/cm-app-credentials-3.png)](https://docs.bitnami.com/images/img/platforms/aws/cm-app-credentials-3.png)
+
+作成したEC2上にSSHでログインし、bitnami ユーザーのホームディレクトリ直下のファイル$HOME/bitnami_credentialsを確認。
+```bash
+# cd ~
+# cat bitnami_credentials
+Welcome to the WordPress packaged by Bitnami
+
+******************************************************************************
+The default username and password is 'user' and 'xxxxxxxxxxxxx'.   ##←メモ
+******************************************************************************
+
+You can also use this password to access the databases and any other component the stack includes.
+
+Please refer to https://docs.bitnami.com/ for more details.
+```
+
