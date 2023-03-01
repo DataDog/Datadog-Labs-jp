@@ -80,16 +80,16 @@ sudo sh ./ctlscript.sh restart tomcat
 
 ## APMの動作確認
 
-###　　Liferayでの操作
+###　Liferayでの操作
 各種テレメトリをDatadogに送信するために、LiferayにアクセスしWikiを作成します。
 
-###　　ServiceMap
+###　ServiceMap
 
 ・Liferayがあることを確認
 
 ・クリックしてOverview
 
-###　　Service Overview
+###　Service Overview
 
 ・Summary
 
