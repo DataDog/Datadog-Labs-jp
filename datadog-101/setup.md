@@ -84,10 +84,11 @@ You can also use this password to access the databases and any other component t
 
 Please refer to https://docs.bitnami.com/ for more details.
 ```
+
 1. Liferayを操作 ChromeなどのWebブラウザで
 http://[EC2のパブリックアドレス]/
 にアクセス
-2.ログイン
+2. ログイン
 ID: user@liferay.com
 PW: 上記でメモした内容
 3. 記事の投稿などの操作
