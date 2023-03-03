@@ -70,27 +70,7 @@ DD_API_KEY=xxxxxxxxxxxxxxxxxxxxxx DD_SITE="datadoghq.com" bash -c "$(curl -L htt
     2. インテグレーションの名前をクリックすると、そのインテグレーションのメトリクスがコンパクトなダッシュボードに表示されます。「system」をクリックし、CPU 使用率、メモリ使用量、ディスクのレイテンシーなどのシステムメトリクスが取得されていることを確認
 
 ### Liferayの操作
-#### ログインユーザの確認
- [AWS Cloud Console](https://console.aws.amazon.com/) にログイン
--   “Compute -> EC2” を選択
-
-    [![Access your resources](https://docs.bitnami.com/images/img/platforms/aws/compute-ec2.png)](https://docs.bitnami.com/images/img/platforms/aws/compute-ec2.png)
-    
--   必要に応じて、右上のリージョンセレクターを使用して、インスタンスが起動されたリージョンに切り替えます。
-- 左のナビゲーションバーで、"Instances -> Instances "メニュー項目をクリックします。
-    
-    [![Select your instances](https://docs.bitnami.com/images/img/platforms/aws/aws-instances.png)](https://docs.bitnami.com/images/img/platforms/aws/aws-instances.png)
-    
--   ダッシュボードで起動したインスタンスを選択します。
-- インスタンス・メニューを使用して、[Monitor & troubleshoot > Get system log]メニュー項目に移動します。
-    
-    [![Server credentials](https://docs.bitnami.com/images/img/platforms/aws/cm-app-credentials-2.png)](https://docs.bitnami.com/images/img/platforms/aws/cm-app-credentials-2.png)
-    
--   Review the system log until you find the application password. You will also find the default username.
-    
-    [![Server credentials](https://docs.bitnami.com/images/img/platforms/aws/cm-app-credentials-3.png)](https://docs.bitnami.com/images/img/platforms/aws/cm-app-credentials-3.png)
-
-作成したEC2上にSSHでログインし、bitnami ユーザーのホームディレクトリ直下のファイル$HOME/bitnami_credentialsを確認。
+1. 作成したEC2上にSSHでログインし、bitnami ユーザーのホームディレクトリ直下のファイル$HOME/bitnami_credentialsを確認。
 ```bash
 # cd ~
 # cat bitnami_credentials
@@ -104,4 +84,14 @@ You can also use this password to access the databases and any other component t
 
 Please refer to https://docs.bitnami.com/ for more details.
 ```
+1. Liferayを操作 ChromeなどのWebブラウザで
+http://[EC2のパブリックアドレス]/
+にアクセス
+2.ログイン
+ID: user@liferay.com
+PW: 上記でメモした内容
+3. 記事の投稿などの操作
+4. Wordpress上に記事の投稿など様々な操作を実行し
+
+5. Datadogでメトリクスなどの状況を確認
 
