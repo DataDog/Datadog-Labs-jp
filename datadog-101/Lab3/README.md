@@ -81,6 +81,7 @@ sudo sh ./ctlscript.sh restart tomcat
 ## APMの動作確認
 
 以下の各機能はこちらのドキュメントを参照しながらご確認ください。
+
 https://docs.datadoghq.com/ja/tracing/glossary/#pagetitle
 
 ### Liferayでの操作
