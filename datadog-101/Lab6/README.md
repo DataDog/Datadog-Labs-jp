@@ -28,9 +28,8 @@
 　　監視したいユーザー操作のためのアプリケーションをクリックすると、アクションが自動的に記録され、左側のブラウザテストシナリオ内で[ステップ](https://docs.datadoghq.com/ja/synthetics/browser_tests/actions/)を作成するために使用されます。 
 
 1. 適当な操作を実施し、コメントなどを残します。  
-    1. **Hello World**をクリック
-    2. **Leave a Reply**で適当にコメントなどを追加し**Post Comment**をクリック
-    3.  左メニュのAssertionをクリックし、**Test an elemeents contents**をクリックし適当な文字列（例：画面内のWelcom to Liferay）をクリックし**Apply**をクリック  
+    1. 10クリックほど行い、アクションを記録します。
+    2.  左メニュのAssertionをクリックし、**Test an elemeents contents**をクリックし適当な文字列（例：画面内のWelcom to Liferay）をクリックし**Apply**をクリック  
     **注**: ブラウザテストによって実行された操作が期待される状態になったことを確認するために、常に**ブラウザテストは、[Assertion](https://docs.datadoghq.com/ja/synthetics/browser_tests/actions/#assertion)で終了する**必要があります。  
 
 
