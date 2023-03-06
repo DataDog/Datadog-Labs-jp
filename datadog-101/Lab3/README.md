@@ -52,7 +52,7 @@ export CATALINA_OPTS="-Dcom.sun.management.jmxremote=true -Dcom.sun.management.j
 
 -javaagent:/opt/bitnami/tomcat/bin/dd-java-agent.jar
 
-上記はトレーサーの起動させる指定です。
+上記はトレーサーの起動設定です。
 
 -Ddd.service=liferay
 
