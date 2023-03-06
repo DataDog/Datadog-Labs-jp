@@ -16,7 +16,7 @@
 1. 「Add widgets」→ GraphのTimeseriesをクリック
 2. 「②Graph your data」で 以下のように編集
     -  avg:  `system.cpu.system`
-    -  from: `host:*`
+    -  from: (削除)
     -  avg by: `host`
  3. 右下の「Save」をクリック
 #### サイトのリクエストヒット数を表示
