@@ -80,17 +80,21 @@ sudo sh ./ctlscript.sh restart tomcat
 
 ## APMの動作確認
 
+以下の各機能はこちらのドキュメントを参照しながらご確認ください。
+https://docs.datadoghq.com/ja/tracing/glossary/#pagetitle
+
 ### Liferayでの操作
 各種テレメトリをDatadogに送信するために、LiferayにアクセスしWikiを作成します。
 
 ### ServiceMap
+左メニューからAPMメニューを展開し、Service Mapを選択します。
 
 ・Liferayがあることを確認
 
-・クリックしてOverview
+・LiferayをクリックしてOverviewを選択
 
 ### Service Overview
-
+以下の各項目をご確認ください。
 ・Summary
 
 ・Resources
