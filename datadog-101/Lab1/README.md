@@ -59,9 +59,12 @@ Please refer to https://docs.bitnami.com/ for more details.
 http://[EC2のパブリックアドレス]/  
 にアクセス
 2. ログイン  
-    ID: user@liferay.com  
-    PW: 上記でメモした内容  
-3. 記事の投稿などの操作
-4. Liferay上に記事の投稿など様々な操作を実行し
-5. Datadogでメトリクスなどの状況を確認
+    Email Address: user@liferay.com  
+    Password: 上記でメモした内容  
+3. 利用規約（Terms of Use）を確認し\[I Agree\]をクリック
+4. Change Passwordで新しいパスワードを入力（2回）
+5. パスワードリカバリを登録（Password Recovery Question and Answer）
+6. 左上のHome横の□をクリックしメニューを表示
+7. \[Content&Data\]のWikiなどの追加を操作
+8. Datadogでメトリクスなどの状況を確認
 
