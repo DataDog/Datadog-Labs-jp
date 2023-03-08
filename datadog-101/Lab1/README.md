@@ -54,14 +54,13 @@ You can also use this password to access the databases and any other component t
 Please refer to https://docs.bitnami.com/ for more details.
 ```
 
-1. Liferayを操作 ChromeなどのWebブラウザで
-http://[EC2のパブリックアドレス]/
+1. Liferayを操作 ChromeなどのWebブラウザで <br>
+http://[EC2のパブリックアドレス]/ <br>
 にアクセス
-2. ログイン
-ID: user@liferay.com
-PW: 上記でメモした内容
+2. ログイン<br>
+    ID: user@liferay.com<br>
+    PW: 上記でメモした内容<br>
 3. 記事の投稿などの操作
-4. Wordpress上に記事の投稿など様々な操作を実行し
-
+4. Liferay上に記事の投稿など様々な操作を実行し
 5. Datadogでメトリクスなどの状況を確認
 
