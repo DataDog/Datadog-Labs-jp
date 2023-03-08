@@ -14,7 +14,7 @@
 ```bash
 DD_API_KEY=xxxxxxxxxxxxxxxxxxxxxx DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh)" 
 ```
-7.  ssh xxx.pem bitnami@(パブリクIP)でログイン
+7.  ssh xxx.pem __bitnami__@(パブリクIP)でログイン
 8.  実行中のEC2のターミナルにインスタンスにこのコマンドをペーストし実行
 
 ### ［参考］Datadog Agentの起動、停止、再起動の方法
