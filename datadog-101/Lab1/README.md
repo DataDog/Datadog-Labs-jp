@@ -56,7 +56,7 @@ Please refer to https://docs.bitnami.com/ for more details.
 ```
 
 1. Liferayを操作 ChromeなどのWebブラウザで  
-http://[EC2のパブリックアドレス]/  
+**http**://[EC2のパブリックアドレス]/  
 にアクセス
 2. ログイン  
     Email Address: user@liferay.com  
