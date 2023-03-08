@@ -14,8 +14,9 @@
 ```bash
 DD_API_KEY=xxxxxxxxxxxxxxxxxxxxxx DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh)" 
 ```
-7.  ssh xxx.pem __bitnami__@(パブリクIP)でログイン
-8.  実行中のEC2のターミナルにインスタンスにこのコマンドをペーストし実行
+7.  ssh xxx.pem __bitnami__@(パブリクIP)  
+    でログイン
+1.  実行中のEC2のターミナルにインスタンスにこのコマンドをペーストし実行
 
 ### ［参考］Datadog Agentの起動、停止、再起動の方法
 | 説明  | コマンド |
@@ -54,12 +55,12 @@ You can also use this password to access the databases and any other component t
 Please refer to https://docs.bitnami.com/ for more details.
 ```
 
-1. Liferayを操作 ChromeなどのWebブラウザで <br>
-http://[EC2のパブリックアドレス]/ <br>
+1. Liferayを操作 ChromeなどのWebブラウザで  
+http://[EC2のパブリックアドレス]/  
 にアクセス
-2. ログイン<br>
-    ID: user@liferay.com<br>
-    PW: 上記でメモした内容<br>
+2. ログイン  
+    ID: user@liferay.com  
+    PW: 上記でメモした内容  
 3. 記事の投稿などの操作
 4. Liferay上に記事の投稿など様々な操作を実行し
 5. Datadogでメトリクスなどの状況を確認
