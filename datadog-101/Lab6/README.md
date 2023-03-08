@@ -39,3 +39,5 @@
 　テストが実行されたら、**Sample Run**や**Test Run**を確認し外形監視内容を確認できます（HTML内のどの処理の部分が遅くなっている等確認できます。）
 
 ![](https://datadog-docs.imgix.net/images/synthetics/browser_test.320b5f953a90aae0576d19eeca2e70dd.gif)
+
+以上でハンズオンは終了です。お疲れさまでした。

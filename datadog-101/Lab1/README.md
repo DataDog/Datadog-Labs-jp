@@ -68,3 +68,5 @@ Please refer to https://docs.bitnami.com/ for more details.
 7. \[Content&Data\]のWikiなどの追加を操作
 8. Datadogでメトリクスなどの状況を確認
 
+以上でLab1は終了です。
+[Lab2](../Lab2)を進めてください。

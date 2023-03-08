@@ -107,3 +107,6 @@ https://docs.datadoghq.com/ja/tracing/glossary/#pagetitle
 
 ・Infrastracture
 
+
+以上でLab3は終了です。
+[Lab4](../Lab4)を進めてください。
