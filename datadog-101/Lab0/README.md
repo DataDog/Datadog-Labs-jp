@@ -31,4 +31,4 @@ systemctl start ssh
 
 
 以上で事前準備は終了です。
-[Lab1](Lab1)を進めてください。
+[Lab1](../Lab1)を進めてください。
