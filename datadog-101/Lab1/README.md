@@ -6,7 +6,7 @@
 
 【Document】 [https://docs.datadoghq.com/ja/agent/basic_agent_usage/deb/?tab=agentv6v7](https://docs.datadoghq.com/ja/agent/basic_agent_usage/deb/?tab=agentv6v7)
 
-1.  Datadogにログインし左の\[Integrations\]→\[Agent\]を選択
+1.  Datadogにログインし左の\[Integrations\]→\[[Agent](https://app.datadoghq.com/account/settings#agent)\]を選択
 2.  画面上部のタブが\[Agent\]となっていることを確認し、Agent選択一覧から\[[Debian](https://app.datadoghq.com/account/settings#agent/debian)\] を選択
 3.  \[Select API Key\]を押下し、 \[+Create New\]で新しいAPI-Keyを追加（例: Name: key-自分の名前や愛称等）し、\[Save\]で保存
 4.  新しく作成されたAPI-Keyを選んで\[Use API Key\]を選択
