@@ -6,17 +6,29 @@
 
 【Document】 [https://docs.datadoghq.com/ja/agent/basic_agent_usage/deb/?tab=agentv6v7](https://docs.datadoghq.com/ja/agent/basic_agent_usage/deb/?tab=agentv6v7)
 
-1.  Datadogにログインし左の\[Integrations\]→\[[Agent](https://app.datadoghq.com/account/settings#agent)\]を選択
-2.  画面上部のタブが\[Agent\]となっていることを確認し、Agent選択一覧から\[[Debian](https://app.datadoghq.com/account/settings#agent/debian)\] を選択
-3.  \[Select API Key\]を押下し、 \[+Create New\]で新しいAPI-Keyを追加（例: Name: key-自分の名前や愛称等）し、\[Save\]で保存
-4.  新しく作成されたAPI-Keyを選んで\[Use API Key\]を選択
-5.  インストールコマンドのコピー、\[Use our easy one-step install.\]からコマンドラインをコピー （DD_API_KEY=〜）
-```bash
+1. Datadogにログインし左の\[Integrations\]→\[[Agent](https://app.datadoghq.com/account/settings#agent)\]を選択
+2. 画面上部のタブが\[Agent\]となっていることを確認し、Agent選択一覧から\[[Debian](https://app.datadoghq.com/account/settings#agent/debian)\] を選択
+3. \[Select API Key\]を押下し、 \[+Create New\]で新しいAPI-Keyを追加（例: Name: key-自分の名前や愛称等）し、\[Save\]で保存
+4. 新しく作成されたAPI-Keyを選んで\[Use API Key\]を選択
+5. インストールコマンドのコピー、\[Use our easy one-step install.\]から以下のようなコマンドラインをコピー
+```
 DD_API_KEY=xxxxxxxxxxxxxxxxxxxxxx DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh)" 
 ```
-7.  ssh xxx.pem __bitnami__@(パブリクIP)  
-    でログイン
-1.  実行中のEC2のターミナルにインスタンスにこのコマンドをペーストし実行
+6. Lab0でSSH接続したターミナルを開き、EC2インスタンスに5でコピーしたコマンドをペーストし実行
+7. 以下のように出力されればエージェントのインストールは完了です。
+```
+* Starting the Datadog Agent...
+
+  Your Datadog Agent is running and functioning properly.
+  It will continue to run in the background and submit metrics to Datadog.
+  If you ever want to stop the Datadog Agent, run:
+
+      sudo systemctl stop datadog-agent
+
+  And to run it again run:
+
+      sudo systemctl start datadog-agent
+```
 
 ### ［参考］Datadog Agentの起動、停止、再起動の方法
 | 説明  | コマンド |
