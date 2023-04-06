@@ -53,7 +53,7 @@ elasticsearch already running
 mariadb already running
 tomcat already running
 ```
-もし、以下のように出力された場合は以下ワークアラウンドを実行します。
+もし、以下のように出力された場合は以降のワークアラウンドを実行します。
 ```
 sudo /opt/bitnami/ctlscript.sh status
 Control file '/etc/gonit/gonitrc' does not exists
