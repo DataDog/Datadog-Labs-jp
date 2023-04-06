@@ -3,7 +3,6 @@
 # サーバ環境の作成
 
 ## Amazon EC2 liferayを起動
-
 - [こちら](https://bitnami.com/stack/liferay/cloud/aws/amis)で最新のLiferay AMIを確認し、起動したいリージョンのAMIをクリック
 - 「名前」は自由にインスタンス名を入力
 - 「インスタンスタイプ」は**T2 large**を選択
@@ -21,7 +20,7 @@ systemctl start ssh
 
 - 「インスタンスを起動」をクリック
 
-## Amazon EC2 liferayの確認
+## liferayサービスの確認
 作成されたインスタンスへSSH接続します。x.x.x.xにはインスタンスへ割り当てられたパブリックIP、x.x.x.x.pemには作成時割り当てたキーファイルを入力してください。
 **SSHユーザ名はEC2画面上に表示される"admin"ではなく、"bitnami"であることに注意してください。**
 ```
