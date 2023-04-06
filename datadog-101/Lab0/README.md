@@ -4,11 +4,13 @@
 
 ## Amazon EC2 liferay を起動
 
-- **東京リージョン**のコミュニティAMIにて「**liferay**」を検索し、「****bitnami-liferay-7.4.3-xxxx-linux-debian-11-x86_64-hvm-ebs-nami****」を選択（マイナーバージョンは不問）
-- インスタンスタイプは**T2 large** or **T3 large**以上を選択
-- **パブリック IPを有効にしてください**
-- セキュリティグループは、SSH（22）とHTTP(80)、HTTPS(443)を許可
-- 「**高度な詳細**」で「**ユーザーデータ *- optional***」に下記を追加
+- [こちら](https://bitnami.com/stack/liferay/cloud/aws/amis)で最新のLiferay AMIを確認し、起動したいリージョンのAMIをクリック
+- 「名前」は自由にインスタンス名を入力
+- 「インスタンスタイプ」は**T2 large**を選択
+- 「キーペア」は自由に入力
+- 「パブリック IP の自動割り当て」を有効化
+- 「セキュリティグループ」は、SSH（22）とHTTP(80)、HTTPS(443)のインバウンド通信を許可
+- 「高度な詳細」で「ユーザーデータ - optional」に下記を追加
 
 ```bash
 #!/bin/bash
@@ -16,6 +18,10 @@ rm -f /etc/ssh/sshd_not_to_be_run
 systemctl enable ssh
 systemctl start ssh
 ```
+
+- 「インスタンスを起動」をクリック
+
+
 
 ### ［参考］EC2上のサービスの起動、停止、再起動の方法
 
