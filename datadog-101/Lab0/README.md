@@ -22,6 +22,11 @@ systemctl start ssh
 - 「インスタンスを起動」をクリック
 
 ## Amazon EC2 liferayの確認
+作成されたインスタンスへSSH接続します。x.x.x.xにはインスタンスへ割り当てられたパブリックIP、x.x.x.x.pemには作成時割り当てたキーファイルを入力してください。
+**SSHユーザ名はEC2画面上に表示される"admin"ではなく、"bitnami"であることに注意してください。**
+```
+ssh -l bitnami x.x.x.x -i xxxx.pem
+```
 以下のコマンドを実行し、liferayを構成する各サービスが起動していることを確認します
 ```
 sudo /opt/bitnami/ctlscript.sh status
