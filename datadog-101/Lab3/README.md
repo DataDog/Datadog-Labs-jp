@@ -1,7 +1,7 @@
 # APMの設定
 
 このセクションではAPMを有効化し、アプリケーションのトレースを取得します。
-APMの概要、公式マニュアルは以下をご参照ください。
+APMの概要、公式ドキュメントは以下をご参照ください。
 ドキュメント：[APM](https://docs.datadoghq.com/ja/tracing/#pagetitle)
 
 APMの有効化は以下の流れで実施します。
@@ -12,7 +12,7 @@ APMの有効化は以下の流れで実施します。
 
 3.アプリケーションの再起動
 
-4.APMの動作確認
+4.Datadog UI上でAPMの動作確認
 
 ## トレーサーのダウンロード
 
@@ -22,7 +22,7 @@ APMの有効化は以下の流れで実施します。
 ```
 cd /opt/bitnami/tomcat/bin
 ```
-※今回は上記に配置しますが置き場所に指定はありません。お客様システムの設計に合わせた場所に置いてください。
+> ※今回は上記に配置しますが置き場所に指定はありません。システムごとの設計に合わせた場所に置いてください。
 
 トレーサーをダウンロードします。
 ```
@@ -32,10 +32,10 @@ sudo wget -O dd-java-agent.jar https://dtdg.co/latest-java-tracer
 ## トレーサーの起動設定
 ドキュメント：[トレーサーの起動設定](https://docs.datadoghq.com/ja/tracing/trace_collection/dd_libraries/java/?tab=%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%AE%E7%92%B0%E5%A2%83#java-%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B5%E3%83%BC%E3%82%92-jvm-%E3%81%AB%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B)
 
-利用するフレームワークに応じてマニュアルのタブを切り替えてご確認ください。
-今回はTomcatを利用したアプリケーションのため、上記マニュアルを参照します。
+利用するフレームワークに応じてマニュアルのタブを切り替えて確認してください。
+今回はTomcatを利用したアプリケーションを利用します。
 
-前セクションで移動した/opt/bitnami/tomcat/binで以下のコマンドを実行してファイルを編集します。
+前セクションで移動した`/opt/bitnami/tomcat/bin`で以下のコマンドを実行してファイルを編集します。
 ```
 sudo vi setenv.sh
 ```
@@ -50,17 +50,11 @@ export CATALINA_OPTS="-Dcom.sun.management.jmxremote=true -Dcom.sun.management.j
 -javaagent:/opt/bitnami/tomcat/bin/dd-java-agent.jar -Ddd.service=liferay -Ddd.env=dev
 ```
 
--javaagent:/opt/bitnami/tomcat/bin/dd-java-agent.jar
-
-上記はトレーサーの起動設定です。
-
--Ddd.service=liferay
-
-上記はDatadog上で表示されるサービス名を定義しています。
-
--Ddd.env=dev
-
-上記はenvタグをつけて環境を絞り込みやすくするものです。
+| オプション | 意味 |
+| ----|----|
+| -javaagent:/opt/bitnami/tomcat/bin/dd-java-agent.jar| トレーサーの起動設定 |
+| -Ddd.service=liferay | Datadogのserviceタグを定義 |
+| -Ddd.env=dev | Datadogのenvタグを定義 |
 
 
 

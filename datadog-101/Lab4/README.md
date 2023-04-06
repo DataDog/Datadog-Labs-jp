@@ -1,47 +1,42 @@
-
 # アラート設定
-【Document】https://docs.datadoghq.com/ja/monitors/
+
+取得したメトリクスをもとにアラートを設定します。Datadogではアラート設定のことを「モニター（Monitor）」と呼びます。
+
+ドキュメント：[モニター](https://docs.datadoghq.com/ja/monitors/)
+
+
 ## CPU使用率によるモニターの設定
-1. Datadog アカウントにログインし、[Monitor]→ [New Monitor] ページに移動
-2. [Metric] を選択して、新しい Metric モニターを作成
-	1.  [Choose the detection method] セクションを設定
- 		1. [Threshold Alert] （しきい値アラート）を選択します。
-		2. [Define the metric] で [system.cpu.user] （CPUがUserのプロセスを実行するのに費やした時間の割合）を選択し、fromで設定したインスタンス（host:i-00xxxxxxxxxxx）を選択。
-  		3.  「simple Alert」を設定。
+今回は「CPU使用率」というメトリクスを使ってモニターを作成します。
 
-	2. [Set alert conditions]セクションを設定
+[Monitors]→ [New Monitor]→ [Metric] ページに移動します。
 
-  		1分間の平均のCPU使用率が70%を超えた場合はWarningを、80%を超えた場合はAlertを設定。	
-		- Trigger when the metric is [ above(より上) ]  the threshold [on average(平均)]  during the last  [1 minute]
-		- Alert Threshold > 80
-		- Warning Threshold > 70
+以下のように設定します。
 
-  	3. [Say what's happening ]セクションでモニター名、メッセージを設定
+| 設定場所 | 値 |
+| ----|----|
+| Choose the detection method | Threshold Alert（しきい値アラート）|
+| Define the metric | `system.cpu.user` （CPUがUserのプロセスを実行するのに費やした時間の割合）<br> fromには 自身のインスタンスを選択（host:i-00xxxxxxxxxxx） <br> - Evaluate the `average` of the query over the `custom rolling window` of `1` `minutes` （1分間の平均のCPU使用率を計測）|
+| Set alert conditions | 70%を超えた場合はWarningを、80%を超えた場合はAlertとなるよう設定 <br> - Trigger when the evaluated value is `above` the threshold <br> - Alert threshold: > 80 <br> - Warning Threshold > 70 |
+| Say what's happening | 発砲時のメッセージを設定 <br> - モニター名：`CPU使用率アラート： {{host.name}}` <br> - メッセージ： ```IP {{host.ip}} :  {{host.name}} が高負荷になっています。 CPU使用率:{{value}} ``` |
+| Notify your team | 通知先として自分のメールアドレスを設定 <br> 例： `@hoge@example.com`（メールアドレスの前に`@`をつける）|
 
-         - モニター名：`CPU使用率アラート： {{host.name}}`
-         - メッセージ： 
-				```IP {{host.ip}} :  {{host.name}} が高負荷になっています。 
- 					CPU使用率:{{value}} ```
 
-	4.  [Notify your team ]セクションで通知先を設定
-
-		@ [自分のメールアドレス]を設定 
- 		`  例) @hoge@hoge.com  `
-
-  	5. ページの一番下までスクロールし、[Save]をクリックします。
+ページの下部の[Create]をクリックして保存します。
 
 ## サーバに負荷をかける
- EC2にstressツールのインストール
-```
-$ sudo apt-get install stress
-```
-stressコマンドで、サーバのCPU（ユーザー）に負荷をかける
-```
-$ stress -c 1
-```
-設定したメールアドレスにアラートメールが来ていることを確認
+OSSのstressツールを使用してアプリケーションに負荷をかけます。
 
-Stressツールを止める（Ctrl+c)
+EC2にstressツールのインストールします。
+```
+sudo apt-get install stress
+```
+stressコマンドで、サーバのCPU（ユーザー）に負荷をかけます。
+```
+stress -c 2
+```
+設定したメールアドレスにアラートメールが来ていることを確認します。
+
+メールが確認できたらStressツールを止めます（Ctrl+c)。
 
 
 以上でLab4は終了です。
