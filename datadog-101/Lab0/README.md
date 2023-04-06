@@ -21,7 +21,7 @@ systemctl start ssh
 - 「インスタンスを起動」をクリック
 
 ## liferayサービスの確認
-作成されたインスタンスへSSH接続します。x.x.x.xにはインスタンスへ割り当てられたパブリックIP、x.x.x.x.pemには作成時割り当てたキーファイルを入力してください。
+お好きなSSHターミナルを開き作成されたインスタンスへSSH接続します。x.x.x.xにはインスタンスへ割り当てられたパブリックIP、x.x.x.x.pemには作成時割り当てたキーファイルを入力してください。
 **SSHユーザ名はEC2画面上に表示される"admin"ではなく、"bitnami"であることに注意してください。**
 ```
 ssh -l bitnami x.x.x.x -i xxxx.pem
@@ -30,7 +30,7 @@ ssh -l bitnami x.x.x.x -i xxxx.pem
 ```
 sudo /opt/bitnami/ctlscript.sh status
 ```
-以下のように出力されれば正常にサービスが起動しています。[Lab1](../Lab1)を進めてください。そうでなければ以下ステップを実行してください。
+以下のように出力されれば正常にサービスが起動しています。SSHターミナルを開いたままで残し[Lab1](../Lab1)を進めてください。そうでなければ以下ステップを実行してください。
 ```
 sudo /opt/bitnami/ctlscript.sh status
 apache already running
@@ -58,7 +58,7 @@ sudo chmod 700 /etc/gonit/gonitrc
 ```
 sudo /opt/bitnami/ctlscript.sh status
 ```
-初回実行時は以下出力ですが、しばらく時間をおいて再実行し、各サービスが起動していることを確認します。[Lab1](../Lab1)を進めてください。
+初回実行時は以下出力ですが、しばらく時間をおいて再実行し、各サービスが起動していることを確認します。SSHターミナルを開いたままで残し[Lab1](../Lab1)を進めてください。
 ```
 sudo /opt/bitnami/ctlscript.sh status
 Cannot find any running daemon to contact. If it is running, make sure you are pointing to the right pid file (/var/run/gonit.pid)
