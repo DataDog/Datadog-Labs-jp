@@ -43,19 +43,21 @@ DD_API_KEY=xxxxxxxxxxxxxxxxxxxxxx DD_SITE="datadoghq.com" bash -c "$(curl -L htt
 | チェックの実行 | sudo -u dd-agent -- datadog-agent check &lt;CHECK_NAME&gt; |
 
 ### Datadogでのメトリクスおよびホストの確認
-
+**エージェントインストールしたホストの情報反映には時間が掛かります**
 1. Datadog画面に戻り左の\[Infrastructure\]→\[Host Map\]を選択
     - ホストマップが表示されることを確認してください。何も表示されない場合は、時間をおいてリロードをしてください
 2. 表示されたホスト（六角形の）をクリック、クリックするとホストの詳細ペインが表示されます
     1. ホストの詳細ペインの「Apps」ヘッダーの下にそのホストからのメトリクスをレポートするインテグレーションがリストされていることを確認できます。
-    この段階では、「agent」、「ntp」、「system」が表示されています
-    2. インテグレーションの名前をクリックすると、そのインテグレーションのメトリクスがコンパクトなダッシュボードに表示されます。「system」をクリックし、CPU 使用率、メモリ使用量、ディスクのレイテンシーなどのシステムメトリクスが取得されていることを確認
+    この段階では、「agent」、「ntp」、「system」が表示されています。
+    2. インテグレーションの名前をクリックすると、そのインテグレーションのメトリクスがコンパクトなダッシュボードに表示されます。「system」をクリックし、CPU 使用率、メモリ使用量、ディスクのレイテンシーなどのシステムメトリクスが取得されていることを確認します。
 
 ### Liferayの操作
-1. 作成したEC2上にSSHでログインし、bitnami ユーザーのホームディレクトリ直下のファイル$HOME/bitnami_credentialsを確認。
-```bash
-# cd ~
-# cat bitnami_credentials
+1. SSHターミナル上で以下コマンドを実行します。
+```
+cat ~/bitnami_credentials
+```
+以下のような出力が現れるので、中央部に表示されるパスワードをメモします。
+```
 Welcome to the Liferay packaged by Bitnami
 
 ******************************************************************************
@@ -67,13 +69,13 @@ You can also use this password to access the databases and any other component t
 Please refer to https://docs.bitnami.com/ for more details.
 ```
 
-1. Liferayを操作 ChromeなどのWebブラウザで  
-**http**://[EC2のパブリックアドレス]/  
-にアクセス
-2. ログイン  
-    Email Address: user@liferay.com  
-    Password: 上記でメモした内容  
-3. 利用規約（Terms of Use）を確認し\[I Agree\]をクリック
+2. ChromeなどのWebブラウザを開き**http://x.x.x.x/**　にアクセスします。x.x.x.xにはEC2インスタンスのパブリックIPを入力、またhttpsではなく、httpで接続します。
+3. 画面右上の"Sign in"をクリックし、 以下のように入力して"Sign in"ボタンをクリックします。
+```
+Email Address: user@liferay.com  
+Password: 上記でメモした内容  
+```
+3. 利用規約（Terms of Use）を確認し\[I Agree\]をクリックします。
 4. Change Passwordで新しいパスワードを入力（2回）
 5. パスワードリカバリを登録（Password Recovery Question and Answer）
 6. 左上のHome横の□をクリックしメニューを表示
