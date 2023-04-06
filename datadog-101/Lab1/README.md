@@ -74,7 +74,7 @@ You can also use this password to access the databases and any other component t
 Please refer to https://docs.bitnami.com/ for more details.
 ```
 
-2. ChromeなどのWebブラウザを開き**http://x.x.x.x/**　にアクセスします。x.x.x.xにはEC2インスタンスのパブリックIPを入力、またhttpsではなく、httpで接続します。
+2. ChromeなどのWebブラウザを開き http://x.x.x.x にアクセスします。x.x.x.xにはEC2インスタンスのパブリックIPを入力、またhttpsではなく、httpで接続します。
 3. 画面右上の"Sign in"をクリックし、 以下のように入力して"Sign in"ボタンをクリックします。
 ```
 Email Address: user@liferay.com  
