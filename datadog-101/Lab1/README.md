@@ -1,8 +1,8 @@
 # Lab1 - Datadogの導入
 
-## インフラの有効化
+まずはDatadogエージェントをEC2インスタンスへインストールし、Datadogで収集された各種インフラメトリクスのデータを確認します。
 
-### Datadog Agentの導入
+## Datadog Agentの導入
 
 【Document】 [https://docs.datadoghq.com/ja/agent/basic_agent_usage/deb/?tab=agentv6v7](https://docs.datadoghq.com/ja/agent/basic_agent_usage/deb/?tab=agentv6v7)
 
