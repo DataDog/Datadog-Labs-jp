@@ -33,25 +33,25 @@ tomcat already running
 Tomcatインテグレーションは、エージェントベースのインテグレーションです。このインテグレーションを有効にするためには、`/etc/datadog-agent/conf.d`配下で設定を有効にする必要があります。
 
 `tomcat.d/conf.yaml`ファイルを作成します。
-
 ```
 sudo cp /etc/datadog-agent/conf.d/tomcat.d/conf.yaml.example /etc/datadog-agent/conf.d/tomcat.d/conf.yaml
 ```
-
 `conf.yaml`ファイルを修正します。
-
 ```
 sudo vi /etc/datadog-agent/conf.d/tomcat.d/conf.yaml
 ```
-
-`java_bin_path` を有効化し、以下のようにPATHを追加します。
-
+`java_bin_path`を有効化し、以下のようにPATHを追加します。
 ```
   java_bin_path: /opt/bitnami/java/bin/java
 ```
-
+`java_bin_path`セクションは以下のようになります。
+```
+    ## @param java_bin_path - string - optional
+    ## `java_bin_path` should be set if the Agent cannot find your java executable.
+    #
+    java_bin_path: /opt/bitnami/java/bin/java
+```
 Datadog agentを再起動します。
-
 ```
 sudo service datadog-agent restart
 ```
