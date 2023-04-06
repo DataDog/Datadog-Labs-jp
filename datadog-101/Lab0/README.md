@@ -58,6 +58,7 @@ sudo /opt/bitnami/ctlscript.sh status
 ```
 sudo /opt/bitnami/ctlscript.sh status
 Cannot find any running daemon to contact. If it is running, make sure you are pointing to the right pid file (/var/run/gonit.pid)
+
 sudo /opt/bitnami/ctlscript.sh status
 apache already running
 elasticsearch already running
