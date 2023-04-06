@@ -26,6 +26,21 @@ systemctl start ssh
 ```
 ssh -l bitnami x.x.x.x -i xxxx.pem
 ```
+PEMファイルの権限設定でエラーが出た場合はchmodコマンドを実行し、権限を正しく設定します。
+```
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0644 for 'xxxx.pem' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "xxxx.pem": bad permissions
+Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+```
+```
+chmod 400 xxxx.pem
+```
+
 以下のコマンドを実行し、liferayを構成する各サービスが起動していることを確認します
 ```
 sudo /opt/bitnami/ctlscript.sh status
