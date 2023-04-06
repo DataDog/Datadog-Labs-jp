@@ -8,22 +8,24 @@ Datadogでは、Integrationと呼ばれる仕組みを使って様々なテク�
 
 ## JMXリモートの有効化
 Tomcatのメトリクスを収集するには、Tomcat サーバーで JMX リモートを有効にする必要があります。
-
-
 ```
 sudo vi /opt/bitnami/tomcat/bin/setenv.sh
 ```
-
 `setenv.sh`の末尾に以下を追加します。
-
 ```
 export CATALINA_OPTS="-Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.port=9012 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.host=127.0.0.1"
 ```
-
 Tomcatを再起動します。
-
 ```
 sudo /opt/bitnami/ctlscript.sh restart tomcat
+```
+Tomcatが起動していることを確認します。
+```
+sudo /opt/bitnami/ctlscript.sh status
+apache already running
+elasticsearch already running
+mariadb already running
+tomcat already running
 ```
 
 ## Datadog Agentの設定
