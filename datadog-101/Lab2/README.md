@@ -85,12 +85,12 @@ JMXFetch
 
 
 ## Datadog上でメトリクスを確認
+**Tomcatメトリクスの情報反映には時間が掛かります**
 
-1. Infrastructure Listで自分のHostを選択
-2. Hostをクリック
-3. Appsに`tomcat`と表示されていることを確認し、クリック → View metricsを選択
+1. Datadog画面に戻り左の\[Infrastructure\]→\[Infrastructure List\]を選択
+2. 自分のホストをクリック
+3. Appsセクションに`tomcat`と表示されていることを確認し、クリック → View metricsを選択
 4. グラフが表示され、メトリクスがプロットされていることを確認
-
 
 以上でLab2は終了です。
 [Lab3](../Lab3)を進めてください。
