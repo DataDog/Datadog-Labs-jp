@@ -3,7 +3,7 @@
 ## 新規ダッシュボードの作成
 
 1.  左側のメニューから「Dashboards」→「New Dashboard」をクリック
-2.  Dashboard Nameを入力（未入力でも構いません）し、「New Dashboard」をクリック
+2.  Dashboard Nameをイニシャル-Dashboard（例 KS-Dashboard）と入力し、「New Dashboard」をクリック
 
 ### ウィジェットの追加
 #### 自ホストのCPUメトリクスを表示
