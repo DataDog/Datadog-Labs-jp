@@ -2,6 +2,8 @@
 
 Datadogを使ったモニタリングの方法を学習します。
 
+https://dtdg.co/handson-jp
+
 ## ハンズオンの構成
 
 | |  |
