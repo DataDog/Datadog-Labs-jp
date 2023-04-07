@@ -22,7 +22,7 @@
 #### サイトのリクエストヒット数を表示
 1.  「Add widgets」→「Query Value」をクリック
 2.  「②Graph your data」で 以下のように編集
-    -   avg: `trace.http.request.hits`
+    -   avg: `trace.servlet.request.hits`
     -   from: `host:i-xxxxxxx（自分のインスタンス名）`
 3.  右下の「Save」をクリック
 
