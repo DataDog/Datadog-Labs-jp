@@ -28,8 +28,8 @@
 
 ### プリセットダッシュボードからのウィジェットコピー
 
-1.  「Tomcat - Overview」 ダッシュボードを開き、の右上にある「Request rate per host」グラフを確認
-2.  グラフ右上の「4h」の左にあるExportアイコンをクリック
+1.  「Tomcat - Overview」 ダッシュボードを開き、「Utilization」のセクションにある「Request rate per host」グラフを確認
+2.  グラフにマウスをホバーした際に現れるExportアイコンをクリック
 3.  「Copy」をクリック
 4.  自分が新規に作成したダッシュボード画面に戻り、貼り付け（Ctr + V or ⌘ + V）
 5.  「Request rate per host」グラフが貼り付けられたことを確認
