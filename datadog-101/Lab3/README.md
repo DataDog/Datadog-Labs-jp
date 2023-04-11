@@ -52,7 +52,7 @@ export CATALINA_OPTS="-Dcom.sun.management.jmxremote=true -Dcom.sun.management.j
 | ----|----|
 | -javaagent:/opt/bitnami/tomcat/bin/dd-java-agent.jar| トレーサーの起動設定 |
 | -Ddd.service=liferay | Datadogのserviceタグを定義 |
-| -Ddd.env=dev | Datadogのenvタグを定義 |
+| -Ddd.env=（ご自分のイニシャルや愛称） | Datadogのenvタグを定義 |
 
 追記後は以下のような記述になります。
 ```
