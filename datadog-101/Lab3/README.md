@@ -71,7 +71,18 @@ cd /opt/bitnami
 ```
 sudo sh ./ctlscript.sh restart tomcat
 ```
-
+Tomcatの起動状態を確認します。
+```
+sudo sh ./ctlscript.sh status
+```
+正常起動していることを確認します。
+```
+sudo sh ./ctlscript.sh status
+apache already running
+elasticsearch already running
+mariadb already running
+tomcat already running
+```
 ## APMの動作確認
 
 以下の各機能はこちらのドキュメントを参照しながらご確認ください。
