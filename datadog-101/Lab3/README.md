@@ -39,15 +39,13 @@ sudo wget -O dd-java-agent.jar https://dtdg.co/latest-java-tracer
 ```
 sudo vi setenv.sh
 ```
-
 Tomcatインテグレーションの手順で追加した以下の項目が末尾にあることを確認してください。
 ```
 export CATALINA_OPTS="-Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.port=9012 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.host=127.0.0.1"
 ```
-
-この項目の末尾に以下の文字列を追記します。
+この項目の末尾に以下の文字列を追記します。**Ddd.envの情報で各ご参加者様の環境を論理的に分割致します。（ご自分のイニシャルや愛称）には他のご参加者様と重複しない文字列を入力して下さい。**
 ```
--javaagent:/opt/bitnami/tomcat/bin/dd-java-agent.jar -Ddd.service=liferay -Ddd.env=dev
+-javaagent:/opt/bitnami/tomcat/bin/dd-java-agent.jar -Ddd.service=liferay -Ddd.env=（ご自分のイニシャルや愛称）
 ```
 
 | オプション | 意味 |
@@ -56,11 +54,9 @@ export CATALINA_OPTS="-Dcom.sun.management.jmxremote=true -Dcom.sun.management.j
 | -Ddd.service=liferay | Datadogのserviceタグを定義 |
 | -Ddd.env=dev | Datadogのenvタグを定義 |
 
-
-
 追記後は以下のような記述になります。
 ```
-export CATALINA_OPTS="-Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.port=9012 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.host=127.0.0.1 -javaagent:/opt/bitnami/tomcat/bin/dd-java-agent.jar -Ddd.profiling.enabled=true -Ddd.service=liferay -Ddd.env=dev"
+export CATALINA_OPTS="-Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.port=9012 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.host=127.0.0.1 -javaagent:/opt/bitnami/tomcat/bin/dd-java-agent.jar -Ddd.profiling.enabled=true -Ddd.service=liferay -Ddd.env=su"
 ```
 
 ## Tomcatの再起動
@@ -118,7 +114,11 @@ APM Agent
 https://docs.datadoghq.com/ja/tracing/glossary/#pagetitle
 
 Datadogコンソールの左メニューからAPMメニューを展開し、Service Mapを選択します。
-- Liferayがあることを確認
+画面中央部のenv選択のドロップダウンメニューより、設定したenv:（ご自分のイニシャルや愛称）を選択します。
+
+
+
+- Liferayとその依存サービスが見えていることを確認
 - LiferayをクリックしてOverviewを選択
 
 ### Service Overview
