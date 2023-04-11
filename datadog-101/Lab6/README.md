@@ -1,4 +1,4 @@
-# Synthetics外形監視 (Option) 
+# Synthetics外形監視 
 
 【Document】https://docs.datadoghq.com/ja/synthetics/browser_tests/
 
