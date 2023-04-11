@@ -85,10 +85,31 @@ tomcat already running
 ```
 ## APMの動作確認
 
-以下の各機能はこちらのドキュメントを参照しながらご確認ください。
+### Agentの状態確認
+DatadogエージェントでAPMデータが収集されていることを確認します。
+```
+sudo datadog-agent status
+```
+APM Agentのセクションが以下のようになっていれば収集が成功しています。
+```
+=========
+APM Agent
+=========
+  Status: Running
+  Pid: 7907
+  Uptime: 445103 seconds
+  Mem alloc: 13,787,976 bytes
+  Hostname: i-0833dcd1bfe204735
+  Receiver: localhost:8126
+  Endpoints:
+    https://trace.agent.datadoghq.com
 
-https://docs.datadoghq.com/ja/tracing/glossary/#pagetitle
-
+  Receiver (previous minute)
+  ==========================
+    From java 11.0.18 (OpenJDK 64-Bit Server VM), client 1.11.2~4e957fc01e
+      Traces received: 216 (113,967 bytes)
+      Spans received: 221
+```
 ### Liferayでの操作
 各種テレメトリをDatadogに送信するために、LiferayにアクセスしWikiを作成します。
 
@@ -100,6 +121,10 @@ https://docs.datadoghq.com/ja/tracing/glossary/#pagetitle
 ・LiferayをクリックしてOverviewを選択
 
 ### Service Overview
+以下の各機能はこちらのドキュメントを参照しながらご確認ください。
+
+https://docs.datadoghq.com/ja/tracing/glossary/#pagetitle
+
 以下の各項目をご確認ください。
 
 ・Summary
