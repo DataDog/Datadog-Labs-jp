@@ -116,7 +116,7 @@ https://docs.datadoghq.com/ja/tracing/glossary/#pagetitle
 Datadogコンソールの左メニューからAPMメニューを展開し、Service Mapを選択します。
 画面中央部のenv選択のドロップダウンメニューより、設定したenv:（ご自分のイニシャルや愛称）を選択します。
 
-
+![env](https://github.com/DataDog/Datadog-Labs-jp/blob/main/datadog-101/images/env.png)
 
 - Liferayとその依存サービスが見えていることを確認
 - LiferayをクリックしてOverviewを選択
