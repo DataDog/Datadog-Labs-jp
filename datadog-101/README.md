@@ -10,7 +10,7 @@ https://dtdg.co/handson-jp
 | :---: | :---: |
 | [Lab0](Lab0) | 事前準備 |
 | [Lab1](Lab1) | エージェントのインストール |
-| [Lab2](Lab2) | Tomcatインテグレーション |
+| [Lab2](Lab2) | Tomcatインテグレーション/ログの設定|
 | [Lab3](Lab3) | APMの設定 |
 | [Lab4](Lab4) | Monitorの設定 |
 | [Lab5](Lab5) | Dashboardの作成 |
