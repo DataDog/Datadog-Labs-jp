@@ -4,16 +4,6 @@
 APMの概要、公式ドキュメントは以下をご参照ください。
 ドキュメント：[APM](https://docs.datadoghq.com/ja/tracing/#pagetitle)
 
-APMの有効化は以下の流れで実施します。
-
-1.トレーサーのダウンロード
-
-2.トレーサーの起動設定
-
-3.アプリケーションの再起動
-
-4.Datadog UI上でAPMの動作確認
-
 ## トレーサーのダウンロード
 
 ドキュメント：[トレーサーのダウンロード](https://docs.datadoghq.com/ja/tracing/trace_collection/dd_libraries/java/?tab=%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%AE%E7%92%B0%E5%A2%83#%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%84%E3%83%AB%E3%83%A1%E3%83%B3%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3)
@@ -43,7 +33,7 @@ Tomcatインテグレーションの手順で追加した以下の項目が末�
 ```
 export CATALINA_OPTS="-Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.port=9012 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.host=127.0.0.1"
 ```
-この項目の末尾に以下の文字列を追記します。**Ddd.envの情報で各ご参加者様の環境を論理的に分割致します。（ご自分のイニシャルや愛称）には他のご参加者様と重複しない文字列を入力して下さい。**
+以下のオプションを追記します。**Ddd.envの情報で各ご参加者様の環境を論理的に分割致します。（ご自分のイニシャルや愛称）には他のご参加者様と重複しない文字列を入力して下さい。**
 ```
 -javaagent:/opt/bitnami/tomcat/bin/dd-java-agent.jar -Ddd.service=liferay -Ddd.env=（ご自分のイニシャルや愛称）
 ```
@@ -55,8 +45,9 @@ export CATALINA_OPTS="-Dcom.sun.management.jmxremote=true -Dcom.sun.management.j
 | -Ddd.env=（ご自分のイニシャルや愛称） | Datadogのenvタグを定義 |
 
 追記後は以下のような記述になります。
+> `”`（ダブルクォーテーション）の位置に注意してください。
 ```
-export CATALINA_OPTS="-Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.port=9012 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.host=127.0.0.1 -javaagent:/opt/bitnami/tomcat/bin/dd-java-agent.jar -Ddd.profiling.enabled=true -Ddd.service=liferay -Ddd.env=su"
+export CATALINA_OPTS="-Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.port=9012 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.host=127.0.0.1 -javaagent:/opt/bitnami/tomcat/bin/dd-java-agent.jar -Ddd.profiling.enabled=true -Ddd.service=liferay -Ddd.env=my-name"
 ```
 
 ## Tomcatの再起動
@@ -109,9 +100,10 @@ APM Agent
 ### Liferayでの操作
 各種テレメトリをDatadogに送信するために、LiferayにアクセスしWikiを作成します。
 
+
+## Datadog UIでの確認
+
 ### ServiceMap
-以下の各機能はこちらのドキュメントを参照しながらご確認ください。
-https://docs.datadoghq.com/ja/tracing/glossary/#pagetitle
 
 Datadogコンソールの左メニューからAPMメニューを展開し、Service Mapを選択します。
 画面中央部のenv選択のドロップダウンメニューより、設定したenv:（ご自分のイニシャルや愛称）を選択します。
@@ -122,12 +114,12 @@ Datadogコンソールの左メニューからAPMメニューを展開し、Serv
 - LiferayをクリックしてOverviewを選択
 
 ### Service Overview
-以下の各項目をご確認ください。
-- Summary
-- Resources
-- Deployment
-- Error Tracking
-- Infrastracture
+リクエスト数やレイテンシーが表示されています。
+
+### Traces
+上記のメニュから`Traces`を選択します。
+
+トレースの一覧が表示されますので、どれか1つをクリックして中身を確認してください。
 
 以上でLab3は終了です。
 [Lab4](../Lab4)を進めてください。

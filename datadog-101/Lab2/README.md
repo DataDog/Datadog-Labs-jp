@@ -11,6 +11,9 @@ Tomcatのメトリクスを収集するには、Tomcat サーバーで JMX リ�
 ```
 sudo vi /opt/bitnami/tomcat/bin/setenv.sh
 ```
+
+> 本ハンズオンではエディタに`vi`を使用した手順を記載していますが、`nano`などのお好きなエディタを使っても問題ありません。
+
 `setenv.sh`の末尾に以下を追加します。
 ```
 export CATALINA_OPTS="-Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.port=9012 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.host=127.0.0.1"
@@ -22,6 +25,9 @@ sudo /opt/bitnami/ctlscript.sh restart tomcat
 Tomcatが起動していることを確認します。
 ```
 sudo /opt/bitnami/ctlscript.sh status
+```
+以下のように表示されればOKです。
+```
 apache already running
 elasticsearch already running
 mariadb already running
@@ -85,7 +91,7 @@ JMXFetch
 
 
 ## Datadog上でメトリクスを確認
-**Tomcatメトリクスの情報反映には時間が掛かります**
+> **Tomcatメトリクスの情報反映には時間が掛かります**
 
 1. Datadog画面に戻り左の\[Infrastructure\]→\[Infrastructure List\]を選択
 2. 自分のホストをクリック
