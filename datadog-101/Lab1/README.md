@@ -12,7 +12,7 @@ DatadogエージェントをEC2インスタンスへインストールし、Data
 4. 新しく作成されたAPI-Keyを選んで\[Use API Key\]を選択
 5. インストールコマンドのコピー、\[Use our easy one-step install.\]からインストール用コマンドラインをコピー
 
-![agent_install](images/agent_install.jpg)
+![agent_install](./../images/agent_install.jpg)
 
 6. Lab0でSSH接続したターミナルを開き、EC2インスタンスに5でコピーしたコマンドをペーストし実行
 7. 以下のように出力されればエージェントのインストールは完了です。
