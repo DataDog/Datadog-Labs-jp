@@ -48,11 +48,11 @@ instances:
 
 ## SQLログ収集設定
 SQLのログを収集できるように設定を行います。
-1. Datadog Agent　ManagerのSettingsを開き、以下項目のコメントアウトをはずし以下のように設定します。
+1. Datadog Agent　ManagerのSettingsを開き、以下項目のコメントアウトをはずし以下のように設定する。
 ```
 logs_enabled: true
 ```
-2. 先ほど作成したconfファイル（C:\ProgramData\Datadog\conf.d\sqlserver.d\conf.yaml）の以下項目を設定します。
+2. 先ほど作成したconfファイル（C:\ProgramData\Datadog\conf.d\sqlserver.d\conf.yaml）の以下項目を設定する。
 ```
 logs:
   - type: file
@@ -62,7 +62,7 @@ logs:
     service: 任意（イニシャル-SQL）
 ```
 
-3. 該当のログファイルをAgentが読みに行けるように以下ディレクトリのプロパティのセキュリティ設定で、ddagentuserに対して読み取り権限を付与してください
+3. 該当のログファイルをAgentが読みに行けるように以下ディレクトリのプロパティのセキュリティ設定で、ddagentuserに対して読み取り権限を付与する
 ```
 C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Log
 ```
@@ -73,9 +73,47 @@ C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Log
 Datadog Agent ManagerからRestart Agentを実行し、Agentを再起動します。
 少し待つとDatadogのUIにデータが表示されてきます。
 
-1. Infrastructure - Infrastructure List - 自身のホストを確認し、ntp,systemに並びsqlserverのマークがついていることを確認します
-2. Dashboard - list - SQLと検索し、SQLのプリセットダッシュボードにデータが表示されていることを確認します
-3. Log - 一覧いSQLのログが出力されていることを確認します
+1. Infrastructure - Infrastructure List - 自身のホストを確認し、ntp,systemに並びsqlserverのマークがついていることを確認する
+2. Dashboard - list - SQLと検索し、SQLのプリセットダッシュボードにデータが表示されていることを確認する
+3. Log - 一覧にSQLのログが出力されていることを確認する
+
+## IISインテグレーション
+SQL同様に、IISの情報を収集する設定を実施します
+
+1. 以下ファイルをコピーして名前をconf.yamlに変更する
+```
+C:\ProgramData\Datadog\conf.d\iis.d\conf.yaml.example
+```
+2. 以下項目を以下のように設定する
+```
+instances:
+    sites:
+      include:
+      - http://localhost/employe.aspx
+```
+3. SQLと同じ要領でログ収集の設定を同ファイルに対して以下のように行う
+
+```
+logs:
+  - type: file
+    path: C:\inetpub\logs\LogFiles\W3SVC1\u_ex*
+    service: myservice
+    source: iis
+```
+
+4. 該当のログファイルをAgentが読みに行けるように以下ディレクトリのプロパティのセキュリティ設定で、ddagentuserに対して読み取り権限を付与する
+```
+C:\inetpub\logs\LogFiles\W3SVC1\
+```
+以上でIISインテグレーション設定が完了です。
+
+## IIS関連データ収集確認
+Datadog Agent ManagerからRestart Agentを実行し、Agentを再起動します。
+少し待つとDatadogのUIにデータが表示されてきます。
+
+1. Infrastructure - Infrastructure List - 自身のホストを確認し、ntp,systemに並びIISのマークがついていることを確認する
+2. Dashboard - list - IISと検索し、IISのプリセットダッシュボードにデータが表示されていることを確認する
+3. Log - 一覧にIISのログが出力されていることを確認する
 
 
 以上でLab2は終了です。
