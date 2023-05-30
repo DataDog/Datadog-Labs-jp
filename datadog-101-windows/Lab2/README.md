@@ -12,8 +12,11 @@ Datadogでは、Integrationと呼ばれる仕組みを使って様々なテク�
 Datadog Agentがメトリクスを収集できるようにSQLにログインを作成し、Agentがデータを収集できるように設定を行います。
 
 1.　Windowsサーバ上でWindowsメニューからMicrosoft SQL Server Tools19を選択
+
 2.　SQL Server Management Studioを起動
+
 3.　ログイン画面にて接続先ホスト名にて自身のホスト名に修正しログイン
+
 4.　ツールバーのNew Queryから以下を実行しログインを作成（パスワードは任意）
 ```
 CREATE LOGIN datadog WITH PASSWORD = '<PASSWORD>';
