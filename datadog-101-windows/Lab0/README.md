@@ -24,7 +24,9 @@ http://パブリックIPアドレス/employe.aspx
 以下のような表示がされればOKです。
 
 id	|name
+
 1	  |sato
+
 2	  |suzuki
 
 
