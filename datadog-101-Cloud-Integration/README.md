@@ -20,8 +20,9 @@ https://dtdg.co/handson-jp
   
   https://docs.datadoghq.com/integrations/amazon_web_services/#aws-integration-iam-policy
 
-　　　　※AWSアカウント毎の設定のため、一人一人手順を実施したい場合は人数分のアカウントが必要です。
-    一つしかない場合は代表でどなたか一人がご実施ください。
+　　※AWSアカウント毎の設定のため、一人一人手順を実施したい場合は人数分のアカウントが必要です。
+  
+  一つしかない場合は代表でどなたか一人がご実施ください。
 
 - Azureアカウント(TBD)
 - GCPアカウント(TBD)
