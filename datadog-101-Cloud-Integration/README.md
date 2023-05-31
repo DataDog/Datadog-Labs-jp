@@ -8,7 +8,6 @@ https://dtdg.co/handson-jp
 
 |ID | テーマ |
 | :---: | :---: |
-| [Lab0](Lab0) | 事前準備 |
 | [Lab1](Lab1) | AWS Integration |
 | [Lab2](Lab2) | Azure Integration（TBD）|
 | [Lab3](Lab3) | GCP Integration(TBD)|
