@@ -31,11 +31,26 @@ Kinesis Firehose でのメトリクスストリーム: Amazon CloudWatch Metric 
 ## AWS メトリクス収集確認
 Integrationが設定されたことによりCloud WatchメトリクスのデータがDatadog上で確認可能となります。
 
-ここではどのようにデータが確認できるのかの確認と、データ収集対象の設定を行います
+ここではどのようにデータが確認できるのかの確認と、データ収集対象の設定方法の確認を行います
 
-Integrationメニューから再度AWSを検索し、Amazon Web Serviceを選択します。
+### 収集データの確認
 
-先ほどの画面と異なり、接続されたアカウントに対する収集設定が行える画面になっていることを確認します。Me
+1. Datadog UI上のメニューバーからDashboards - listを選択
+2. 検索バーに"AWS"と入力
+3. AWS Overviewを選択
+4. AWSの各種リソースからメトリクスが収集され、可視化されていることを確認
+　　　　※データが収集されてくるまで時間がかかります。この時点で表示されていない場合は、次の手順を先に実行してください。
+    
+### データ収集対象の設定方法の確認
+
+1. Integrationメニューから再度AWSを検索し、Amazon Web Serviceを選択
+2. 接続されたアカウントに対する収集設定が行える画面になっていることを確認
+3. Metric Collectionタブを選択
+4. "Collect Standard CloudWatch Metrics from AWS Services"ここで収集対象のサービスをトグルで選択できることを確認
+5. その下の"Limit Metric Collection to Specific Resources"にて、Select AWS Serviceプルダウンをクリック
+　　　　※このプルダウンで表示されるリソースに関しては、タグレベルで収集対象を選択可能です。
+
+以上でIntegrationの設定は完了です。
 
 ## AWS ログ収集設定
 
