@@ -28,7 +28,7 @@ APMデータが収集されていることを確認します。
 
 Datadog Agent Manager のStatusで、APM Agentのセクションが以下のようになっていれば収集が成功しています。
 ```
-```
+
 =========
 APM Agent
 =========
@@ -40,22 +40,30 @@ APM Agent
   Receiver: localhost:8126
   Endpoints:
     https://trace.agent.datadoghq.com
+```
 
-### 
-各種テレメトリをDatadogに送信するために、LiferayにアクセスしWikiを作成します。
-
+### トレースデータの送信
+ローカル端末から以下URLにアクセスします。
+```
+http://サーバのパブリックIP/employe.aspx
+```
 
 ## Datadog UIでの確認
 
 ### ServiceMap
 
 Datadogコンソールの左メニューからAPMメニューを展開し、Service Mapを選択します。
-画面中央部のenv選択のドロップダウンメニューより、設定したenv:（ご自分のイニシャルや愛称）を選択します。
 
-![env](https://github.com/DataDog/Datadog-Labs-jp/blob/main/datadog-101/images/env.png)
+- default web site等のサービスが表示されていることを確認
 
-- Liferayとその依存サービスが見えていることを確認
-- LiferayをクリックしてOverviewを選択
+（オプション）
+今回、複数台のサーバで全く同じ設定でAPMを実装しているため、一つのサービスに複数台からのメトリクスが集約されて表示されています。
+
+自身のサーバの情報を独立して確認したい場合は以下のURLを参考に環境変数DD_ENVを任意の値で設定することで可能です。
+
+https://docs.datadoghq.com/ja/tracing/trace_collection/dd_libraries/dotnet-core/?tab=containers#iis
+
+- default web siteをクリックしてOverviewを選択
 
 ### Service Overview
 リクエスト数やレイテンシーが表示されています。
