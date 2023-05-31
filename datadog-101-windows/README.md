@@ -14,7 +14,6 @@ https://dtdg.co/handson-jp
 | [Lab3](Lab3) | APMの設定 |
 | [Lab4](Lab4) | Monitorの設定 |
 | [Lab5](Lab5) | Dashboardの作成 |
-| [Lab6](Lab6) | Synthetics Testの作成 |
 
 ## Prerequisites
 ハンズオンを実施するにあたり、以下が必要です。
