@@ -16,9 +16,12 @@ https://dtdg.co/handson-jp
 ハンズオンを実施するにあたり、以下が必要です。
 
 - AWSアカウント
-  - 以下のURLで示される権限が必要です。
+  以下のURLで示される権限が必要です。
   
-   https://docs.datadoghq.com/integrations/amazon_web_services/#aws-integration-iam-policy
+  https://docs.datadoghq.com/integrations/amazon_web_services/#aws-integration-iam-policy
+
+　　　　※AWSアカウント毎の設定のため、一人一人手順を実施したい場合は人数分のアカウントが必要です。
+    一つしかない場合は代表でどなたか一人がご実施ください。
 
 - Azureアカウント(TBD)
 - GCPアカウント(TBD)
