@@ -16,7 +16,7 @@ Kinesis Firehose でのメトリクスストリーム: Amazon CloudWatch Metric 
 ここでは、メトリクスのポーリングでの実装を行います。
  
 1. Datadog UI上のメニューバーからIntegrationを選択し、検索ボックスから”AWS”を検索し、現れた”Amazon Web Service”をクリック。
-2. + Add AWS Acoountsボタンをクリック
+2. "+ Add AWS Acoounts"ボタンをクリック
 3. Choose a method for adding your AWS account: の項目はデフォルトのAutomatically using CloudFormationを選択のままにする
 4. ①Select AWS Regionで、任意のリージョンを選択。（CloudFormationのスタックをどのリージョンに作成するかの選択）
 5. ②Add Datadog API Keyはデフォルトのまま
