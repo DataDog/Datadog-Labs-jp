@@ -56,6 +56,16 @@ Integrationが設定されたことによりCloud Watchメトリクスのデー�
 
 ## AWS ログ収集設定
 
+AWS サービス ログを Datadog に送信するには 2 つの方法があります。
+
+Kinesis Firehose 宛先: Kinesis Firehose 配信ストリームで Datadog 宛先を使用して、ログを Datadog に転送します。CloudWatch から大量のログを送信する場合は、このアプローチを使用することをお勧めします。
+
+フォワーダー Lambda 関数: Datadog フォワーダー Lambda 関数をデプロイします。
+
+これは、S3 バケットまたは CloudWatch ログ グループをサブスクライブし、ログを Datadog に転送します。
+
+Datadogでは、S3 またはKinesisにデータを直接ストリーミングできない他のリソースからログを送信する場合にも、このアプローチを使用することをお勧めします。
+
 ## AWS セキュリティ（CSPM）設定
 TBD
 
