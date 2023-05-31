@@ -39,6 +39,7 @@ Integrationが設定されたことによりCloud Watchメトリクスのデー�
 2. 検索バーに"AWS"と入力
 3. AWS Overviewを選択
 4. AWSの各種リソースからメトリクスが収集され、可視化されていることを確認
+
 　　　　※データが収集されてくるまで時間がかかります。この時点で表示されていない場合は、次の手順を先に実行してください。
     
 ### データ収集対象の設定方法の確認
@@ -48,6 +49,7 @@ Integrationが設定されたことによりCloud Watchメトリクスのデー�
 3. Metric Collectionタブを選択
 4. "Collect Standard CloudWatch Metrics from AWS Services"ここで収集対象のサービスをトグルで選択できることを確認
 5. その下の"Limit Metric Collection to Specific Resources"にて、Select AWS Serviceプルダウンをクリック
+
 　　　　※このプルダウンで表示されるリソースに関しては、タグレベルで収集対象を選択可能です。
 
 以上でIntegrationの設定は完了です。
