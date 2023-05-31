@@ -18,6 +18,7 @@ https://dtdg.co/handson-jp
 
 - AWSアカウント
   - 以下のURLで示される権限が必要です。
+  
 　　　　　　　　https://docs.datadoghq.com/integrations/amazon_web_services/#aws-integration-iam-policy
 
 - Azureアカウント(TBD)
