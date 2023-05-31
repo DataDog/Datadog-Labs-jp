@@ -9,9 +9,13 @@ https://docs.datadoghq.com/ja/integrations/amazon_web_services/
 
 メトリクスを Datadog に送信する方法は 2つあります。
 
-メトリクスのポーリング: AWS インテグレーションで利用できる API ポーリングです。CloudWatch API をメトリクス別にクロールしてデータを取得し、Datadog に送信します。新しいメトリクスの取得は平均 10 分毎に行われます。
++ メトリクスのポーリング
 
-Kinesis Firehose でのメトリクスストリーム: Amazon CloudWatch Metric Streams と Amazon Kinesis Data Firehose を使用してメトリクスを確認します。注: このメソッドには 2 - 3 分のレイテンシーがあり、別途設定が必要となります。
+AWS インテグレーションで利用できる API ポーリングです。CloudWatch API をメトリクス別にクロールしてデータを取得し、Datadog に送信します。新しいメトリクスの取得は平均 10 分毎に行われます。
+
++ Kinesis Firehose でのメトリクスストリーム
+
+Amazon CloudWatch Metric Streams と Amazon Kinesis Data Firehose を使用してメトリクスを確認します。注: このメソッドには 2 - 3 分のレイテンシーがあり、別途設定が必要となります。
 
 ここでは、メトリクスのポーリングでの実装を行います。
  
@@ -65,6 +69,12 @@ Kinesis Firehose 配信ストリームで Datadog 宛先を使用して、ログ
 + フォワーダー Lambda 関数
 
 Datadog フォワーダー Lambda 関数をデプロイします。これは、S3 バケットまたは CloudWatch ログ グループをサブスクライブし、ログを Datadog に転送します。Datadogでは、S3 またはKinesisにデータを直接ストリーミングできない他のリソースからログを送信する場合にも、このアプローチを使用することをお勧めします。
+
+ここでは、フォワーダーを利用したログ転送を実装します。
+
+ドキュメント：　https://docs.datadoghq.com/ja/logs/guide/send-aws-services-logs-with-the-datadog-lambda-function/?tab=aws%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB
+
+
 
 ## AWS セキュリティ（CSPM）設定
 TBD
