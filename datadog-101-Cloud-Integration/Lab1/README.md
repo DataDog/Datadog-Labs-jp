@@ -84,17 +84,44 @@ https://docs.datadoghq.com/ja/logs/guide/send-aws-services-logs-with-the-datadog
 
 ここでは、自動で収集できるものに対して設定を行います。
 
-ま
+自動で収集できるサービス：
 
-1. 任意の設定でS3バケットを作成する
-2. S3バケットでアクセスログの収集を有効化
+https://docs.datadoghq.com/ja/logs/guide/send-aws-services-logs-with-the-datadog-lambda-function/?tab=aws%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB#%E3%83%88%E3%83%AA%E3%82%AC%E3%83%BC%E3%82%92%E8%87%AA%E5%8B%95%E7%9A%84%E3%81%AB%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%81%99%E3%82%8B
 
-参考ドキュメント：
-https://docs.datadoghq.com/ja/integrations/amazon_s3/#s3-%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%83%AD%E3%82%B0%E3%81%AE%E6%9C%89%E5%8A%B9%E5%8C%96
+※まずはAWSサービス側でログ収集を有効にする必要がありますが、ここではその設定はオプションとし、
+　Datadog側の設定のみを実施します。したがって、ここでは実際のログ収集までは確認できません。
 
+1. 上記ドキュメントの表の任意のサービスに対してログ収集を有効化する（オプション）
+2. AWSマネジメントコンソールからLambdaの画面を開き、Integrationを実施した際に作成されたFowarderを検索する（検索文字列：DatadogIntegration）
+3. 関数のARNをコピーする
+4. Datadog UIのIntegrationメニューからAWSを検索し設定画面を開く
+5. Log Collectionのタブを開き、先ほどコピーしたARNを貼り付け、Addをクリックする
+6. １でサービスのログ収集を有効化していればそのサービスのトグルをONに、そうでなければ、任意のサービスのトグルをONにし、Saveをクリックする
 
+これでサービスログの自動転送の設定が完了です。
 
 ### AWS S3に格納されるログをDatadogへ送信
+
+ここでは、S3に格納されるログをDatadogへ送信します。
+
+ドキュメント：
+
+https://docs.datadoghq.com/ja/logs/guide/send-aws-services-logs-with-the-datadog-lambda-function/?tab=aws%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB#s3-%E3%83%90%E3%82%B1%E3%83%83%E3%83%88%E3%81%8B%E3%82%89%E3%83%AD%E3%82%B0%E3%82%92%E5%8F%8E%E9%9B%86%E3%81%99%E3%82%8B
+
+1. ログを格納するための任意のバケットを作成する
+2. 先ほどのDatadogFowarder関数にて、トリガーを追加をクリック
+3. ソースでS3を選択
+4. １で作成したバケットを選択し、再帰呼び出しの了承ボックスにチェックを入れ、画面右下の追加をクリック
+
+これでS3内のログを転送する設定は完了です。
+
+実際にログの送信を確認します。
+
+5. ローカル端末で適当な文字列を記載したテキストを作成する
+6. 先ほど作成したバケットに対してアップロードを行う
+7. Datadog UI上のメニューからLogをクリックし、記載した文字列を含むログが表示されていることを確認する
+
+以上でログ転送の設定は完了です。
 
 ## AWS セキュリティ（CSPM）設定
 TBD
