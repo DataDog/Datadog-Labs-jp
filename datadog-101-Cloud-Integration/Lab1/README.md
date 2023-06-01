@@ -74,7 +74,27 @@ Datadog フォワーダー Lambda 関数をデプロイします。これは、S
 
 ドキュメント：　https://docs.datadoghq.com/ja/logs/guide/send-aws-services-logs-with-the-datadog-lambda-function/?tab=aws%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB
 
+### AWSサービスログをDatadogへ送信
 
+ドキュメント：
+
+https://docs.datadoghq.com/ja/logs/guide/send-aws-services-logs-with-the-datadog-lambda-function/?tab=aws%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB#aws-%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%83%AD%E3%82%B0%E3%82%92%E6%9C%89%E5%8A%B9%E3%81%AB%E3%81%99%E3%82%8B
+
+上記ドキュメントをご参照いただくと、サービス毎の収集方法をまとめた表があります。
+
+ここでは、自動で収集できるものに対して設定を行います。
+
+ま
+
+1. 任意の設定でS3バケットを作成する
+2. S3バケットでアクセスログの収集を有効化
+
+参考ドキュメント：
+https://docs.datadoghq.com/ja/integrations/amazon_s3/#s3-%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%83%AD%E3%82%B0%E3%81%AE%E6%9C%89%E5%8A%B9%E5%8C%96
+
+
+
+### AWS S3に格納されるログをDatadogへ送信
 
 ## AWS セキュリティ（CSPM）設定
 TBD
