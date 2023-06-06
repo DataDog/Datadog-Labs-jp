@@ -51,11 +51,12 @@ instances:
 
 ## SQLログ収集設定
 SQLのログを収集できるように設定を行います。
-1. Datadog Agent　ManagerのSettingsを開き、以下項目のコメントアウトをはずし以下のように設定する。
+1. Datadog Agent　ManagerのSettingsを開き、以下項目のコメントアウトをはずし以下のように設定する
+* 1000行目付近に記載があります
 ```
 logs_enabled: true
 ```
-2. 先ほど作成したconfファイル（C:\ProgramData\Datadog\conf.d\sqlserver.d\conf.yaml）の以下項目を設定する。
+2. 先ほど作成したconfファイル（C:\ProgramData\Datadog\conf.d\sqlserver.d\conf.yaml）の以下項目を設定する
 ```
 logs:
   - type: file
@@ -68,6 +69,41 @@ logs:
 3. 該当のログファイルをAgentが読みに行けるように以下ディレクトリのプロパティのセキュリティ設定で、ddagentuserに対して読み取り権限を付与する
 ```
 C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Log
+```
+
+ガイド：https://docs.datadoghq.com/logs/guide/log-collection-troubleshooting-guide/?tab=windowspowershell#permission-issues-tailing-log-files
+
+以下、PowerShellでの実行例です。
+
+3-1. PowerShellを起動する
+
+3-2. PowerShellにて以下コマンドを実行し、既存の権限を確認する(ddagentuserに対して権限が付与されていないことを確認する)
+```
+get-acl "C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Log\" | fl
+```
+3-3. 以下コマンドを実行し、ddagentuserにLog連携するディレクトリへの権限を付与する
+```
+$acl = Get-Acl "C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Log\"
+$AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("ddagentuser","ReadAndExecute","Allow")
+$acl.SetAccessRule($AccessRule)
+$acl | Set-Acl "C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Log\"
+```
+3-4. 再度権限確認のコマンドを実行し、以下のようにddagentuserに対して権限が付与されていることを確認する
+
+実行コマンド
+```
+get-acl "C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Log\" | fl
+```
+
+結果
+```
+Access : CREATOR OWNER Allow  FullControl
+         EC2AMAZ-3DOT5SB\ddagentuser Allow  ReadAndExecute, Synchronize
+```
+3-5. Agentを再起動し、Logに関するステータスでエラーが出力されていないことを確認する
+```
+& "$env:ProgramFiles\Datadog\Datadog Agent\bin\agent.exe" restart-service
+& "$env:ProgramFiles\Datadog\Datadog Agent\bin\agent.exe" status
 ```
 
 以上でログ収集設定が完了です。
@@ -104,7 +140,7 @@ logs:
     source: iis
 ```
 
-4. 該当のログファイルをAgentが読みに行けるように以下ディレクトリのプロパティのセキュリティ設定で、ddagentuserに対して読み取り権限を付与する
+4. SQLと同じ要領で該当のログファイルをAgentが読みに行けるように以下ディレクトリのプロパティのセキュリティ設定で、ddagentuserに対して読み取り権限を付与する
 ```
 C:\inetpub\logs\LogFiles\W3SVC1\
 ```
