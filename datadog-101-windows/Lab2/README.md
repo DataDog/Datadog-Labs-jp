@@ -17,6 +17,7 @@ Datadog Agentがメトリクスを収集できるようにSQLにログインを�
 
 3.　ログイン画面にて接続先ホスト名にて自身のホスト名に修正しログイン
 * ホスト名はLab2で起動したDatadog Agent Manager上で確認可能
+
 　　　　> Status > Hostnames > Hostname
 
 4.　ツールバーのNew Queryから以下を実行しログインを作成（パスワードは任意）
