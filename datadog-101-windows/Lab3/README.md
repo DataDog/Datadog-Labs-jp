@@ -4,16 +4,18 @@
 APMの概要、公式ドキュメントは以下をご参照ください。
 ドキュメント：[APM](https://docs.datadoghq.com/ja/tracing/#pagetitle)
 
-## トレーサーのダウンロード
+## トレーサーのインストール
 
 ドキュメント：[トレーサーのダウンロード](https://docs.datadoghq.com/ja/tracing/trace_collection/dd_libraries/dotnet-core/?tab=otherenvironments)
 
-以下のURLをコピーし、Windows Server内のブラウザに貼り付けトレーサーをダウンロードします。
-https://github.com/DataDog/dd-trace-dotnet/releases/download/v2.30.0/datadog-dotnet-apm-2.30.0-x64.msi
+1. 以下のURLをコピーし、Windows Server内のブラウザに貼り付けトレーサーをダウンロードします。
+　　　　　　https://github.com/DataDog/dd-trace-dotnet/releases/download/v2.30.0/datadog-dotnet-apm-2.30.0-x64.msi
+   
+   ※ブラウザの設定でダウンロードできない場合、ブラウザの歯車ボタンからInternet Option - Security - Internet - Custom Level - Downloadを有効にして下さい
 
-※ブラウザの設定でダウンロードできない場合、ブラウザの歯車ボタンからInternet Option - Security - Internet - Custom Level - Downloadを有効にして下さい
+2. ダウンロードした.NET Tracer MSIインストーラーを管理者権限で実行します。
 
-IISの再起動を行います。
+3. IISの再起動を行います。
 
 ```
 net stop /y was
