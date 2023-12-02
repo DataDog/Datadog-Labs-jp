@@ -7,6 +7,10 @@ sudo vim /etc/otelcol-contrib/config.yaml
 ```
 [config.yaml](https://raw.githubusercontent.com/dd-shocnt/Datadog-Labs-jp/main/datadog-101-otel/Lab2/config.yaml)の設定を入れてみる。Lab1とのコンフィグ差分を確認してみてください。
 
+```
+sudo chmod -R 755 /opt/bitnami/tomcat/logs/
+```
+
 # OTEL collectorの再起動
 ```
 sudo systemctl status otelcol-contrib.service
