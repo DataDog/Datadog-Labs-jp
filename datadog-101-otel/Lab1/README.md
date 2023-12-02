@@ -18,3 +18,6 @@ sudo systemctl status otelcol-contrib.service
 sudo systemctl restart otelcol-contrib.service
 sudo systemctl status otelcol-contrib.service
 ```
+
+# Datadogで確認
+Datadogでホスト情報が取得出来ているか確認
