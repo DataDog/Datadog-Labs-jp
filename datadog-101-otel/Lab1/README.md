@@ -2,7 +2,7 @@
 ```
 sudo apt-get -y install wget
 wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/vX.XX.X/otelcol-contrib_X.XX.X_linux_amd64.deb
-sudo dpkg -i otelcol-contrib_0.86.0_linux_amd64.deb
+sudo dpkg -i otelcol-contrib_X.XX.X_linux_amd64.deb
 ```
 
 # OTEL collectorの設定
