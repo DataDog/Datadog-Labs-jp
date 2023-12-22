@@ -98,23 +98,57 @@ APM Agent
       Spans received: 221
 ```
 ### Liferayでの操作
-各種テレメトリをDatadogに送信するために、LiferayにアクセスしWikiを作成します。
+各種テレメトリをDatadogに送信するために、Liferayにアクセスしスパンを生成します。
+
+今回EC2インスタンス上に展開されているLiferayはWebポータルやWebコンテンツ管理、ドキュメント管理などを行うオープンソースのWebサービスです。ログインを行い、操作を試してみます。
+
+1. SSHターミナル上で以下コマンドを実行します。
+```
+cat ~/bitnami_credentials
+```
+以下のような出力が現れるので、中央部に表示されるパスワードをメモします。
+```
+Welcome to the Liferay packaged by Bitnami
+
+******************************************************************************
+The default username and password is 'user@liferay.com' and 'xxxxxxxxxxxxx'.
+******************************************************************************
+
+You can also use this password to access the databases and any other component the stack includes.
+
+Please refer to https://docs.bitnami.com/ for more details.
+```
+
+2. ChromeなどのWebブラウザを開き http://x.x.x.x にアクセスします。x.x.x.xにはEC2インスタンスのパブリックIPを入力、またhttpsではなく、httpで接続します。
+3. 画面右上の"Sign in"をクリックし、 以下のように入力して"Sign in"ボタンをクリックします。
+```
+Email Address: user@liferay.com  
+Password: 上記でメモした内容  
+```
+3. 利用規約（Terms of Use）を確認し\[I Agree\]をクリックします。
+4. Change Passwordで新しいパスワードを入力（2回）
+5. パスワードリカバリを登録（Password Recovery Question and Answer）
+6. 左上のHome横の□をクリックしメニューを表示
+7. \[Content&Data\]のWikiなどの追加を操作
 
 
 ## Datadog UIでの確認
 
-### ServiceMap
+### Service Catalog
 
-Datadogコンソールの左メニューからAPMメニューを展開し、Service Mapを選択します。
+Datadogコンソールの左メニューからAPM > Service Catalogを選択します。
 画面中央部のenv選択のドロップダウンメニューより、設定したenv:（ご自分のイニシャルや愛称）を選択します。
 
-![env](https://github.com/DataDog/Datadog-Labs-jp/blob/main/datadog-101/images/env.png)
+![env](../images/env.png)
 
-- Liferayとその依存サービスが見えていることを確認
-- LiferayをクリックしてOverviewを選択
+liferayの行にある`Full Page`をクリック
+
+![service_catalog](../images/service_catalog.png)
 
 ### Service Overview
 リクエスト数やレイテンシーが表示されています。
+
+![service_overview](../images/service_overview.png)
 
 ### Traces
 上記のメニュから`Traces`を選択します。

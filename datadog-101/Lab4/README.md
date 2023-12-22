@@ -20,7 +20,7 @@
 | Say what's happening | 発砲時のメッセージを設定 <br> - モニター名：`CPU使用率アラート： {{host.name}}` <br> - メッセージ： ```IP {{host.ip}} :  {{host.name}} が高負荷になっています。 CPU使用率:{{value}} ``` |
 | Notify your team | 通知先として自分のメールアドレスを設定 <br> 例： `@hoge@example.com`（メールアドレスの前に`@`をつける）|
 
-![monitor_setting](./../images/monitor_setting.jpg)
+![monitor_setting](./../images/monitor.png)
 
 ![monitor_notify](./../images/monitor_notifiy.jpg)
 
