@@ -40,7 +40,7 @@ receivers:
       - /opt/bitnami/tomcat/logs/*
     start_at: end
     attributes:
-      ddtags: env:su-linux-otel,service:liferay,source:tomcat
+      ddtags: env:linux-otel,service:liferay,source:tomcat
 
 processors:
   batch:
@@ -50,10 +50,10 @@ processors:
 
 exporters:
   datadog/us1:
-    hostname: slinux-otel
+    hostname: linux-otel
     api:
       site: datadoghq.com
-      key: XXXXXXXXXXXXXXXXXXXXXXXXx
+      key: XXXXXXXXXXXXXXXXXXXXXXXXX
 
 service:
   pipelines:
