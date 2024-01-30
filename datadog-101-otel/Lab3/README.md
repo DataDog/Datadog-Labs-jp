@@ -1,7 +1,7 @@
 # APMの設定
 ```
 cd /opt/bitnami/tomcat/bin/
-wget https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar
+sudo wget https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar
 sudo vim setenv.sh
 ```
 [sentenv.sh](https://raw.githubusercontent.com/dd-shocnt/Datadog-Labs-jp/main/datadog-101-otel/Lab3/setenv.sh)を入れる。
