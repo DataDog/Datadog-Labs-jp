@@ -40,7 +40,7 @@ receivers:
       - /opt/bitnami/tomcat/logs/*
     start_at: end
     attributes:
-      ddtags: env:su-linux-otel,service:liferay,source:tomcat
+      ddtags: env:linux-otel,service:liferay,source:tomcat
 
 processors:
   batch:
