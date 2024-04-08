@@ -1,19 +1,29 @@
-# Cloud SIEM Learning Center
+# Introduction to Cloud SIEM
 
-Status: In Progress
-Date Created: March 18, 2024 9:40 AM
+# コース開始前の準備
 
-# はじめに
+- [Datadog Learning Centerのアカウントを登録](https://learn.datadoghq.com/)
+- [Introduction to Cloud SIEMコースを登録](https://learn.datadoghq.com/courses/intro-to-cloud-siem)し、別のタブで開きながら手順を進めてください。
 
-クラウドネイティブ環境での脅威が増加する中、セキュリティチームは開発および運用チームがそうであるように、インフラ、ネットワーク、およびアプリケーションに対する同等の可視性を必要としています。同時に、DevOpsエンジニアがサービスのセキュリティを確保する責任を負うにつれて、彼らは可能な脅威を特定するのを助けるモニタリングプラットフォームを必要としています。
+---
+# イントロダクション
+
+クラウドネイティブ環境での脅威が増加する中、セキュリティチームは、アプリ開発、運用チームがそうであるように、インフラ、ネットワーク、アプリケーションに対する同等の可視性を必要としています。
+
+同時に、DevOpsエンジニアがサービスのセキュリティを確保する責任を負うにつれて、彼らは脅威を特定するためのモニタリングプラットフォームを必要としています。
+
+![01](../images/CloudSIEM/08.png)
 
 Datadogのクラウドセキュリティプラットフォームは、リアルタイムの脅威検出と、クラウドインフラ（アプリケーション、ホスト、コンテナを含む）全体での継続的な設定監査機能を提供します。これをDatadogのオブザーバビリティ・プラットフォームと統合することで、組織はセキュリティおよび運用目標を両立することができます。
+
+![01](../images/CloudSIEM/09.png)
 
 Datadogクラウドセキュリティプラットフォームには、[Cloud SIEM](https://docs.datadoghq.com/security_platform/#cloud-siem)、[Cloud Security Management(CSM)](https://docs.datadoghq.com/security/#cloud-security-management)、および[Application Secrity Management (ASM)](https://docs.datadoghq.com/security/application_security/)が含まれています。
 
 このコースでは、Cloud SIEMに焦点を当てます。
 
-[Cloud SIEM](https://docs.datadoghq.com/security/cloud_siem/) により、ターゲット攻撃、脅威インテリジェンスリストに含まれるシステムからのネットワーク接続、安全でない設定など、インフラストラクチャおよびアプリケーションへのリアルタイムの脅威を検出することができます。
+[Cloud SIEM](https://docs.datadoghq.com/security/cloud_siem/) により、標的型攻撃、脅威インテリジェンスに含まれるシステムからのネットワーク接続、安全でない設定など、インフラストラクチャおよびアプリケーションへのリアルタイムの脅威を検出することができます。
+
 
 ---
 
@@ -36,42 +46,48 @@ Datadogクラウドセキュリティプラットフォームには、[Cloud SIE
 
 
 ```json
-{  "requestUri":"/customers/2934ht8/users",  "customerId":"2934ht8"}
-```
-
-最も一般的なのは、平文のログ行であり、内容をまとめると読みにくく、ソートや要約が難しくなります。こちらは平文形式の標準ログ行の例です：
+{"requestUri":"/customers/2934ht8/users",  "customerId":"2934ht8"}
 
 ```
+
+最も一般的なのは、平文のログ行であり、このままの状態では読みにくく、ソートやサマライズが難しくなります。こちらは平文形式の標準ログ行の例です：
+
+```js
 Jun 23 02:05:47 a15c20f04822 sshd[71]: Received disconnect from 172.18.0.8 port 40610:11: disconnected by user
+
 ```
 
-Datadogでデータをより使いやすくするために個々のフィールドを取り出すには、平文ログを個々の属性またはJSON形式に分割する必要があります（より具体的には、grokパースを使用）。Grokパースは、正規表現、エイリアス式、および定義済みのパターンを使用して、半構造化テキストメッセージから属性を抽出します。
+Datadogでデータをより使いやすくするために、個々のフィールドを取り出すために、平文ログを個々の属性またはJSON形式に分割する必要があります（より具体的には、grokパースを使用します）。Grokパースは、正規表現、エイリアス式、および定義済みのパターンを使用して、半構造化テキストメッセージから属性を抽出します。
 
-> 注意：Datadogは処理パイプラインを使用して個々の属性を抽出できますが、ログ送信の前に可能な限り高度に構造化されたログを持っていることが常に望ましいです。
+> 注意：Datadogは処理パイプラインを使用して個々の属性を抽出できますが、ログ送信の前にできるだけ構造化されたログを持っていることが望ましいです。
 > 
 
 ---
 
-# **DatadogにおけるCloud SIEM**
+# **Datadog Cloud SIEM**
 
-Datadog Cloud SIEMは、開発者、運用チーム、およびセキュリティチームを一つのプラットフォームを通じて統合します。Cloud SIEMを使用することで、これらのチームがアプリケーションやインフラに対するリアルタイムの脅威を検出するのを支援します。これらの脅威には以下が含まれます：
+Datadog Cloud SIEMは、アプリ開発者、運用チーム、およびセキュリティチームを一つのプラットフォームを通じて統合します。Cloud SIEMを使用することで、これらのチームがアプリケーションやインフラに対するリアルタイムの脅威を検出するのを支援します。これらの脅威には以下が含まれます：
 
 - 標的型攻撃
-- 脅威インテリジェンス—システムと通信するリストに載っているIPアドレス
+- 脅威インテリジェンスリストに載っているIPアドレス
 - 安全でない設定
 
 検出時には、メール、Slack、Jira、PagerDuty、またはWebhookを通じてチームに通知することができます。また、DevOpsコンテンツ、ビジネスメトリクス、およびセキュリティコンテンツを表示するための単一のダッシュボードも使用できます。
 
 ## **Detection Rules**
 
-Cloud SIEMは、異なるソースを横断してログやクラウドの設定を分析するために[検出ルール(Detection Rule)](https://docs.datadoghq.com/security_platform/cloud_siem/log_detection_rules)を使用します。これらのルールは条件ロジックを使用して、特定のセキュリティイベントや設定パラメータを識別します。特定の期間内にルールが条件に一致するたびに、Datadogはセキュリティシグナル(Security Signals)を生成します。これらのシグナルは、[Security Signal Explorer](https://docs.datadoghq.com/security_platform/explorer)で相関付けられ、Severityによってトリアージされます。
+Cloud SIEMは、異なるソースを横断してログやクラウドの設定を分析するために[検出ルール(Detection Rule)](https://docs.datadoghq.com/security_platform/cloud_siem/log_detection_rules)を使用します。これらのルールは条件ロジックを使用して、特定のセキュリティイベントや設定パラメータを識別します。
 
-デフォルトでは、Datadogは数百の[OOTB検出ルール](https://docs.datadoghq.com/security/default_rules/)を提供します。これらのルールは、特定の技術を示す攻撃の試行を直ちに識別するとともに、セキュリティ態勢を改善するために、修正できる潜在的な設定不備を検出するようになっています。OOTBルールは、MITRE ATT&CK®フレームワークに対応しており、脅威や攻撃を識別します。MITRE ATT&CK®フレームワークは、実世界の使用事例に基づく攻撃者の戦術と技術の知識ベースです。MITRE ATT&CK®フレームワーク知識ベースは、民間セクター、政府、サイバーセキュリティ製品およびサービスコミュニティでの特定の脅威モデルと方法論の開発の基盤として使用されます。Datadogは、これらのOOTB検出ルールに新たな追加を継続的に開発しており、それらは自動的にあなたのDatadogアカウントにインポートされます。
+特定の期間内にルールが条件に一致するたびに、Datadogはセキュリティシグナル(Security Signals)を生成します。これらのシグナルは、[Security Signal Explorer](https://docs.datadoghq.com/security_platform/explorer)で相関付けられ、Severityによってトリアージされます。
+
+デフォルトでは、Datadogは数百の[OOTB検出ルール](https://docs.datadoghq.com/security/default_rules/)を提供します。これらのルールは、特定の技術を示す攻撃の試行を直ちに識別するとともに、セキュリティ態勢を改善するために、修正可能な設定不備を検出するようになっています。
+
+OOTBルールは、[MITRE ATT&CK®フレームワーク](https://attack.mitre.org/)に対応しており、脅威や攻撃を識別します。MITRE ATT&CK®フレームワークは、実際の使用事例に基づく攻撃者の戦術と技術の知識ベースです。MITRE ATT&CK®フレームワーク知識ベースは、民間セクター、政府、サイバーセキュリティ製品およびサービスコミュニティでの特定の脅威モデルと方法論の開発の基盤として使用されます。Datadogは、これらのOOTB検出ルールに新たな追加を継続的に開発しており、それらは自動的にあなたのDatadogアカウントにインポートされます。
 
 
 ![https://files.cdn.thinkific.com/file_uploads/655405/images/696/15c/968/Screen_Shot_2022-08-02_at_3.45.07_PM.png](https://files.cdn.thinkific.com/file_uploads/655405/images/696/15c/968/Screen_Shot_2022-08-02_at_3.45.07_PM.png)
 
-Datadogが数百のOOTBルールを提供していますが、独自の検出ルールの作成は依然として重要です。新しい検出ルールを作成するには、OOTBルールのいずれかをクローンしてからその設定を変更することが容易にできます。または、特定のユースケースに合わせて新しいカスタムルールを最初から作成することもできます。
+Datadogは数百のOOTBルールを提供していますが、独自の検出ルールの作成は依然として重要です。新しい検出ルールを作成するには、OOTBルールのいずれかをクローンしてからその設定を変更することが容易にできます。または、特定のユースケースに合わせて新しいカスタムルールを最初から作成することもできます。
 
 Cloud SIEMでは、リアルタイムで取り込んだログを分析する[Log Detection](https://docs.datadoghq.com/security/cloud_siem/log_detection_rules/)ルールを含む、さまざまなタイプの検出ルールを作成することができます。他のルールタイプには、クラウド設定ルール、インフラストラクチャ設定ルール、ワークロードセキュリティルール、アプリケーションセキュリティルール、およびシグナル相関ルールが含まれます。
 
