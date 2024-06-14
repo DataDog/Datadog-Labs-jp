@@ -10,12 +10,11 @@ DatadogエージェントをEC2インスタンスへインストールし、Data
 2. 画面上部のタブが\[Agent\]となっていることを確認し、Agent選択一覧から\[[Debian](https://app.datadoghq.com/account/settings#agent/debian)\] を選択
 3. \[Select API Key\]を押下し、 \[+Create New\]で新しいAPI-Keyを追加（例: Name: key-自分の名前や愛称等）し、\[Save\]で保存
 4. 新しく作成されたAPI-Keyを選んで\[Use API Key\]を選択
-5. インストールコマンドのコピー、\[Use our easy one-step install.\]からインストール用コマンドラインをコピー
+5. Enable APM Instrumentationのトグルをオンにする
+6. インストールコマンドのコピー、\[Use our easy one-step install.\]からインストール用コマンドラインをコピー
 
-![agent_install](./../images/agent_install.png)
-
-6. Lab0でSSH接続したターミナルを開き、EC2インスタンスに5でコピーしたコマンドをペーストし実行
-7. 以下のように出力されればエージェントのインストールは完了です。
+7. Lab0でSSH接続したターミナルを開き、EC2インスタンスに5でコピーしたコマンドをペーストし実行
+8. 以下のように出力されればエージェントのインストールは完了です。
 ```
 * Starting the Datadog Agent...
 
