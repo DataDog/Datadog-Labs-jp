@@ -3,7 +3,7 @@
 # サーバ環境の作成
 
 ## Amazon EC2 liferayを起動
-- [こちら](https://bitnami.com/stack/liferay/cloud/aws/amis)で最新のLiferay AMIを確認し、起動したいリージョンのAMIをクリック
+- [AWS management consoleのAMIカタログ]([https://bitnami.com/stack/liferay/cloud/aws/amis](https://ap-northeast-1.console.aws.amazon.com/ec2/home?region=ap-northeast-1#AMICatalog:))でコミュニティAMIにて最新のLiferay AMIを検索し最上部のイメージを選択
 - 「名前」は自由にインスタンス名を入力
 - 「インスタンスタイプ」は**T2 large**を選択
 - 「キーペア」は自由に入力
