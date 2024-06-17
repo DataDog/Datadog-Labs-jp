@@ -100,21 +100,14 @@ Password: 上記でメモした内容
 Datadogコンソールの左メニューからAPM > Service Catalogを選択します。
 画面中央部のenv選択のドロップダウンメニューより、設定したenv:（ご自分のイニシャルや愛称）を選択します。
 
+このように、envタグを利用することで本番環境、開発環境等を分けてモニタリングすることが可能です。
+
 ![env](../images/env.png)
 
-liferayの行にある`Full Page`をクリック
+Service名が変更され、Liferayと表示されていることを確認します。
 
 ![service_catalog](../images/service_catalog.png)
 
-### Service Overview
-リクエスト数やレイテンシーが表示されています。
-
-![service_overview](../images/service_overview.png)
-
-### Traces
-上記のメニュから`Traces`を選択します。
-
-トレースの一覧が表示されますので、どれか1つをクリックして中身を確認してください。
 
 以上でLab3は終了です。
 [Lab4](../Lab4)を進めてください。
