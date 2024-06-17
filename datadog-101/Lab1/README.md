@@ -56,6 +56,38 @@ DatadogエージェントをEC2インスタンスへインストールし、Data
 
 ![host_map](./../images/host_map.png)
 
+## APMの確認
+
+エージェントインストールと同時にAPMの設定も完了しています。
+ここではAPM上にデータが表示されていることを確認します。
+
+### トランザクションの生成
+
+1. 以下のコマンドでサービスを再起動します
+```
+sudo /opt/bitnami/ctlscript.sh restart
+```
+
+2. ChromeなどのWebブラウザを開き http://x.x.x.x にアクセスします。x.x.x.xにはEC2インスタンスのパブリックIPを入力、またhttpsではなく、httpで接続します。
+
+### UI確認（Service Catalog）
+
+Datadogコンソールの左メニューからAPM > Service Catalogを選択します。
+
+![env](../images/env.png)
+
+任意のサービスの行にある`Full Page`をクリック
+
+![service_catalog](../images/service_catalog.png)
+
+### UI確認（Service Overview）
+リクエスト数やレイテンシーが表示されています。
+
+![service_overview](../images/service_overview.png)
+
+### UI確認（Traces）
+上記のメニュから`Traces`を選択します。
+
 
 以上でLab1は終了です。
 [Lab2](../Lab2)を進めてください。
