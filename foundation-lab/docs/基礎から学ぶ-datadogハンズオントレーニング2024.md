@@ -60,7 +60,7 @@ Datadog Foundationのメニューより、[Lab: Logs](https://learn.datadoghq.co
 
 1.  ラボが作成した Datadog トレーニング アカウントの認証情報を使用して [Datadog](https://app.datadoghq.com/) にログインします。 試用版の認証情報を取得する必要があるときはいつでも、ラボ ターミナルで `creds` コマンドを実行できます。
 
-2.  **[Logs > Search](https://app.datadoghq.com/logs)** に移動します。
+2.  **[Logs > Search & Analytics](https://app.datadoghq.com/logs)** に移動します。
 
 注: [Discover Datadog Log Management] ページが表示された場合は、 **Get Started** ボタンをクリックします。 ポップアップ ダイアログで、 **Get Started** ボタンをクリックします。
 
@@ -226,7 +226,7 @@ Field aggregationでは、クエリ フィルターに一致するすべての�
 
 注: このコースではフィールドごとのログの集計について説明しますが、[patterns](https://docs.datadoghq.com/ja/logs/explorer/analytics/patterns/) や [transactions](https://docs.datadoghq.com/ja/logs/explorer/analytics/transactions/)ごとにログを集計することもできます。 興味がある場合は、リンクを使用してこれらの集計タイプの詳細を確認してください。
 
-1.  **[Logs > Search](https://app.datadoghq.com/logs)** に移動します。
+1.  **[Logs > Search & Analytics](https://app.datadoghq.com/logs)** に移動します。
 
 2.  検索バーの下で、 **Group into** の横にある `Fields` を選択し、 **Visualize as** で `Timeseries` を選択します。ログのリストをグラフで視覚化したものがログのリストに置き換わります。
 
@@ -346,7 +346,7 @@ Datadog Foundationのメニューより、[Lab: Logs](https://learn.datadoghq.co
 [重要] サービスカタログのデフォルトビューは`Performance`ですが、他のタブをクリックしてみましょう。例えば`Ownership`タブでは各サービスを開発・運用しているチームやコンタクト先、ソースコードレポジトリを、`Security`タブではアプリケーションのライブラリやコードの脆弱性、脆弱性を突いた脅威についての情報がまとまっています。
 ```
 
-7. リストの`store-discounts`にカーソルを合わせ、**Full Page**をクリックすると、`store-discounts`のサービスページが開きます。
+7. リストの`store-discounts`にカーソルを合わせ、**Service Page**をクリックすると、`store-discounts`のサービスページが開きます。
 
 8. `store-discounts`ページで、**Service Summary**セクションで利用可能なさまざまなグラフを調べます。
 
@@ -366,7 +366,8 @@ Datadog Foundationのメニューより、[Lab: Logs](https://learn.datadoghq.co
 [重要] 環境変数等でversionタグを設定することによりアプリケーションのバージョンに対するアプリケーションパフォーマンスを可視化可能です。新バージョン展開によるサービスレベルのデグレがないかを視覚的に切り分け頂けます。
 ```
 
-一番下までスクロールすると、リソースのスパンの表が表示されます。
+一番下までスクロールすると、トレースの表が表示されます。
+これはインデックスされたスパンを表示します。
 
 11. **Span Summary**表の下で、**Errors only**スイッチを無効にします。
 
@@ -388,7 +389,7 @@ Datadog Foundationのメニューより、[Lab: Logs](https://learn.datadoghq.co
 
 APMトレース・ページでは、すべてのサービスのトレースが一箇所に表示されます。
 
-1. [APM > Traces](https://app.datadoghq.com/apm/traces?query=env%3Afoundation-lab)に移動します。ここには APM が過去 15 分間にキャプチャしたトレースのライブストリームが表示される。検索フィールドに `env:foundation-lab` 以外のものが含まれている場合は、それをクリアして `env:foundation-lab` と入力します。
+1. [APM > Traces](https://app.datadoghq.com/apm/traces?query=env%3Afoundation-lab)に移動します。ここには APM が過去 15 分間にキャプチャしたトレースのライブストリームが表示されます。検索フィールドに `env:foundation-lab` 以外のものが含まれている場合は、それをクリアして `env:foundation-lab` と入力します。
 
 2. `service`名でトレースをフィルタリングします。左側のファセットパネルを使って `store-discounts` サービスでフィルタリングしてください。
 
@@ -552,7 +553,7 @@ Datadog が提供するすべての種類のモニターに注目してくださ
 
 メトリックが警告しきい値とアラートしきい値を超えると、アラートがトリガーされます。
 
-7.  **Notify your team** で、モニターに名前を付け、モニターの警告メッセージを設定できます。
+7.  **Configure notifications & automations** で、モニターに名前を付け、モニターの警告メッセージを設定できます。
 
 モニター名として、次を貼り付けます。
 
@@ -590,11 +591,11 @@ Investigate the source of the problem. Try checking the [APM service page](https
 
 ページの上部、モニター タイトルの隣にモニターのステータスが表示されます。 モニターは、関連するデータがモニターのしきい値を超えているかどうか (またはまったく報告していないか) に基づいて、`OK`, `Warn`, `Alert`, もしくは `No Data` の状態になります。
 
-- 右側には、**Mute** , **Escalate** (モニターが警告状態にある場合は **Resolve** )、および設定の歯車ボタンがあります。
+- 右側には、**Mute** , **Resolve** (モニターが警告状態にある場合は **Resolve** )、および設定の歯車ボタンがあります。
 
 - **Mute** ボタンを使用すると、モニター全体をミュートしたり、スコープを設定して部分的にミュートしたりできます。
 
-- **Escalate** ドロップダウン メニューには、ケースを作成するか、インシデントを宣言するオプションがあります。
+- **Actions** ドロップダウン メニューには、ケースを作成するか、インシデントを宣言するオプションがあります。
 
 - モニターがアラート状態にある場合は、モニターを手動で解決できる **Resolve** ボタンが表示されます。
 
@@ -610,7 +611,7 @@ Investigate the source of the problem. Try checking the [APM service page](https
 
 1.  グラフの時間枠を `Past 1 Hour` に変更します。
 
-![Status and history section showing the status graph and evaluation graph.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Metrics/tatus-history.png)
+![Status and history section showing the status graph and evaluation graph.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Metrics/status-history.png)
 
 2.  ステータスグラフを調べます。
 
@@ -710,7 +711,7 @@ SLO: Discounts service request time
 
 8.  **Set alert conditions** では、**Error Budget** をデフォルト値のままにします。 7 日間のターゲットのbudgetが 100% 消費されると、アラートが表示されます。
 
-9.  **Notify Your Team** で、モニターに次の名前を付けます。
+9.  **Configure notifications & automations** で、モニターに次の名前を付けます。
 
 ```
 SLO: Discounts service request time
@@ -865,7 +866,7 @@ Integrationsはタイルとして表示され、**Autodetected Integrations**、
 
 4.  **Configure**タブをスクロールして、**Docker**セクションを見つけます。PostgreSQL Integrationがラボでどのように構成されているかを示します。
 
-5.  PostgreSQLパネルで、**Assets**タブをクリックします。このIntegrationがインストールされると自動的に作成されるその他のアセットが一覧表示されます。
+5.  PostgreSQLパネルで、**Monitoring Resources**タブをクリックします。このIntegrationがインストールされると自動的に作成されるその他のアセットが一覧表示されます。
 
 ![PostgreSQL integration panel on the Assets tab](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Integration/postgres_integration_assets.png)
 
@@ -873,7 +874,7 @@ PostgreSQLの場合、2つのダッシュボードと2つの推奨モニター�
 
 ### Browse OOTB dashboards
 
-1.  PostgreSQL Integrationパネルの**Assets**タブで、**Dashboards**の下の**Postgres - Overview**をクリックします。
+1.  PostgreSQL Integrationパネルの**Monitoring Resources**タブで、**Dashboards**の下の**Postgres - Overview**をクリックします。
 
 このIntegrationに含まれるPostgreSQL概要ダッシュボードが開きます。ダッシュボードは以下のようになります：
 
@@ -912,7 +913,7 @@ PostgreSQLの場合、2つのダッシュボードと2つの推奨モニター�
 
 CircleCIのIntegrationは、サードパーティのAPIからデータを引き出すIntegrationの例です。どのように構成されているか見てみましょう。
 
-1.  Datadogで、**[Integrations](https://app.datadoghq.com/integrations)**に移動します。
+1.  Datadogで、**[Integrations](https://app.datadoghq.com/integrations)** に移動します。
 
 2.  検索フィールドに`circleci`と入力します。
 
@@ -920,7 +921,7 @@ CircleCIのIntegrationは、サードパーティのAPIからデータを引き�
 
 3. `Integration`タグの付いたタイル（`Software License`ではない）をクリックして、Integrationの詳細パネルを開きます。
 
-4. **Configuration**タブをクリックし、説明をお読みください。
+4. **Configure**タブをクリックし、説明をお読みください。
 
 CircleCIに接続するには、CircleCIアカウントにログインし、Datadog用のAPIトークンを生成します。
 
@@ -978,12 +979,11 @@ Datadog Integrationの第3のタイプは、クライアント・ライブラリ
 #### Installing libraries
 Datadogは、様々なコンテキストでライブラリをコードにインストールするためのウィザードを提供します。
 
-1. Datadogで[APM > Setup & Configruation](https://app.datadoghq.com/apm/getting-started)に移動します。
-2. ページ上部の**[Instrument a new Service](https://app.datadoghq.com/apm/service-setup)**リンクをクリックします。
-3. 左側の**Container-Based**をクリックします
-4. **Docker**をクリックします。
-5. **Same host**をクリックします。
-6. **Python**をクリックします。
+1. Datadogで[APM > Services > Add a Service](https://app.datadoghq.com/apm/getting-started)に移動します。
+2. 左側の**Container-Based**をクリックします
+3. **Docker**をクリックします。
+4. **Same host**をクリックします。
+5. **Python**をクリックします。
 
 コンテナの設定を支援するウィザードを含む、この構成用の Python アプリケーションのインスツルメンテーションの手順が表示されます：
 
@@ -1105,7 +1105,7 @@ Datadog 全体のグラフ、ウィジェット、その他のコピー可能な
 
 ## Add and configure a widget
 
-多くのウィジェット新規に作成したり、ダッシュボードに追加できます。 たとえば、ダッシュボードにメトリクス グラフを追加してみてください。
+多くのウィジェットを新規に作成したり、ダッシュボードに追加できます。 たとえば、ダッシュボードにメトリクス グラフを追加してみてください。
 
 1.  ダッシュボード ページの右上にある **+ Add Widgets** ボタンをクリックするか、ダッシュボードの中央にある大きな **Add Widgets or Powerpacks** の四角形をクリックして、 **Add Widgets** サイド パネルを開きます。
 
