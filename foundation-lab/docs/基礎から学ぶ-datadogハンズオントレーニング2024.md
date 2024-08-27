@@ -369,11 +369,11 @@ Datadog Foundationのメニューより、[Lab: Logs](https://learn.datadoghq.co
 一番下までスクロールすると、トレースの表が表示されます。
 これはインデックスされたスパンを表示します。
 
-11. **Span Summary**表の下で、**Errors only**スイッチを無効にします。
+11. **Span Summary**表の下で、**Errors only** でフィルターします。**Show Controls**からフィルターできます。
 
 これはリソースのインデックスされたスパンを表示します。
-
-![Table of indexed spans for the GET /discount resource](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/APM/resource_indexed_spans.png)
+<img width="1018" alt="resource_indexed_spans1" src="https://github.com/user-attachments/assets/7464ce6f-fbc8-4bb8-a9f8-66d37969e3d3">
+<img width="1014" alt="resource_indexed_spans2" src="https://github.com/user-attachments/assets/8c769d69-8a15-4ed6-bf27-b7dc61e3a8c1">
 
 12. インデックスされたスパンをクリックすると、スパンのフルトレースのフレームグラフを表示する別のサイドパネルが開きます。
 
