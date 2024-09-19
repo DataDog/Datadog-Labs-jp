@@ -1135,7 +1135,7 @@ service:store-discounts
 ![Widget modal graphing docker.cpu.system for the discounts service over the past 15 minutes.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Dashboard/widget-discounts-metrics-graph.png)
 
 `Store-ads` サービスの `docker.cpu.system` メトリクスもグラフ化したい場合はどうすればよいでしょうか?
- **+ Add Query** ボタンをクリックして新しいクエリを追加し、今回は **from** フィールドを ``service:store-ads` に設定します。
+ **+ Add Query** ボタンをクリックして新しいクエリを追加し、今回は **from** フィールドを ``service:store-ads`` に設定します。
  
  ![Widget modal graphing docker.cpu.system for the discounts and ads service over the past 15 minutes.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Dashboard/widget-discounts-ads-metrics-graph.png)
  
