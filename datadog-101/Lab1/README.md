@@ -11,10 +11,12 @@ DatadogエージェントをEC2インスタンスへインストールし、Data
 3. \[Select API Key\]を押下し、 \[+Create New\]で新しいAPI-Keyを追加（例: Name: key-自分の名前や愛称等）し、\[Save\]で保存
 4. 新しく作成されたAPI-Keyを選んで\[Use API Key\]を選択
 5. Enable APM Instrumentationのトグルをオンにする
-6. インストールコマンドのコピー、\[Use our easy one-step install.\]からインストール用コマンドラインをコピー
+6. Specify environment on instrumented servicesでイニシャル等の任意のEnvタグを指定する（例：ks）
+7. セキュリティ系のオプションは任意でオンにする
+8. インストールコマンドのコピー、\[Use our easy one-step install.\]からインストール用コマンドラインをコピー
 
-7. Lab0でSSH接続したターミナルを開き、EC2インスタンスに5でコピーしたコマンドをペーストし実行
-8. 以下のように出力されればエージェントのインストールは完了です。
+9. Lab0でSSH接続したターミナルを開き、EC2インスタンスに5でコピーしたコマンドをペーストし実行
+10. 以下のように出力されればエージェントのインストールは完了です。
 ```
 * Starting the Datadog Agent...
 
