@@ -553,15 +553,19 @@ SSHキーが新しいIPアドレスで使用されたときにアラートを受
 
 [Security > Settings](https://app.datadoghq.com/security/configuration)に移動し、**Notifications**タブを選択します。
 
-**Create your first notification rule**メッセージの下にある**Create New Rule**をクリックします。
+**Create New Rule**をクリックします。
 
-**Source Types**で、`Log Detection`を選択します。**Rule Criteria**で、**If an issue has any of these severities**に`High`と`Critical`を入力し、**And contains all of the following tags and attributes**に`env:development`と`service:discounts-service`を入力します。
+**Name**に`Security Notification`を入力します。
 
-**Notification Details**の下にある**Then notify**フィールドはそのままにして、**Name**に`High and Critical Severity Discounts Service Threats`を入力します。
+**For every new**で、`Signal`タイプを選択し、`Log Detection`を追加します。
+
+**Which has**で、**Any of these severity**に`High`と`Critical`を入力します(必要に応じて、**And tags or attribute**に適切な内容を入力).
+
+**Then**の下にある**Notify the following recipients**下のボタンをクリックし、アカウントメールアドレスをクリックします。
 
 **Save and Activate**をクリックします。
 
-![https://play.instruqt.com/assets/tracks/8ey2ynbxb188/ac2bfb2a59e736e7ea09f429a8d13217/assets/02-notificationrule.png](https://play.instruqt.com/assets/tracks/8ey2ynbxb188/ac2bfb2a59e736e7ea09f429a8d13217/assets/02-notificationrule.png)
+![22](../images/CloudSIEM/22.png)
 
 ### SSHDアクティビティの検出ルールの作成
 
@@ -831,7 +835,7 @@ service:store-frontend @http.url_details.path:"/login"
 
 **Set target attribute to tag key**では、ドロップダウンから`Attribute`を選択し、`usr.id`を入力します。**Preserve source attribute**が有効になっていることを確認してください。**Create**をクリックします。
 
-![https://play.instruqt.com/assets/tracks/yksmjqexsapu/ca2b547ca354e8d2b89f8c12677f65d1/assets/03-10.png](https://play.instruqt.com/assets/tracks/yksmjqexsapu/ca2b547ca354e8d2b89f8c12677f65d1/assets/03-10.png)
+![17](../images/CloudSIEM/17.png)
 
 これにより、リマップするキーが含まれるログが取り込まれるたびに、それが高レベルの属性にリマップされます。これをサービス全体で実装すると、属性を正規化し、サービス全体でより効果的な検出が可能になります。
 
@@ -907,6 +911,8 @@ A password spray attack was successful for the user: {{@usr.id}}
 
 最後に、タグ`security:attack`を選択し、**Save Rule**をクリックします。
 
+![19](../images/CloudSIEM/19.png)
+
 検出ルールのリストにリダイレクトされます。リストで`password spray`を検索します。作成したルールがリストされていることがわかります。
 
 ルールの右側にある3つの点をクリックし、**Clone rule**を選択してルールのコピーを作成します。
@@ -915,7 +921,7 @@ A password spray attack was successful for the user: {{@usr.id}}
 
 **ルールの条件を設定**までスクロールダウンします。**Trigger**を`failed_logins > 5`に更新し、名前を`password spray attack in progress`に更新します。深刻度を`LOW`に更新し、通知を空白のままにします。
 
-![https://play.instruqt.com/assets/tracks/yksmjqexsapu/e3da977f7a5f67961c64055d0d6bd976/assets/03-15.png](https://play.instruqt.com/assets/tracks/yksmjqexsapu/e3da977f7a5f67961c64055d0d6bd976/assets/03-15.png)
+![23](../images/CloudSIEM/23.png)
 
 **Say what's happening**にルール名として以下を記述:
 
