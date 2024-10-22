@@ -264,7 +264,7 @@ service:nginx AND -@http.status_code:200
 > 注意：もしより高い数値に対してより高いSeverityを望む場合は、一つのルール内で複数のアラートを作成することができます。
 >
 
-![https://play.instruqt.com/assets/tracks/tgxgnuujoz03/f30fb1ad61f5e1290ee4aaa55fd9231d/assets/01-07_b.png](https://play.instruqt.com/assets/tracks/tgxgnuujoz03/f30fb1ad61f5e1290ee4aaa55fd9231d/assets/01-07_b.png)
+![14](../images/CloudSIEM/14.png)
 
 **Say what's happening**で、ルール名として以下を入力してください：
 
@@ -296,7 +296,7 @@ tactic:TA0043-reconnaissance
 
 **Save Rule**をクリックしてください。
 
-![https://play.instruqt.com/assets/tracks/tgxgnuujoz03/1bda5fa7c19409eb3d7de9d11e015c01/assets/01-07_c.png](https://play.instruqt.com/assets/tracks/tgxgnuujoz03/1bda5fa7c19409eb3d7de9d11e015c01/assets/01-07_c.png)
+![15](../images/CloudSIEM/15.png)
 
 ### 作成したルールとセキュリティシグナルを確認する
 
@@ -618,23 +618,13 @@ The ssh key in question has been used to successfully authenticate by a new thre
 次に、タグを入力してください：
 
 ```
-
 security:attack
-```
-
-```
-
-env:development
-```
-
-```
-
-service:discounts-service
 ```
 
 ### Save Rule をクリックします。
 
-![https://play.instruqt.com/assets/tracks/8ey2ynbxb188/907481a06615b595ec6b7522743bf529/assets/02-detectionrule.png](https://play.instruqt.com/assets/tracks/8ey2ynbxb188/907481a06615b595ec6b7522743bf529/assets/02-detectionrule.png)
+![18](../images/CloudSIEM/18.png)
+
 
 ### 結果の観察
 
