@@ -198,9 +198,28 @@ Cloud SIEMを有効にした後、結果として表示される画面は、あ�
 
 ![https://play.instruqt.com/assets/tracks/tgxgnuujoz03/a80b41ffe5fcd66c73cfae101e1d4a8c/assets/01-04_b.png](https://play.instruqt.com/assets/tracks/tgxgnuujoz03/a80b41ffe5fcd66c73cfae101e1d4a8c/assets/01-04_b.png)
 
-このページでは、**Index設定** セクションに、修正が必要であるという警告が表示されることに気付くでしょう。NGINXログソースを有効にしたとき、Cloud SIEM用にDatadog内に新しいログインデックスが作成され、それがメインインデックスよりも上に並べ替えられる必要があります。このセクションの指示に従ってインデックスの順序を修正してください。
+このページでは、**Index設定** セクションに、修正が必要であるという警告が表示されることに気付くでしょう。NGINXログのようなSIEM対象のログを有効にしたとき、Cloud SIEM用にDatadog内に新しいログインデックスが作成され、それがメインインデックスよりも上に並べ替えられる必要があります。このセクションの指示に従ってインデックスの順序を修正してください。
 
-![10](../images/CloudSIEM/05.png)
+Cloud SIEM専用のcloud-siem-xxxx名のIndexが自動に作成され、上矢印ボタンをクリックし、一番上に移動します。
+![10](../images/CloudSIEM/21-1.png)
+
+Moveボタンをクリックします。
+![10](../images/CloudSIEM/21-2.png)
+
+Reorderボタンをクリックしオーダー変更を有効化。
+![10](../images/CloudSIEM/21-3.png)
+
+[Logs > Index](https://app.datadoghq.com/logs/pipelines/indexes)の画面で、cloud-siem-xxxxのIndexの行の右にある鉛筆アイコンをクリックし、フィルターを編集します。
+Filterの内容を以下に入れ替え、Saveボタンをクリックします。これによって、SIEMルールが適応する全対象のログがフィルタリングされました。
+```
+service:(nginx OR store-frontend OR discounts-service)
+```
+![10](../images/CloudSIEM/21-4.png)
+
+Index構成が以下通りになることを確認します。
+![10](../images/CloudSIEM/21-5.png)
+
+
 完了したら、[Security > Cloud SIEM](https://app.datadoghq.com/security/home)に移動してください。
 
 
@@ -413,7 +432,7 @@ Datadogは、上のログを以下のJSONとして解析できます：
 
 成功したログインは次のようになります:
 
-`Jul 6 09:55:56 289be7948627 sshd[1905]: Accepted publickey for test from 172.18.0.8 port 42134 ssh2: RSA SHA256:D5W2k5sBDmyrQAglU7JxrBW5vnWY7qdze0RkmZIdnW8`
+`Jul 6 09:55:56 289be7948627 [1905]: Accepted publickey for test from 172.18.0.8 port 42134 ssh2: RSA SHA256:D5W2k5sBDmyrQAglU7JxrBW5vnWY7qdze0RkmZIdnW8`
 
 以下のラボで作業しながら、いくつかのサンプル・メッセージを見つけ、それらのメッセージに基づいていくつかのアラートを作成します。
 
@@ -450,7 +469,7 @@ Datadogは、上のログを以下のJSONとして解析できます：
 > 注意: このラボは、10分間のアクティビティがないとタイムアウトします。
 > 
 
-### SSHDのアクティビティをログエクスプローラーで検索してみてください
+### のアクティビティをログエクスプローラーで検索してみてください
 
 [Logs > Search](https://app.datadoghq.com/logs) に移動し、次のクエリを入力してください:
 
@@ -473,7 +492,10 @@ publickey AND iH9P29ZnoCAvS0QSxFk1I5IvtHaNtyFua5VgbdGwvB4
 
 ![https://play.instruqt.com/assets/tracks/8ey2ynbxb188/0a124ff80cb21003465d99749df99200/assets/02-unprocessed-log.png](https://play.instruqt.com/assets/tracks/8ey2ynbxb188/0a124ff80cb21003465d99749df99200/assets/02-unprocessed-log.png)
 
-ログを処理して、ルールが攻撃をよりよく検出できるようにします。
+補足に、Cloud SIEMを有効化できたら、全てのIndexに対して、以下例のように自動的にIPを以下のように抽出できます。
+![11](../images/CloudSIEM/11.png)
+
+今回でラボでは、ログに対してIP抽出処理を例でご体験し、ルールが攻撃をよりよく検出できるようにします。
 
 ### ログ構成を調整するためのログパイプラインを作成
 
