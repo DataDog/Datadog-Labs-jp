@@ -198,9 +198,9 @@ Cloud SIEMを有効にした後、結果として表示される画面は、あ�
 
 ![https://play.instruqt.com/assets/tracks/tgxgnuujoz03/a80b41ffe5fcd66c73cfae101e1d4a8c/assets/01-04_b.png](https://play.instruqt.com/assets/tracks/tgxgnuujoz03/a80b41ffe5fcd66c73cfae101e1d4a8c/assets/01-04_b.png)
 
-このページでは、**Index設定** セクションに、修正が必要であるという警告が表示されることに気付くでしょう。NGINXログのようなSIEM対象のログを有効にしたとき、Cloud SIEM用にDatadog内に新しいログインデックスが作成され、それがメインインデックスよりも上に並べ替えられる必要があります。このセクションの指示に従ってインデックスの順序を修正してください。
+このページでは、**Index Configuration** セクションに、修正が必要であるという警告が表示されることに気付くでしょう。NGINXログのようなSIEM対象のログを有効にしたとき、Cloud SIEM用にDatadog内に新しいログインデックスが作成され、それがメインインデックスよりも上に並べ替えられる必要があります。このセクションの指示に従ってインデックスの順序を修正してください。
 
-Cloud SIEM専用のcloud-siem-xxxx名のIndexが自動に作成され、上矢印ボタンをクリックし、一番上に移動します。
+画面上の**Reorder Index in Logs Configuration**ボタンをクリックし、Index並べ替えのページに遷移、Cloud SIEM専用のcloud-siem-xxxx名のIndexが自動に作成されたことを確認し、上矢印ボタンをクリックし、一番上に移動させます。
 ![10](../images/CloudSIEM/21-1.png)
 
 Moveボタンをクリックします。
