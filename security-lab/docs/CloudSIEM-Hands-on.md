@@ -198,7 +198,27 @@ Cloud SIEMを有効にした後、結果として表示される画面は、あ�
 
 ![https://play.instruqt.com/assets/tracks/tgxgnuujoz03/a80b41ffe5fcd66c73cfae101e1d4a8c/assets/01-04_b.png](https://play.instruqt.com/assets/tracks/tgxgnuujoz03/a80b41ffe5fcd66c73cfae101e1d4a8c/assets/01-04_b.png)
 
-このページでは、**Index設定** セクションに、修正が必要であるという警告が表示されることに気付くでしょう。NGINXログソースを有効にしたとき、Cloud SIEM用にDatadog内に新しいログインデックスが作成され、それがメインインデックスよりも上に並べ替えられる必要があります。このセクションの指示に従ってインデックスの順序を修正してください。
+このページでは、**Index Configuration** セクションに、修正が必要であるという警告が表示されることに気付くでしょう。NGINXログのようなSIEM対象のログを有効にしたとき、Cloud SIEM用にDatadog内に新しいログインデックスが作成され、それがメインインデックスよりも上に並べ替えられる必要があります。このセクションの指示に従ってインデックスの順序を修正してください。
+
+画面上の**Reorder Index in Logs Configuration**ボタンをクリックし、Index並べ替えのページに遷移、Cloud SIEM専用のcloud-siem-xxxx名のIndexが自動に作成されたことを確認し、上矢印ボタンをクリックし、一番上に移動させます。
+![10](../images/CloudSIEM/21-1.png)
+
+Moveボタンをクリックします。
+![10](../images/CloudSIEM/21-2.png)
+
+Reorderボタンをクリックしオーダー変更を有効化。
+![10](../images/CloudSIEM/21-3.png)
+
+[Logs > Index](https://app.datadoghq.com/logs/pipelines/indexes)の画面で、cloud-siem-xxxxのIndexの行の右にある鉛筆アイコンをクリックし、フィルターを編集します。
+Filterの内容を以下に入れ替え、Saveボタンをクリックします。これによって、SIEMルールが適応する全対象のログがフィルタリングされました。
+```
+service:(nginx OR store-frontend OR discounts-service)
+```
+![10](../images/CloudSIEM/21-4.png)
+
+Index構成が以下通りになることを確認します。
+![10](../images/CloudSIEM/21-5.png)
+
 
 完了したら、[Security > Cloud SIEM](https://app.datadoghq.com/security/home)に移動してください。
 
@@ -244,7 +264,7 @@ service:nginx AND -@http.status_code:200
 > 注意：もしより高い数値に対してより高いSeverityを望む場合は、一つのルール内で複数のアラートを作成することができます。
 >
 
-![https://play.instruqt.com/assets/tracks/tgxgnuujoz03/f30fb1ad61f5e1290ee4aaa55fd9231d/assets/01-07_b.png](https://play.instruqt.com/assets/tracks/tgxgnuujoz03/f30fb1ad61f5e1290ee4aaa55fd9231d/assets/01-07_b.png)
+![14](../images/CloudSIEM/14.png)
 
 **Say what's happening**で、ルール名として以下を入力してください：
 
@@ -276,7 +296,7 @@ tactic:TA0043-reconnaissance
 
 **Save Rule**をクリックしてください。
 
-![https://play.instruqt.com/assets/tracks/tgxgnuujoz03/1bda5fa7c19409eb3d7de9d11e015c01/assets/01-07_c.png](https://play.instruqt.com/assets/tracks/tgxgnuujoz03/1bda5fa7c19409eb3d7de9d11e015c01/assets/01-07_c.png)
+![15](../images/CloudSIEM/15.png)
 
 ### 作成したルールとセキュリティシグナルを確認する
 
@@ -412,7 +432,7 @@ Datadogは、上のログを以下のJSONとして解析できます：
 
 成功したログインは次のようになります:
 
-`Jul 6 09:55:56 289be7948627 sshd[1905]: Accepted publickey for test from 172.18.0.8 port 42134 ssh2: RSA SHA256:D5W2k5sBDmyrQAglU7JxrBW5vnWY7qdze0RkmZIdnW8`
+`Jul 6 09:55:56 289be7948627 [1905]: Accepted publickey for test from 172.18.0.8 port 42134 ssh2: RSA SHA256:D5W2k5sBDmyrQAglU7JxrBW5vnWY7qdze0RkmZIdnW8`
 
 以下のラボで作業しながら、いくつかのサンプル・メッセージを見つけ、それらのメッセージに基づいていくつかのアラートを作成します。
 
@@ -449,7 +469,7 @@ Datadogは、上のログを以下のJSONとして解析できます：
 > 注意: このラボは、10分間のアクティビティがないとタイムアウトします。
 > 
 
-### SSHDのアクティビティをログエクスプローラーで検索してみてください
+### のアクティビティをログエクスプローラーで検索してみてください
 
 [Logs > Search](https://app.datadoghq.com/logs) に移動し、次のクエリを入力してください:
 
@@ -472,7 +492,10 @@ publickey AND iH9P29ZnoCAvS0QSxFk1I5IvtHaNtyFua5VgbdGwvB4
 
 ![https://play.instruqt.com/assets/tracks/8ey2ynbxb188/0a124ff80cb21003465d99749df99200/assets/02-unprocessed-log.png](https://play.instruqt.com/assets/tracks/8ey2ynbxb188/0a124ff80cb21003465d99749df99200/assets/02-unprocessed-log.png)
 
-ログを処理して、ルールが攻撃をよりよく検出できるようにします。
+補足に、Cloud SIEMを有効化できたら、全てのIndexに対して、以下例のように自動的にIPを以下のように抽出できます。
+![11](../images/CloudSIEM/11.png)
+
+今回でラボでは、ログに対してIP抽出処理を例でご体験し、ルールが攻撃をよりよく検出できるようにします。
 
 ### ログ構成を調整するためのログパイプラインを作成
 
@@ -530,15 +553,19 @@ SSHキーが新しいIPアドレスで使用されたときにアラートを受
 
 [Security > Settings](https://app.datadoghq.com/security/configuration)に移動し、**Notifications**タブを選択します。
 
-**Create your first notification rule**メッセージの下にある**Create New Rule**をクリックします。
+**Create New Rule**をクリックします。
 
-**Source Types**で、`Log Detection`を選択します。**Rule Criteria**で、**If an issue has any of these severities**に`High`と`Critical`を入力し、**And contains all of the following tags and attributes**に`env:development`と`service:discounts-service`を入力します。
+**Name**に`Security Notification`を入力します。
 
-**Notification Details**の下にある**Then notify**フィールドはそのままにして、**Name**に`High and Critical Severity Discounts Service Threats`を入力します。
+**For every new**で、`Signal`タイプを選択し、`Log Detection`を追加します。
+
+**Which has**で、**Any of these severity**に`High`と`Critical`を入力します(必要に応じて、**And tags or attribute**に適切な内容を入力).
+
+**Then**の下にある**Notify the following recipients**下のボタンをクリックし、アカウントメールアドレスをクリックします。
 
 **Save and Activate**をクリックします。
 
-![https://play.instruqt.com/assets/tracks/8ey2ynbxb188/ac2bfb2a59e736e7ea09f429a8d13217/assets/02-notificationrule.png](https://play.instruqt.com/assets/tracks/8ey2ynbxb188/ac2bfb2a59e736e7ea09f429a8d13217/assets/02-notificationrule.png)
+![22](../images/CloudSIEM/22.png)
 
 ### SSHDアクティビティの検出ルールの作成
 
@@ -595,23 +622,13 @@ The ssh key in question has been used to successfully authenticate by a new thre
 次に、タグを入力してください：
 
 ```
-
 security:attack
-```
-
-```
-
-env:development
-```
-
-```
-
-service:discounts-service
 ```
 
 ### Save Rule をクリックします。
 
-![https://play.instruqt.com/assets/tracks/8ey2ynbxb188/907481a06615b595ec6b7522743bf529/assets/02-detectionrule.png](https://play.instruqt.com/assets/tracks/8ey2ynbxb188/907481a06615b595ec6b7522743bf529/assets/02-detectionrule.png)
+![18](../images/CloudSIEM/18.png)
+
 
 ### 結果の観察
 
@@ -818,7 +835,7 @@ service:store-frontend @http.url_details.path:"/login"
 
 **Set target attribute to tag key**では、ドロップダウンから`Attribute`を選択し、`usr.id`を入力します。**Preserve source attribute**が有効になっていることを確認してください。**Create**をクリックします。
 
-![https://play.instruqt.com/assets/tracks/yksmjqexsapu/ca2b547ca354e8d2b89f8c12677f65d1/assets/03-10.png](https://play.instruqt.com/assets/tracks/yksmjqexsapu/ca2b547ca354e8d2b89f8c12677f65d1/assets/03-10.png)
+![17](../images/CloudSIEM/17.png)
 
 これにより、リマップするキーが含まれるログが取り込まれるたびに、それが高レベルの属性にリマップされます。これをサービス全体で実装すると、属性を正規化し、サービス全体でより効果的な検出が可能になります。
 
@@ -894,6 +911,8 @@ A password spray attack was successful for the user: {{@usr.id}}
 
 最後に、タグ`security:attack`を選択し、**Save Rule**をクリックします。
 
+![19](../images/CloudSIEM/19.png)
+
 検出ルールのリストにリダイレクトされます。リストで`password spray`を検索します。作成したルールがリストされていることがわかります。
 
 ルールの右側にある3つの点をクリックし、**Clone rule**を選択してルールのコピーを作成します。
@@ -902,7 +921,7 @@ A password spray attack was successful for the user: {{@usr.id}}
 
 **ルールの条件を設定**までスクロールダウンします。**Trigger**を`failed_logins > 5`に更新し、名前を`password spray attack in progress`に更新します。深刻度を`LOW`に更新し、通知を空白のままにします。
 
-![https://play.instruqt.com/assets/tracks/yksmjqexsapu/e3da977f7a5f67961c64055d0d6bd976/assets/03-15.png](https://play.instruqt.com/assets/tracks/yksmjqexsapu/e3da977f7a5f67961c64055d0d6bd976/assets/03-15.png)
+![23](../images/CloudSIEM/23.png)
 
 **Say what's happening**にルール名として以下を記述:
 
