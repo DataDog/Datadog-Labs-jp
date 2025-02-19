@@ -322,7 +322,7 @@ Datadog Foundationのメニューより、[Lab: Logs](https://learn.datadoghq.co
 
 1. ラボが作成した Datadog トレーニング アカウントの認証情報を使用して [Datadog](https://app.datadoghq.com/) にログインします。 試用版の認証情報を取得する必要があるときはいつでも、ラボ ターミナルで `creds` コマンドを実行できます。
 
-2. Datadogで[APM > Service Catalog](https://app.datadoghq.com/services?env=foundation-lab)に移動します。`env:foundation-lab`が選択されていることを確認してください。
+2. Datadogで[APM > Services](https://app.datadoghq.com/services?env=foundation-lab)に移動します。`env:foundation-lab`が選択されていることを確認してください。
 
 ![Service Catalog page with `env:foundation-lab` environment selected](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/APM/service-catalog-env.png)
 
@@ -354,7 +354,7 @@ Datadog Foundationのメニューより、[Lab: Logs](https://learn.datadoghq.co
 [重要] RED(Request/Error/Duration)メトリクスと呼ばれるアプリケーションレベルの重要な指標をデフォルトで提供し、 後に説明するダッシュボードへのエクスポートも可能です。
 ```
 
-9. **Resources**セクションまでスクロールダウンします。ここではAPMがトレースしたサービスのアプリケーションエンドポイントが表示されます。このサービスのリソースをリクエスト、レイテンシ、エラー、時間でソートして、トラフィックが多いエンドポイントや潜在的な問題を発見することができます。`store-discounts`サービスは `GET /discount`のエンドポイントのみを持っています。
+9. **Resources**(もしくは**Endpoints**と表記されています)セクションまでスクロールダウンします。ここではAPMがトレースしたサービスのアプリケーションエンドポイントが表示されます。このサービスのリソースをリクエスト、レイテンシ、エラー、時間でソートして、トラフィックが多いエンドポイントや潜在的な問題を発見することができます。`store-discounts`サービスは `GET /discount`のエンドポイントのみを持っています。
 
 
 ![Discounts service resources](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/APM/discounts_apm_services_resources.png)
