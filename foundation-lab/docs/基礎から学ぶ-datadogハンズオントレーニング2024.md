@@ -1,10 +1,10 @@
 # コース開始前の準備
 
 - [Datadog Learning Centerのアカウントを登録](https://learn.datadoghq.com/)
-- [Datadog Foundationコースを登録](https://learn.datadoghq.com/courses/datadog-foundation)し、別のタブで開きながら手順を進めてください
+- [Datadog Datadog Quick Startコースを登録](https://learn.datadoghq.com/courses/course-quickstart)し、別のタブで開きながら手順を進めてください
 
 # はじめに
-基礎から学ぶDatadog - ハンズオントレーニング 2024コースへようこそ！このコースでは、Datadogのコアとなる製品や機能について学びます。
+基礎から学ぶDatadog - ハンズオントレーニング 2025コースへようこそ！このコースでは、Datadogのコアとなる製品や機能について学びます。
 
 Datadogは、SaaS（Software-as-a-Service）型の監視プラットフォームで、次のような目的で設計されています。
 
@@ -12,7 +12,7 @@ Datadogは、SaaS（Software-as-a-Service）型の監視プラットフォーム
 - すべてのデータを一箇所に集めます。
 - 直感的なフォーマットでデータを整理して表示し、お客様とお客様のチームがより効果的に問題を検出、診断、解決できるようにします。
 
-Datadogは、アプリケーション、セキュリティ、インフラストラクチャ、およびその他の領域に、幅広い機能を通じてオブザーバビリティを提供します。その多くは他のDatadog Learning Centerのコースでも紹介されています。この基礎から学ぶDatadog - ハンズオントレーニング 2024コースの目的は、これらの製品や機能の主要なサブセットを紹介することです。
+Datadogは、アプリケーション、セキュリティ、インフラストラクチャ、およびその他の領域に、幅広い機能を通じてオブザーバビリティを提供します。その多くは他のDatadog Learning Centerのコースでも紹介されています。この基礎から学ぶDatadog - ハンズオントレーニング 2025コースの目的は、これらの製品や機能の主要なサブセットを紹介することです。
 
 本トレーニングではDatadogの基本的なスキルを身につけながら、仮想マシンにデプロイされた実際のeコマース・アプリケーションをモニタリングします。
 
@@ -30,7 +30,6 @@ Datadogは、アプリケーション、セキュリティ、インフラスト�
 ### 注意事項
 
 - 各セクションに依存関係はありませんのでご興味のあるセクションより開始下さい。
-- 画面左にあるインデックスより所望のセクションに移動して進めて下さい。
 - 演習時間内に全セクションは完了できることは想定しておりません。演習時間中はご興味のあるセクションについて理解を深める、Datadogのエンジニアとディスカッションをすることに集中して頂き、残りのセクションはお持ち帰り下さい。払い出された演習環境は最大2週間有効であり、2週間経過後も何度でもやり直しが可能です。
 
 # 演習環境
@@ -38,6 +37,8 @@ Datadogは、アプリケーション、セキュリティ、インフラスト�
 各セクションで演習がスタートされると自動で以下の環境が起動し、Webサービスに対するトラフィックも流れます。各演習環境は一定時間後リセットされます。環境が使用不可となった場合は再度演習をスタートしてください。
 
 ![environment](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/environment.png)
+
+Datadog Quick Start のメニューより、[Lab: Datadog Quick Start](https://learn.datadoghq.com/courses/take/course-quickstart/texts/47100306-lab-datadog-quick-start)を選択し、`Launch`ボタンをクリックしてラボを起動してください。
 
 # Logs
 
@@ -50,8 +51,6 @@ Datadog Log Managementを使用すると、次のようなことが可能にな�
 - ログを他のDatadog製品のメトリクスやトレースに紐づけて、より深い洞察を得ることができます。
 - 取り込まれたログは、ログエクスプローラで検索、フィルタリング、クエリできます。
 
-Datadog Foundationのメニューより、[Lab: Logs](https://learn.datadoghq.com/courses/take/datadog-foundation/texts/43932976-lab-logs)を選択し、`Launch`ボタンをクリックしてラボを起動してください。
-
 ## Log Explorer
 
 ログ エクスプローラーはログの調査とトラブルシューティングを行う場所であるため、時間をかけてログ エクスプローラーのさまざまな部分を調べることができます。
@@ -60,7 +59,7 @@ Datadog Foundationのメニューより、[Lab: Logs](https://learn.datadoghq.co
 
 1.  ラボが作成した Datadog トレーニング アカウントの認証情報を使用して [Datadog](https://app.datadoghq.com/) にログインします。 試用版の認証情報を取得する必要があるときはいつでも、ラボ ターミナルで `creds` コマンドを実行できます。
 
-2.  **[Logs > Search](https://app.datadoghq.com/logs)** に移動します。
+2.  **[Logs > Search & Analytics](https://app.datadoghq.com/logs)** に移動します。
 
 注: [Discover Datadog Log Management] ページが表示された場合は、 **Get Started** ボタンをクリックします。 ポップアップ ダイアログで、 **Get Started** ボタンをクリックします。
 
@@ -143,7 +142,7 @@ Live Tail を使用すると、インフラストラクチャ内のどこから�
 
 ログ属性を使用してログをさらにフィルタリングできます。
 
-1.  ログのリストから"Total advertisements available." で始まるログ メッセージが含まれるログエントリを探しクリックします。 ログ メッセージは、ログ リストの **CONTENT** 列で表示できます。
+1.   **Service** で `store-ads` をクリックして、 `store-ads` サービスからのログのみを表示します。ログのリストから"Total advertisements available." で始まるログ メッセージが含まれるログエントリを探しクリックします。 ログ メッセージは、ログ リストの **CONTENT** 列で表示できます。
 
 2.  ログのサイド パネルで、**Event Attribute** の下にこのログのさまざまな属性を表示できることに注目してください。 これらのログは、 `ads.py` ファイルから取得されているようです。 その `filename` 属性を使用して、 `ads.py`  ファイルに由来するすべてのログを検索するにはどうすればよいでしょうか?
 
@@ -208,7 +207,7 @@ Datadog がログを解析すると、共通のタグと属性がファセット
 
 ![The process.name facet is expanded.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Logs/process-name-facet.png)
 
-6.  `discounts` を選択して、`process.name` 属性値が `discounts` である行ごとにログをフィルターします。
+6.  `bootstrap` を選択して、`process.name` 属性値が `bootstrap` である行ごとにログをフィルターします。
 
 7.  完了したら、検索バーをクリアします。
 
@@ -226,7 +225,7 @@ Field aggregationでは、クエリ フィルターに一致するすべての�
 
 注: このコースではフィールドごとのログの集計について説明しますが、[patterns](https://docs.datadoghq.com/ja/logs/explorer/analytics/patterns/) や [transactions](https://docs.datadoghq.com/ja/logs/explorer/analytics/transactions/)ごとにログを集計することもできます。 興味がある場合は、リンクを使用してこれらの集計タイプの詳細を確認してください。
 
-1.  **[Logs > Search](https://app.datadoghq.com/logs)** に移動します。
+1.  **[Logs > Search & Analytics](https://app.datadoghq.com/logs)** に移動します。
 
 2.  検索バーの下で、 **Group into** の横にある `Fields` を選択し、 **Visualize as** で `Timeseries` を選択します。ログのリストをグラフで視覚化したものがログのリストに置き換わります。
 
@@ -271,17 +270,11 @@ Field aggregationでは、クエリ フィルターに一致するすべての�
 
 1.  ビジュアライゼーションを `Timeseries` に戻します。
 
-2.  グラフの上にある **Save to Dashboard** ボタンをクリックします。
+2.  グラフの上にある **More** ボタンをクリックし、**Save to Dashboard** をクリックします。
 
-注: その横にある **More** ボタンをクリックすると、ログをエクスポートするさまざまな方法が表示されます。
-
-3.  **Export graph**ポップアップ ダイアログで、 **New Dashboard** リンクをクリックします。
+3.  **Save to Dashboard** ポップアップ ダイアログで、**New Dashboard** を選択し、**Save and Open** をクリックします。
 
 ![Export graph dialog with New Dashboard highlighted.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Logs/export-graph-dashboard.png)
-
-4.  ページの上部の通知には、新しいダッシュボードへのリンクが含まれています。
-
-ダッシュボードを表示したい場合は、リンクをクリックしてください。
 
 ```
 [重要] データ解析結果をダッシュボードに出力し、他チームや経営層、協力会社様へのレポートにご利用頂けます。
@@ -310,19 +303,13 @@ Datadogは、あらゆる技術スタックにAPMを実装するための多く�
 
 本セクションではDatadog アプリケーションで APM トレースをどのように読むか、トレースとログをどのように関連付けるか、アプリケーションの問題を特定するためにモニタをどのように使用するかについて理解を深めます。
 
-Datadog Foundationのメニューより、[Lab: Logs](https://learn.datadoghq.com/courses/take/datadog-foundation/texts/43932976-lab-logs)を選択し、`Launch`ボタンをクリックしてラボを起動してください。
-
-注: Learning CenterのDatadog FoundationコースにはAPMのメニューがありません。ここでは**Logs**を選択ください。
-
-ターミナルの上にある`Storedog`タブをクリックしてください。こちらが今回監視対象となるWebサービスです。
-
 ## Navigate the Service Catalog
 
 このラボが始まってから、Agentはあなたのアプリケーションサービスからトレースを収集し続けています。次に、Datadog でこれらのサービスの状態を確認し、そのトレースを調べます。
 
 1. ラボが作成した Datadog トレーニング アカウントの認証情報を使用して [Datadog](https://app.datadoghq.com/) にログインします。 試用版の認証情報を取得する必要があるときはいつでも、ラボ ターミナルで `creds` コマンドを実行できます。
 
-2. Datadogで[APM > Service Catalog](https://app.datadoghq.com/services?env=foundation-lab)に移動します。`env:foundation-lab`が選択されていることを確認してください。
+2. Datadogで[APM > Services](https://app.datadoghq.com/software?env=quickstart-course) に移動します。`env:quickstart-course`が選択されていることを確認してください。
 
 ![Service Catalog page with `env:foundation-lab` environment selected](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/APM/service-catalog-env.png)
 
@@ -332,7 +319,7 @@ Datadog Foundationのメニューより、[Lab: Logs](https://learn.datadoghq.co
 
 同様に、`store-backend-cache`など、Dockerコンテナに対応しない新しいサービスもいくつか見られます。store-backendサービスは、アプリケーションのこれらの補助的な領域をサービスとして自動タグ付けするようにインストルメント化されています。
 
-4. 左上隅の[Map](https://app.datadoghq.com/services?env=foundation-lab)を選択すると、各サービスが互いにどのように通信しているかのサービスマップが表示されます。
+4. 左上隅の [Map](https://app.datadoghq.com/software?env=quickstart-course&view=map) を選択すると、各サービスが互いにどのように通信しているかのサービスマップが表示されます。
 
 ![The Service Map displays the flow of requests between services](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/APM/apm_service_map_flow.png)
 
@@ -340,13 +327,13 @@ Datadog Foundationのメニューより、[Lab: Logs](https://learn.datadoghq.co
 
 5. 右上の**Map layout**ボタンに注目してください。**Cluster**と**Flow**を切り替えて違いを確認してください。**Flow**レイアウトはより大きなサービスマップに適しています。
 
-6. 左上の[List](https://app.datadoghq.com/services)を選択すると、サービスカタログのリストビューに戻ります。
+6. 左上の [Catalog](https://app.datadoghq.com/software?env=quickstart-course) を選択すると、サービスカタログのリストビューに戻ります。
 
 ```
-[重要] サービスカタログのデフォルトビューは`Performance`ですが、他のタブをクリックしてみましょう。例えば`Ownership`タブでは各サービスを開発・運用しているチームやコンタクト先、ソースコードレポジトリを、`Security`タブではアプリケーションのライブラリやコードの脆弱性、脆弱性を突いた脅威についての情報がまとまっています。
+[重要] Software Catalogのデフォルトビューは`Performance`ですが、他のタブをクリックしてみましょう。例えば`Ownership`タブでは各サービスを開発・運用しているチームやコンタクト先、ソースコードレポジトリを、`Security`タブではアプリケーションのライブラリやコードの脆弱性、脆弱性を突いた脅威についての情報がまとまっています。
 ```
 
-7. リストの`store-discounts`にカーソルを合わせ、**Full Page**をクリックすると、`store-discounts`のサービスページが開きます。
+7. リストの`store-discounts`にカーソルを合わせ、**Service Page**をクリックすると、`store-discounts`のサービスページが開きます。
 
 8. `store-discounts`ページで、**Service Summary**セクションで利用可能なさまざまなグラフを調べます。
 
@@ -354,7 +341,7 @@ Datadog Foundationのメニューより、[Lab: Logs](https://learn.datadoghq.co
 [重要] RED(Request/Error/Duration)メトリクスと呼ばれるアプリケーションレベルの重要な指標をデフォルトで提供し、 後に説明するダッシュボードへのエクスポートも可能です。
 ```
 
-9. **Resources**セクションまでスクロールダウンします。ここではAPMがトレースしたサービスのアプリケーションエンドポイントが表示されます。このサービスのリソースをリクエスト、レイテンシ、エラー、時間でソートして、トラフィックが多いエンドポイントや潜在的な問題を発見することができます。`store-discounts`サービスは `GET /discount`のエンドポイントのみを持っています。
+9. **Endpoint**セクションまでスクロールダウンします。ここではAPMがトレースしたサービスのアプリケーションエンドポイントが表示されます。このサービスのリソースをリクエスト、レイテンシ、エラー、時間でソートして、トラフィックが多いエンドポイントや潜在的な問題を発見することができます。`store-discounts`サービスは `GET /discount`のエンドポイントを持っています。
 
 
 ![Discounts service resources](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/APM/discounts_apm_services_resources.png)
@@ -366,15 +353,9 @@ Datadog Foundationのメニューより、[Lab: Logs](https://learn.datadoghq.co
 [重要] 環境変数等でversionタグを設定することによりアプリケーションのバージョンに対するアプリケーションパフォーマンスを可視化可能です。新バージョン展開によるサービスレベルのデグレがないかを視覚的に切り分け頂けます。
 ```
 
-一番下までスクロールすると、リソースのスパンの表が表示されます。
+一番下までスクロールすると、Tracesが表示されます。
 
-11. **Span Summary**表の下で、**Errors only**スイッチを無効にします。
-
-これはリソースのインデックスされたスパンを表示します。
-
-![Table of indexed spans for the GET /discount resource](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/APM/resource_indexed_spans.png)
-
-12. インデックスされたスパンをクリックすると、スパンのフルトレースのフレームグラフを表示する別のサイドパネルが開きます。
+11. トレースをクリックすると、スパンのフルトレースのフレームグラフを表示する別のサイドパネルが開きます。
 
 フレームグラフとは、トレースを視覚化したもので、それぞれの帯は異なるスパンを表し、スパンの実行時間、そのスパンを呼び出したもの、そのスパンが行った呼び出しを示します。
 
@@ -382,13 +363,13 @@ Datadog Foundationのメニューより、[Lab: Logs](https://learn.datadoghq.co
 [重要] 1回の呼び出しが1つのスパン、スパンの横幅が1回の呼び出しあたりの実行時間を示します。過剰なデータベースアクセスやスロークエリ問題を迅速に特定可能です。
 ```
 
-これで、サービスカタログから特定のサービスリソースのトレースにドリルダウンする方法がわかりました。次に、すべてのサービスのトレースを一箇所で見てみましょう。
+これで、ソフトウェアカタログから特定のサービスリソースのトレースにドリルダウンする方法がわかりました。次に、すべてのサービスのトレースを一箇所で見てみましょう。
 
 ## Explore all service traces
 
 APMトレース・ページでは、すべてのサービスのトレースが一箇所に表示されます。
 
-1. [APM > Traces](https://app.datadoghq.com/apm/traces?query=env%3Afoundation-lab)に移動します。ここには APM が過去 15 分間にキャプチャしたトレースのライブストリームが表示される。検索フィールドに `env:foundation-lab` 以外のものが含まれている場合は、それをクリアして `env:foundation-lab` と入力します。
+1. [APM > Traces](https://app.datadoghq.com/apm/traces?query=env%3Aquickstart-course)に移動します。ここには APM が過去 15 分間にキャプチャしたトレースのライブストリームが表示される。検索フィールドに `env:quickstart-course` 以外のものが含まれている場合は、それをクリアして `env:quickstart-course` と入力します。
 
 2. `service`名でトレースをフィルタリングします。左側のファセットパネルを使って `store-discounts` サービスでフィルタリングしてください。
 
@@ -410,9 +391,9 @@ APMトレース・ページでは、すべてのサービスのトレースが�
 
 ![Logs tab showing logs related to the trace](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/APM/apm_traces_logs.png)
 
-2. それぞれのログ行にマウスオーバーし、フレームグラフを見てください。トレースの中で、ログ行が放出された正確なポイントを示す垂直線が表示されます。これは、`DD_LOGS_INJECTION: true`の環境変数を設定することで有効になります。
+2. それぞれのログ行にマウスオーバーし、フレームグラフを見てください。トレースの中で、ログ行が放出された正確なポイントを示す垂直線が表示されます。これは、`DD_LOGS_INJECTION:true`の環境変数を設定することで有効になります。
 
-3. **Logs**テーブルで、**Hosts**カラムの一番端にある**Open in Log Explorer**のアイコンをクリックします。
+3. **Logs**で、一番端にある**Go to Logs Explorer**のアイコンをクリックします。
 
 ![Open the traces logs in the Log Explorer](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/APM/discounts_trace_logs.png)
 
@@ -429,8 +410,6 @@ APMトレース・ページでは、すべてのサービスのトレースが�
 **モニター**は定義した許容範囲から外れたときに通知を送信します。
 
 **サービスレベル目標(SLO)** は、品質基準を定義するため、長期間のメトリクスを追跡します。
-
-Datadog Foundationのメニューより、[lab: Metrics, monitors, SLOs](https://learn.datadoghq.com/courses/take/datadog-foundation/texts/43933014-lab-metrics-monitors-slos)を選択し、`Launch`ボタンをクリックしてラボを起動してください。
 
 ## Metrics Explorer
 
@@ -486,13 +465,6 @@ Metrics Explorer ページの上部近くには、グラフのカスタマイズ
 8.  2 つのクエリを 1 つのグラフにグラフ化するには、**One graph per query** ボタンをオフに切り替えます。
 
 ![Two metrics are shown in one graph with the one graph per query button togged off.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Metrics/one-graph-two-queries.png)
-
-9.  グラフの右上隅にある **View full screen** アイコンをクリックして、グラフを全画面で表示します。
-
-![Graph with two queries in full screen mode.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Metrics/graph-full-screen.png)
-
-ここでは、クイック関数を適用してグラフを変換し、現在のメトリクスを前の期間と比較できます。
-このviewを覗いてみてください。 完了したら閉じて、Metrics Explorer ページに戻ります。
 
 ```
 [重要] 各メトリクスに付与されたメタデータ(タグ)の情報を用いてフィルタリング、グルーピングが可能です。
@@ -565,7 +537,12 @@ Discounts service request time
 8.  監視メッセージの場合は、何を探すべきか、誰に通知すべきか、その他の役立つ情報を他の人に知らせる簡単なメッセージを作成します。 独自のメッセージを書いてみたり、以下のメッセージを自由に使用してみてください。
 
 ```
-Investigate the source of the problem. Try checking the [APM service page](https://app.datadoghq.com/apm/services/store-discounts/operations/flask.request?env=foundation-lab&start=1684155366000&end=1684158966000&paused=false) for `store-discounts`. Contact @incident@example.com after triage.
+Investigate the source of the problem.
+
+Try checking the APM service page for `store-discounts`:  
+https://app.datadoghq.com/apm/resource/store-discounts/flask.request/142958ce96cf2aa?query=env%3Aquickstart-course
+
+Contact @incident@example.com after triage.
 ```
 
 注: 電子メール アドレスの前にある @ 記号は、そのユーザーが組織の一部である場合、そのユーザーの Datadog プロファイルへのリンクとして表示されます。 このアクティビティでは、参照ユーザー (incident@example.com) は存在しませんが、通知メールがどのように送信されるかを確認したい場合は、ご自身のメール アドレスを自由に追加してください。
@@ -590,27 +567,25 @@ Investigate the source of the problem. Try checking the [APM service page](https
 
 ページの上部、モニター タイトルの隣にモニターのステータスが表示されます。 モニターは、関連するデータがモニターのしきい値を超えているかどうか (またはまったく報告していないか) に基づいて、`OK`, `Warn`, `Alert`, もしくは `No Data` の状態になります。
 
-- 右側には、**Mute** , **Escalate** (モニターが警告状態にある場合は **Resolve** )、および設定の歯車ボタンがあります。
+- 上側に、**Mute** (モニターが警告状態にある場合は **Resolve** ) があります。
 
 - **Mute** ボタンを使用すると、モニター全体をミュートしたり、スコープを設定して部分的にミュートしたりできます。
 
-- **Escalate** ドロップダウン メニューには、ケースを作成するか、インシデントを宣言するオプションがあります。
+- **Next Steps** ドロップダウン メニューには、ケースを作成するか、インシデントを宣言するオプションがあります。
 
 - モニターがアラート状態にある場合は、モニターを手動で解決できる **Resolve** ボタンが表示されます。
 
-**Properties** セクションには、モニターのステータス、タイプ、ID、作成日、作成者、タグ、クエリ、受信者、およびメッセージの概要が表示されます。
-
 注: `trace.flask.request` メトリックは APM から発生する分散メトリックであるため、モニターは APM モニターです。
 
-- **Status & History**セクションには、モニターのステータスを経時的に示すステータス グラフが、履歴グラフと評価グラフとともに表示されます。
+- **Monitor behavior**セクションには、モニターのステータスを経時的に示すステータス グラフが、履歴グラフと評価グラフとともに表示されます。
 
-- **Event** セクションには、アラートがいつトリガーまたは回復されたかなど、モニターから生成されたイベントが表示されます。
+- **Event timeline** セクションには、アラートがいつトリガーまたは回復されたかなど、モニターから生成されたイベントが表示されます。
 
-**Status & History** セクションのグラフにはすでにデータが入力されているはずなので、詳しく見てみましょう。
+**Monitor behavior** セクションのグラフにはすでにデータが入力されているはずなので、詳しく見てみましょう。
 
 1.  グラフの時間枠を `Past 1 Hour` に変更します。
 
-![Status and history section showing the status graph and evaluation graph.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Metrics/tatus-history.png)
+![Status and history section showing the status graph and evaluation graph.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Metrics/status-history.png)
 
 2.  ステータスグラフを調べます。
 
@@ -642,7 +617,7 @@ Investigate the source of the problem. Try checking the [APM service page](https
 
 1.  評価グラフを確認し、メトリクスがどの程度急上昇したかをメモします。
 
-2.  右上隅にある設定の歯車アイコンをクリックし、**Edit** を選択してモニターを編集します。
+2.  右上にある、**Edit** を選択してモニターを編集します。
 
 3.  **Set alert conditions** で、アラートがトリガーされるように、**Alert threshold** と **Warning threshold** のしきい値を適宜下げます。 たとえば、アラートしきい値を 1.5 秒に設定し、警告しきい値を 1 秒に設定できます。
 
@@ -763,17 +738,14 @@ DatadogのデフォルトのAgentベースのIntegrationは、ディスク、CPU
 
 - **Library Integration**は、Datadog APIを使用して、Node.jsやPythonなど、アプリケーションの記述言語に基づいてアプリケーションを監視することができます。
 
-Datadog Foundationのメニューより、[lab: Integrations](https://learn.datadoghq.com/courses/take/datadog-foundation/texts/43937388-lab-integrations)を選択し、`Launch`ボタンをクリックしてラボを起動してください。
-
 ## Agent-based Integration
 
 AgentベースのIntegrationは、Datadog Agentと一緒にインストールされます。それぞれ、Agentが 15 秒ごとに実行するcheckというPythonメソッドを公開しています。そのためAgentのIntegrationは、特にAgentのコマンドラインインタフェースで作業する場合、"checks" とも呼ばれます。
 
 このアクティビティでは、Agentコマンドを実行して、Agentが実行しているチェックを観察します。また、チェックが収集する正確なメトリクスを確認する方法と、そのドキュメントを見つける方法を学びます。
 
-Storedogのeコマース・ウェブサイトは、今あなたのラボの仮想マシンで実行されています。ターミナルに入る前に、数分かけてアプリケーションに慣れてください。
-
-Storedogタブをクリックして、新しいタブでアプリのホームページを開きます。最初のレンダリングにはしばらく時間がかかります。アプリを探索してください。各ページの上部には割引コードが表示され、下部には広告バナーがあります。これらは別々のマイクロサービスから構成されています。バックエンド、フロントエンド、関連サービスを提供するために、約10個のDockerコンテナが稼働しています。コンテナの1つはDatadog Agentで、仮想マシン、Dockerデーモン、デーモンが実行しているコンテナを監視しています。
+Storedogのeコマース・ウェブサイトは、今あなたのラボの仮想マシンで実行されています。
+バックエンド、フロントエンド、関連サービスを提供するために、約10個のDockerコンテナが稼働しています。コンテナの1つはDatadog Agentで、仮想マシン、Dockerデーモン、デーモンが実行しているコンテナを監視しています。
 
 前述したように、このコンテキストにおけるAgentのIntegrationは "チェック" と呼ばれます。
 
@@ -809,12 +781,6 @@ docker compose exec datadog agent status
 
 また、エージェントはこれらの情報を保持しません。エージェントが再起動すると、合計と平均はリセットされます。
 
-3. 次のスクリーンショットは、`postgres`のチェックが不健全であるシステムの`status`の出力を表示しています。
-
-![unhealthy postgres check](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Integration/agent_status_postgres_error.png)
-
-`[ERROR]`インジケータと、チェックのPythonコードのスタックトレースを含む詳細情報を提供する`Error:`キーが追加されていることに注意してください。
-
 ```
 [重要] disk以外にもどのようなチェックが動いているか確認してみましょう。nginx, postgres, regisdb等のチェックが動いており、Agentからnginx, postgres, regisdbの各エンドポイントにアクセスし統計情報を取得しています。
 ```
@@ -841,7 +807,7 @@ Integrationsはタイルとして表示され、**Autodetected Integrations**、
 
 ![Integrations page with tiles grouped by autodetected, installed, and available](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Integration/integrations_page_categories.png)
 
-- **Autodetected Integrations**は、エージェントによって検出されましたが、まだ構成されていません
+- **Autodetected Integrations**は、エージェントによって検出されましたが、まだ構成されていません。
 - **Installed** はエージェントによって検出され、設定を必要としません。設定は必要ありません。
 - **Available**は、エージェント以外のIntegrationを含む、それ以外のものです。次のアクティビティで学びます。
 
@@ -857,7 +823,7 @@ Integrationsはタイルとして表示され、**Autodetected Integrations**、
 
 このラボでは、コンテナ化された Agent を使用しています。
 
-2.  Docker Integrationパネルで、**Metrics**タブをクリックします。
+2.  Docker Integrationパネルで、**Data Collected**タブをクリックします。
 
 ここには、このIntegrationが収集するすべてのメトリクスが表示されます。
 
@@ -865,7 +831,7 @@ Integrationsはタイルとして表示され、**Autodetected Integrations**、
 
 4.  **Configure**タブをスクロールして、**Docker**セクションを見つけます。PostgreSQL Integrationがラボでどのように構成されているかを示します。
 
-5.  PostgreSQLパネルで、**Assets**タブをクリックします。このIntegrationがインストールされると自動的に作成されるその他のアセットが一覧表示されます。
+5.  PostgreSQLパネルで、**Monitoring Resources**タブをクリックします。このIntegrationがインストールされると自動的に作成されるその他のアセットが一覧表示されます。
 
 ![PostgreSQL integration panel on the Assets tab](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Integration/postgres_integration_assets.png)
 
@@ -873,7 +839,7 @@ PostgreSQLの場合、2つのダッシュボードと2つの推奨モニター�
 
 ### Browse OOTB dashboards
 
-1.  PostgreSQL Integrationパネルの**Assets**タブで、**Dashboards**の下の**Postgres - Overview**をクリックします。
+1.  PostgreSQL Integrationパネルの**Monitoring Resources**タブで、**Dashboards**の下の**Postgres - Overview**をクリックします。
 
 このIntegrationに含まれるPostgreSQL概要ダッシュボードが開きます。ダッシュボードは以下のようになります：
 
@@ -920,7 +886,7 @@ CircleCIのIntegrationは、サードパーティのAPIからデータを引き�
 
 3. `Integration`タグの付いたタイル（`Software License`ではない）をクリックして、Integrationの詳細パネルを開きます。
 
-4. **Configuration**タブをクリックし、説明をお読みください。
+4. **Configure**タブをクリックし、説明をお読みください。
 
 CircleCIに接続するには、CircleCIアカウントにログインし、Datadog用のAPIトークンを生成します。
 
@@ -978,12 +944,11 @@ Datadog Integrationの第3のタイプは、クライアント・ライブラリ
 #### Installing libraries
 Datadogは、様々なコンテキストでライブラリをコードにインストールするためのウィザードを提供します。
 
-1. Datadogで[APM > Setup & Configruation](https://app.datadoghq.com/apm/getting-started)に移動します。
-2. ページ上部の**[Instrument a new Service](https://app.datadoghq.com/apm/service-setup)**リンクをクリックします。
-3. 左側の**Container-Based**をクリックします
-4. **Docker**をクリックします。
-5. **Same host**をクリックします。
-6. **Python**をクリックします。
+1. Datadogで[APM > Add a component](https://app.datadoghq.com/apm/getting-started)に移動します。
+2. 左側の**Container-Based**をクリックします
+3. **Docker**をクリックします。
+4. **Same host**をクリックします。
+5. **Python**をクリックします。
 
 コンテナの設定を支援するウィザードを含む、この構成用の Python アプリケーションのインスツルメンテーションの手順が表示されます：
 
@@ -1010,8 +975,6 @@ Datadogは、様々なコンテキストでライブラリをコードにイン�
 ダッシュボードを抜きにして、Datadogの主な機能と利点を語ることは出来ません。ダッシュボードを使用すると、さまざまなチャート、テーブル、グラフ、その他の視覚的なデータ表現を1つのページに統合することができます。すぐに使えるOOTBダッシュボードとカスタムダッシュボードの両方を通じて、システムの健全性にとって最も重要なメトリクスを明確かつ簡潔に把握することができます。すべてのダッシュボードは中央の場所に保存されるため、問題を特定し、傾向を検出し、システム・パフォーマンスを改善するための措置を講じるために必要な情報をすばやく見つけることができます。
 
 これらのダッシュボードは、他のユーザーと共有することができます。ダッシュボードをURLや電子メールのリンクで共有することで、他の人がデータを変更することなく、リアルタイムでダッシュボードの内容を見せることができます。
-
-Datadog Foundationのメニューより、[lab: Dashboards](https://learn.datadoghq.com/courses/take/datadog-foundation/texts/43933092-lab-dashboards)を選択し、`Launch`ボタンをクリックしてラボを起動してください。
 
 ## Dashboard list
 
@@ -1064,7 +1027,7 @@ PostgreSQL データベースとデータベース サーバーに関するリ�
 2.  **Dashboard Name** として以下を入力してください。
 
 ```
-Datadog Foundation Dashboard
+Datadog Quick Start Dashboard
 ```
 
 3.  **New Dashboard** をクリックします。
@@ -1123,7 +1086,7 @@ docker.cpu.system
 
 ![Widget modal graphing docker.cpu.system over the past 15 minutes.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Dashboard/widget-metrics-graph.png)
 
-5.  これを 1 つのサービス `store-discountsに` 絞り込みます。
+5.  これを 1 つのサービス `store-discounts` に絞り込みます。
 **from** フィールドに次のように入力してクエリを変更します。
 
 ```
@@ -1157,7 +1120,7 @@ service:store-discounts
 
 # Summary
 
-基礎から学ぶDatadog - ハンズオントレーニング 2024の終了おめでとうございます！
+基礎から学ぶDatadog - ハンズオントレーニング 2025の終了おめでとうございます！
 
 このコースでは、Datadogのような機能群を触ることにより、インフラやアプリケーションを含む環境全体を把握するための幅広いツールを提供する包括的な監視プラットフォームであることを学びました。
 
@@ -1168,20 +1131,6 @@ service:store-discounts
 - **ダッシュボード**は、重要な観測データのさまざまな可視化を統合するための使いやすいインターフェイスを提供し、システムの健全性の特定の側面の概要をすばやく把握するのに役立ちます。
 
 # Next Steps
-このコースは多くの内容をカバーしていますが、Datadogで実現できることのほんの表面をなぞったに過ぎません。学習を継続するために、[Datadog Learning Center](https://learn.datadoghq.com/)の他のコースを受講することをお勧めします。これらのコースの中には、セットアップ手順等、ここで学んだことの延長線上にあるものもあれば、Datadogの全く新しい側面を紹介するものもあります。以下はお勧めのコースです。
-
--   [Datadog 101: Developer](https://learn.datadoghq.com/courses/dd-101-dev)
--   [Datadog 101: Site Reliability Engineer](https://learn.datadoghq.com/courses/dd-101-sre)
--   [Introduction to Integrations](https://learn.datadoghq.com/courses/intro-to-integrations)
--   [Introduction to Log Management](https://learn.datadoghq.com/courses/intro-to-log-management)
--   [Introduction to Application Performance Monitoring (APM)](https://learn.datadoghq.com/courses/intro-to-apm)
--   [Introduction to Service Level Objectives](https://learn.datadoghq.com/courses/intro-to-slo)
--   [Datadog 201: Becoming a Power User course](https://learn.datadoghq.com/courses/dd-201)-   [Datadog 101: Developer](https://learn.datadoghq.com/courses/dd-101-dev)
--   [Datadog 101: Site Reliability Engineer](https://learn.datadoghq.com/courses/dd-101-sre)
--   [Introduction to Integrations](https://learn.datadoghq.com/courses/intro-to-integrations)
--   [Introduction to Log Management](https://learn.datadoghq.com/courses/intro-to-log-management)
--   [Introduction to Application Performance Monitoring (APM)](https://learn.datadoghq.com/courses/intro-to-apm)
--   [Introduction to Service Level Objectives](https://learn.datadoghq.com/courses/intro-to-slo)
--   [Datadog 201: Becoming a Power User course](https://learn.datadoghq.com/courses/dd-201)
+このコースは多くの内容をカバーしていますが、Datadogで実現できることのほんの表面をなぞったに過ぎません。学習を継続するために、[Datadog Learning Center](https://learn.datadoghq.com/)の他のコースを受講することをお勧めします。これらのコースの中には、セットアップ手順等、ここで学んだことの延長線上にあるものもあれば、Datadogの全く新しい側面を紹介するものもあります。
 
 
