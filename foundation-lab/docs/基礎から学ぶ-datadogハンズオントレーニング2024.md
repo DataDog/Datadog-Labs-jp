@@ -55,7 +55,7 @@ Datadog Log Managementを使用すると、次のようなことが可能にな�
 
 ログ エクスプローラーはログの調査とトラブルシューティングを行う場所であるため、時間をかけてログ エクスプローラーのさまざまな部分を調べることができます。
 
-![Log Explorer page with logs from foundation-lab-host.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Logs/log-explorer-overview.png)
+![Log Explorer page with logs from foundation-lab-host.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Logs/log-explorer-overview2.png)
 
 1.  ラボが作成した Datadog トレーニング アカウントの認証情報を使用して [Datadog](https://app.datadoghq.com/) にログインします。 試用版の認証情報を取得する必要があるときはいつでも、ラボ ターミナルで `creds` コマンドを実行できます。
 
@@ -113,7 +113,7 @@ Live Tail を使用すると、インフラストラクチャ内のどこから�
 
 ログはデフォルトでリスト表示されます。 リスト内のログをクリックすると、サイド パネルが開きます。
 
-![The log side panel shows details about the log.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Logs/log-side-panel.png)
+![The log side panel shows details about the log.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Logs/log-side-panel2.png)
 
 1.  ログ リストから、ステータスが `Info` である `store-backend` からのログをクリックします。
 
@@ -146,7 +146,7 @@ Live Tail を使用すると、インフラストラクチャ内のどこから�
 
 2.  ログのサイド パネルで、**Event Attribute** の下にこのログのさまざまな属性を表示できることに注目してください。 これらのログは、 `ads.py` ファイルから取得されているようです。 その `filename` 属性を使用して、 `ads.py`  ファイルに由来するすべてのログを検索するにはどうすればよいでしょうか?
 
-![Log side panel showing filename attribute highlighted.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Logs/filename-attribute.png)
+![Log side panel showing filename attribute highlighted.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Logs/filename-attribute2.png)
 
 3.  `Filename` 属性をクリックし、ポップアップ メニューから **Filter by @filename:ads.py** でフィルターを選択します。
 
@@ -205,7 +205,7 @@ Datadog がログを解析すると、共通のタグと属性がファセット
 
 新しいファセットが表示されるには、新たなログが収集および処理されるまで待つ必要がある場合があります。しばらく待つとログ エントリで見つかったこの属性のさまざまな値が表示されるようになります。
 
-![The process.name facet is expanded.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Logs/process-name-facet.png)
+![The process.name facet is expanded.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Logs/process-name-facet2.png)
 
 6.  `bootstrap` を選択して、`process.name` 属性値が `bootstrap` である行ごとにログをフィルターします。
 
@@ -274,7 +274,7 @@ Field aggregationでは、クエリ フィルターに一致するすべての�
 
 3.  **Save to Dashboard** ポップアップ ダイアログで、**New Dashboard** を選択し、**Save and Open** をクリックします。
 
-![Export graph dialog with New Dashboard highlighted.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Logs/export-graph-dashboard.png)
+![Export graph dialog with New Dashboard highlighted.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Logs/export-graph-dashboard2.png)
 
 ```
 [重要] データ解析結果をダッシュボードに出力し、他チームや経営層、協力会社様へのレポートにご利用頂けます。
@@ -311,7 +311,7 @@ Datadogは、あらゆる技術スタックにAPMを実装するための多く�
 
 2. Datadogで[APM > Services](https://app.datadoghq.com/software?env=quickstart-course) に移動します。`env:quickstart-course`が選択されていることを確認してください。
 
-![Service Catalog page with `env:foundation-lab` environment selected](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/APM/service-catalog-env.png)
+![Service Catalog page with `env:foundation-lab` environment selected](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/APM/service-catalog-env2.png)
 
 3. 有効になっている全てのサービスのリストが表示されます。Datadogエージェントと直接通信しないPostgreSQLコンテナである`database`も表示されます。
 
@@ -321,7 +321,7 @@ Datadogは、あらゆる技術スタックにAPMを実装するための多く�
 
 4. 左上隅の [Map](https://app.datadoghq.com/software?env=quickstart-course&view=map) を選択すると、各サービスが互いにどのように通信しているかのサービスマップが表示されます。
 
-![The Service Map displays the flow of requests between services](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/APM/apm_service_map_flow.png)
+![The Service Map displays the flow of requests between services](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/APM/apm_service_map_flow2.png)
 
 注: このマップは、Datadogが新しいトレースを受信してから表示されるまでに時間がかかることがあります。今すぐ表示されない場合は、ページをリフレッシュするか、後で再度アクセスしてください。
 
@@ -563,7 +563,7 @@ Contact @incident@example.com after triage.
 
 新しく作成されたモニターはデータが表示されるまでに数分かかるため、待っている間にモニターのインターフェイスを調べてください。
 
-![Discounts service request time monitor is in ok status.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Metrics/discounts_service_monitor.png)
+![Discounts service request time monitor is in ok status.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Metrics/discounts_service_monitor2.png)
 
 ページの上部、モニター タイトルの隣にモニターのステータスが表示されます。 モニターは、関連するデータがモニターのしきい値を超えているかどうか (またはまったく報告していないか) に基づいて、`OK`, `Warn`, `Alert`, もしくは `No Data` の状態になります。
 
@@ -585,7 +585,7 @@ Contact @incident@example.com after triage.
 
 1.  グラフの時間枠を `Past 1 Hour` に変更します。
 
-![Status and history section showing the status graph and evaluation graph.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Metrics/status-history.png)
+![Status and history section showing the status graph and evaluation graph.](https://raw.githubusercontent.com/DataDog/Datadog-Labs-jp/main/foundation-lab/images/Metrics/status-history2.png)
 
 2.  ステータスグラフを調べます。
 
