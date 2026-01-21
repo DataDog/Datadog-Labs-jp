@@ -180,7 +180,7 @@ service:nginx AND -@http.status_code:200
 [SIEM Testing] Non-Normal Status Codes
 ```
 
-![https://play.instruqt.com/assets/tracks/tgxgnuujoz03/16695dc1f924c6591636a425bbd9c6f5/assets/01-03.png](https://play.instruqt.com/assets/tracks/tgxgnuujoz03/16695dc1f924c6591636a425bbd9c6f5/assets/01-03.png)
+![https://play.instruqt.com/assets/tracks/tgxgnuujoz03/b2df7fcb1dd4d30ebd951738ed812dec/assets/save-view.png](https://play.instruqt.com/assets/tracks/tgxgnuujoz03/b2df7fcb1dd4d30ebd951738ed812dec/assets/save-view.png)
 
 
 ### Cloud SIEMに慣れる
